@@ -128,10 +128,17 @@ module.exports = function(grunt) {
               ],
       cmb2:   [
               'lib/cmb2/tests',
+              'lib/cmb2/css/*.css',
+              'lib/cmb2/css/*.map',
+              '!lib/cmb2/css/*.min.css',
               'lib/cmb2/css/sass',
               'lib/cmb2/languages/*.po',
               'lib/cmb2/languages/*.mo',
-              '!lib/cmb2/*.pot',
+              '!lib/cmb2/languages/*.pot',
+              '!lib/cmb2/languages/cmb2-en_GB.mo',
+              '!lib/cmb2/languages/cmb2-en_GB.po',
+              '!lib/cmb2/languages/cmb2-ms_MY.mo',
+              '!lib/cmb2/languages/cmb2-ms_MY.po',
               '!lib/cmb2/*.php',
               'lib/cmb2/coverage.clover'
               ],
