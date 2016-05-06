@@ -2,7 +2,6 @@
 /**
 * @packege ATMA
 * @subpackage Malaycivilization
-*
 */
 
 add_action( 'after_setup_theme', 'mcv_setup' );
@@ -29,10 +28,11 @@ add_action( 'after_setup_theme', 'mcv_setup' );
  * Theme 
  */
 
-add_action( 'after_setup_theme', 'mcv_load_configuration' );
+add_action( 'after_setup_theme', 'mcv_load_configurations' );
+
   function mcv_load_configurations() {
     
-    require( get_template_directory() . '/inc/theme-metabox.php' );
+    //require( get_template_directory() . '/inc/theme-metabox.php' );
     require( get_template_directory() . '/inc/theme-post-type.php' );
     
   }

@@ -9,7 +9,7 @@ function mcv_custom_module() {
   /*
    * List Module
    * --------------------------------------------------
-   * 01. Adat Pepatih
+   * 01. Adat Perpatih
    * 02. Karya Jawi (Jawi Works)
    * 03. Karya Khas N. A Halim
    * 04. Pangkalan Data ATMA (PADAT)
@@ -25,14 +25,14 @@ function mcv_custom_module() {
    * 14. Tokoh Pemikir Alam Melayu
    * ---------------------------------------------------
    * Custom Module 01
-   * Module Name: Adat Pepatih
+   * Module Name: Adat Perpatih
    */
 
   $labels = array(
-    'name'                  => _x( 'Adat Pepatih', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Adat Pepatih', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Adat Pepatih', 'mcv' ),
-    'name_admin_bar'        => __( 'Adat Pepatih', 'mcv' ),
+    'name'                  => _x( 'Adat Perpatih', 'Post Type General Name', 'mcv' ),
+    'singular_name'         => _x( 'Adat Perpatih', 'Post Type Singular Name', 'mcv' ),
+    'menu_name'             => __( 'Adat Perpatih', 'mcv' ),
+    'name_admin_bar'        => __( 'Adat Perpatih', 'mcv' ),
     'archives'              => __( 'Item Archives', 'mcv' ),
     'parent_item_colon'     => __( 'Parent Item:', 'mcv' ),
     'all_items'             => __( 'All Items', 'mcv' ),
@@ -56,13 +56,13 @@ function mcv_custom_module() {
     'filter_items_list'     => __( 'Filter items list', 'mcv' ),
   );
   $rewrite = array(
-    'slug'                  => 'adat_pepatih',
+    'slug'                  => 'adat_perpatih',
     'with_front'            => true,
     'pages'                 => true,
     'feeds'                 => true,
   );
   $args = array(
-    'label'                 => __( 'Adat Pepatih', 'mcv' ),
+    'label'                 => __( 'Adat Perpatih', 'mcv' ),
     'description'           => __( 'Collections of  Negeri Sembilan Public Library and The Museum of Negeri Sembilan.', 'mcv' ),
     'labels'                => $labels,
     'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
