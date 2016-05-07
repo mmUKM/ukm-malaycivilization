@@ -1,7 +1,7 @@
 /*
 Theme Name: Malay Civilization
 Theme URI: https://github.com/jrajalu/malaycivilization
-Version: 1.0.0
+Version: 1.0.1
 Description: 
 Author: Jamaludin Rajalu
 */
@@ -384,4 +384,7 @@ header {
   background: #ccc;
 }
 
-/*# sourceMappingURL=style.css.map */
+.main-nav {
+  position: relative;
+  z-index: 9999;
+}

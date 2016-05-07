@@ -43,9 +43,11 @@ module.exports = function(grunt) {
     // grunt-contrib-sass
 
     sass: {
-      dist: {
+      dist: { 
         options: {
-          style: 'expanded'
+          style: 'expanded',
+          sourcemap: 'none',
+          noCache: true
         },
         files: {
           'style.css': 'scss/style.scss',
@@ -53,7 +55,6 @@ module.exports = function(grunt) {
         }
       }
     },
-
 
     // grunt-contrib-uglify
 

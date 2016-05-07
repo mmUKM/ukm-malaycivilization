@@ -16,15 +16,19 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <header class="uk-width-small-1-1 uk-container-center uk-grid">
+  <header class="uk-container-center uk-grid">
     <div class="uk-width-1-2">
-    <img src="<?php echo get_template_directory_uri() . '/img/logo-mcv.svg'; ?>" title="<?php bloginfo( 'name' ); ?>"/>
+      <a href="<?php bloginfo( 'url' ); ?>">
+        <img src="<?php echo get_template_directory_uri() . __( '/img/logo-mcv-en.svg', 'mcv' ); ?>" data-uk-svg>
+      </a>
     </div>
   </header>
-<?php 
-  wp_nav_menu(array(
-    'menu' => 'Main Navigation',
-    'container_id' => 'main-nav', 
-    'walker' => new MCV_Main_Nav_Walker()
-  ));
-?>
+  <nav class="main-nav">
+    <?php 
+      wp_nav_menu(array(
+        'menu' => 'Main Navigation',
+        'container_id' => 'main-nav', 
+        'walker' => new MCV_Main_Nav_Walker()
+      ));
+    ?>
+  </nav>
