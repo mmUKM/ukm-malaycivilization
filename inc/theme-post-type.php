@@ -2,28 +2,72 @@
 /**
  * @package ATMA
  * @subpackage malaycivilization
+ * 
+ * List Module
+ * --------------------------------------------------
+ * 01. Adat Perpatih
+ * 02. Karya Jawi (Jawi Works)
+ * 03. Karya Khas N. A Halim
+ * 04. Pangkalan Data ATMA (PADAT)
+ * 05. Malay Dictionary Of End Syllables
+ * 06. Malay Dictionaries By Non-Malays
+ * 07. Sari Online
+ * 08. Peribahasa
+ * 09. Pantun Baba
+ * 10. Sejuta Pantun
+ * 11. Koleksi Tenas Effendy
+ * 12. Koleksi Yang Quee Yee
+ * 13. Seni Ukir Kayu
+ * 14. Tokoh Pemikir Alam Melayu
+ * 15. Slideshow
+ * ---------------------------------------------------
  */
+function mcv_template_include( $template ) {
+  
+  global $wp_query;
+  $plugindir = get_template_directory();
+
+  $post_type = get_query_var('post_type');
+
+  if( $post_type == 'mcv_adat_perpatih' ) {
+    return $plugindir . '/templates/single-mcv_adat_perpatih.php';
+  }
+
+  if( $post_type == 'mcv_dic_non_malay' ) {
+    return $plugindir . '/templates/single-mcv_dic_non_malay.php';
+  }
+
+  if( $post_type == 'mcv_dic_syllables' ) {
+    return $plugindir . '/templates/single-mcv_dic_syllables.php';
+  }
+
+  if( $post_type == 'mcv_karya_jawi' ) {
+    return $plugindir . '/templates/single-mcv_karya_jawi.php';
+  }
+
+  if( $post_type == 'mcv_na_halim' ) {
+    return $plugindir . '/templates/single-mcv_tokoh_pemikir.php';
+  }
+
+  if( $post_type == 'mcv_padat' ) {
+    return $plugindir . '/templates/single-mcv_padat.php';
+  }
+
+  if( $post_type == 'mcv_tokoh_pemikir' ) {
+    return $plugindir . '/templates/single-mcv_tokoh_pemikir.php';
+  }
+
+//   if (is_tax('prodcategories')) {
+//       return $plugindir . '/themefiles/taxonomy-prodcategories.php';
+//   }
+
+  return $template;   
+}
+add_filter( 'template_include', 'mcv_template_include' );
+
 function mcv_custom_module() {
 
   /*
-   * List Module
-   * --------------------------------------------------
-   * 01. Adat Perpatih
-   * 02. Karya Jawi (Jawi Works)
-   * 03. Karya Khas N. A Halim
-   * 04. Pangkalan Data ATMA (PADAT)
-   * 05. Malay Dictionary Of End Syllables
-   * 06. Malay Dictionaries By Non-Malays
-   * 07. Sari Online
-   * 08. Peribahasa
-   * 09. Pantun Baba
-   * 10. Sejuta Pantun
-   * 11. Koleksi Tenas Effendy
-   * 12. Koleksi Yang Quee Yee
-   * 13. Seni Ukir Kayu
-   * 14. Tokoh Pemikir Alam Melayu
-   * 15. Slideshow
-   * ---------------------------------------------------
    * Custom Module 01
    * Module Name: Adat Perpatih
    */

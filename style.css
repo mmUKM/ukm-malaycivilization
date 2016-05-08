@@ -1,7 +1,7 @@
 /*
 Theme Name: Malay Civilization
 Theme URI: https://github.com/jrajalu/malaycivilization
-Version: 1.0.3
+Version: 1.0.4
 Description: 
 Author: Jamaludin Rajalu
 */
@@ -567,6 +567,11 @@ Author: Jamaludin Rajalu
 html {
   font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 1em;
+}
+
+em,
+italic {
+  color: #444;
 }
 
 header {
