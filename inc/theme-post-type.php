@@ -820,6 +820,20 @@ function mcv_custom_module() {
    * Custom Module 14
    * Module Name: Tokoh Pemikir Alam Melayu
    */
+  
+  function mcv_lightbox_gallery( $file_list_meta_key, $img_size = 'medium' ) {
+
+  $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
+
+  echo '<div class="gallery">';
+
+  foreach ( (array) $files as $attachment_id => $attachment_url ) {
+    echo '<a class="padding" href="'. wp_get_attachment_url( $attachment_id ) .'" data-uk-lightbox="&#123;group:&#39;group-'. get_the_ID() .'&#39;&#125;" title="'. get_the_title( $attachment_id ) .'">';
+    echo wp_get_attachment_image( $attachment_id, $img_size );
+    echo '</a>';
+  }
+  echo '</div>';
+}
 
   $labels = array(
     'name'                  => _x( 'Tokoh Pemikir', 'Post Type General Name', 'mcv' ),
