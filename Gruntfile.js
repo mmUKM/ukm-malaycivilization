@@ -106,7 +106,7 @@ module.exports = function(grunt) {
           'scss/admin.scss',
           'scss/*.scss'
         ],
-        tasks: ['sass', 'usebanner', 'cssmin'],
+        tasks: ['sass', 'usebanner'],
           options: {
             livereload: true
           }

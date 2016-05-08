@@ -28,6 +28,11 @@ function mcv_setup() {
   add_filter( 'show_admin_bar', '__return_false' );
 }
 add_action( 'after_setup_theme', 'mcv_setup' );
+
+function mcv_add_google_fonts() {
+  wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic', false ); 
+}
+add_action( 'wp_enqueue_scripts', 'mcv_add_google_fonts' );
   
 function mcv_scripts() {
   // CSS

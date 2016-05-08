@@ -2,7 +2,6 @@
 /**
  * @package ATMA
  * @subpackage malaycivilization
- * @since 1.0
  */
 function mcv_custom_module() {
 

@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-<div class="uk-container uk-margin-top">
-  <article class="uk-article">
+<div class="wrapper">
+  <article class="padding">
     <?php while( have_posts() ) : the_post(); ?>
 
-    <?php the_title( '<h1 class="uk-article-title">', '</h1>' ); ?>
+    <?php the_title( '<h1>', '</h1>' ); ?>
 
     <?php the_content(); ?>
 

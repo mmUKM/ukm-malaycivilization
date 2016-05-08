@@ -1,11 +1,197 @@
 /*
 Theme Name: Malay Civilization
 Theme URI: https://github.com/jrajalu/malaycivilization
-Version: 1.0.1
+Version: 1.0.2
 Description: 
 Author: Jamaludin Rajalu
 */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+.column {
+  width: 99.99%;
+  box-sizing: border-box;
+}
+
+.column:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+[class*="large-"] {
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
+
+.large-1-12 {
+  width: 8.3325%;
+}
+
+.large-2-12 {
+  width: 16.665%;
+}
+
+.large-3-12 {
+  width: 24.9975%;
+}
+
+.large-4-12 {
+  width: 33.33%;
+}
+
+.large-5-12 {
+  width: 41.6625%;
+}
+
+.large-6-12 {
+  width: 49.995%;
+}
+
+.large-7-12 {
+  width: 58.3275%;
+}
+
+.large-8-12 {
+  width: 66.66%;
+}
+
+.large-9-12 {
+  width: 74.9925%;
+}
+
+.large-10-12 {
+  width: 83.325%;
+}
+
+.large-11-12 {
+  width: 91.6575%;
+}
+
+.large-12-12 {
+  width: 99.99%;
+}
+
+@media only screen and (min-width: 641px) and (max-width: 959px) {
+  [class*="medium-"] {
+    box-sizing: border-box;
+    display: block;
+    float: left;
+  }
+
+  .medium-1-12 {
+    width: 8.3325%;
+  }
+
+  .medium-2-12 {
+    width: 16.665%;
+  }
+
+  .medium-3-12 {
+    width: 24.9975%;
+  }
+
+  .medium-4-12 {
+    width: 33.33%;
+  }
+
+  .medium-5-12 {
+    width: 41.6625%;
+  }
+
+  .medium-6-12 {
+    width: 49.995%;
+  }
+
+  .medium-7-12 {
+    width: 58.3275%;
+  }
+
+  .medium-8-12 {
+    width: 66.66%;
+  }
+
+  .medium-9-12 {
+    width: 74.9925%;
+  }
+
+  .medium-10-12 {
+    width: 83.325%;
+  }
+
+  .medium-11-12 {
+    width: 91.6575%;
+  }
+
+  .medium-12-12 {
+    width: 99.99%;
+  }
+}
+@media only screen and (max-width: 640px) {
+  [class*="large-"] {
+    width: 99.99%;
+    display: block;
+    float: none;
+  }
+
+  [class*="medium-"] {
+    width: 99.99%;
+    display: block;
+    float: none;
+  }
+
+  [class*="small-"] {
+    box-sizing: border-box;
+    display: block;
+    float: left;
+  }
+
+  .small-1-12 {
+    width: 8.3325%;
+  }
+
+  .small-2-12 {
+    width: 16.665%;
+  }
+
+  .small-3-12 {
+    width: 24.9975%;
+  }
+
+  .small-4-12 {
+    width: 33.33%;
+  }
+
+  .small-5-12 {
+    width: 41.6625%;
+  }
+
+  .small-6-12 {
+    width: 49.995%;
+  }
+
+  .small-7-12 {
+    width: 58.3275%;
+  }
+
+  .small-8-12 {
+    width: 66.66%;
+  }
+
+  .small-9-12 {
+    width: 74.9925%;
+  }
+
+  .small-10-12 {
+    width: 83.325%;
+  }
+
+  .small-11-12 {
+    width: 91.6575%;
+  }
+
+  .small-12-12 {
+    width: 99.99%;
+  }
+}
 #main-nav,
 #main-nav ul,
 #main-nav ul li,
@@ -50,7 +236,6 @@ Author: Jamaludin Rajalu
 }
 
 #main-nav > ul {
-  background: url("images/bg.png");
   box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -120,7 +305,7 @@ Author: Jamaludin Rajalu
   left: -9999px;
   top: 60px;
   padding-top: 6px;
-  font-size: 13px;
+  font-size: 16px;
   opacity: 0;
   -webkit-transition: top 0.2s ease, opacity 0.2s ease-in;
   -moz-transition: top 0.2s ease, opacity 0.2s ease-in;
@@ -309,7 +494,6 @@ Author: Jamaludin Rajalu
     padding: 18px 25px 18px 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: url("images/bg.png");
     cursor: pointer;
   }
 
@@ -380,11 +564,86 @@ Author: Jamaludin Rajalu
     display: none;
   }
 }
+html {
+  font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 1em;
+}
+
 header {
   background: #ccc;
 }
 
 .main-nav {
+  background: #39b1cc;
+  background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
+  background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+  background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+  background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+  background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
   position: relative;
   z-index: 9999;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.padding {
+  padding: 20px 20px 20px 20px;
+}
+
+.padding-top {
+  padding-top: 20px;
+}
+
+padding-right {
+  padding-right: 20px;
+}
+
+.padding-bottom {
+  padding-bottom: 20px;
+}
+
+.padding-left {
+  padding-left: 20px;
+}
+
+header #top-nav #top-nav-right {
+  min-width: 200px;
+  list-style-type: none;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  float: right;
+}
+header #top-nav #top-nav-right li {
+  display: inline-block;
+  padding: 5px 10px 0 10px;
+}
+header #top-nav #top-nav-right li a {
+  color: #000;
+}
+header #top-nav #top-nav-right li a:visited {
+  color: #000;
+}
+header #top-nav #top-nav-right li a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer-nav ul {
+  list-style-type: none;
+  min-width: 200px;
+  display: table;
+  margin: 0 auto;
+  padding: 0;
+}
+#footer-nav ul li {
+  display: inline-block;
+  padding: 10px;
+}
+
+.copyright {
+  text-align: center;
 }
