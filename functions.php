@@ -1,17 +1,21 @@
 <?php
 /**
-* @packege ATMA
-* @subpackage Malaycivilization
-*/
-
+ * @package atma
+ * @since ukm-malaycivilization 1.0
+ * 
+ * Theme Update from github.com
+ * @name ukm-malaycivilization
+ * @link https://github.com/mmUKM/ukm-malaycivilization
+ */
 require( get_template_directory() . '/lib/theme-updates/theme-update-checker.php' );
   new ThemeUpdateChecker(
     'ukm-malaycivilization-master',
     'https://raw.githubusercontent.com/mmUKM/ukm-malaycivilization/master/package.json'
 );
-
-
-function mcv_setup() {
+/**
+ * Theme configuration
+ */
+function atma_setup() {
   add_theme_support( 'title-tag' );
   add_theme_support( 'html5', array( 'search-form' ) );
   add_theme_support( 'post-thumbnails' );
@@ -19,22 +23,28 @@ function mcv_setup() {
   remove_action( 'wp_head', 'wp_generator' );
   remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
   remove_action( 'wp_print_styles', 'print_emoji_styles' );
-  load_theme_textdomain( 'mcv', get_template_directory() . '/lang' );
+  load_theme_textdomain( 'atma', get_template_directory() . '/lang' );
   register_nav_menus( array(
-    'top'       => __( 'Top Navigation', 'mcv' ),
-    'main'      => __( 'Main Navigation', 'mcv' ),
-    'footer'    => __( 'Footer Navigation', 'mcv' ),
+    'top'       => __( 'Top Navigation', 'atma' ),
+    'main'      => __( 'Main Navigation', 'atma' ),
+    'footer'    => __( 'Footer Navigation', 'atma' ),
   ) );
   add_filter( 'show_admin_bar', '__return_false' );
 }
-add_action( 'after_setup_theme', 'mcv_setup' );
-
-function mcv_add_google_fonts() {
+add_action( 'after_setup_theme', 'atma_setup' );
+/**
+ * Google Webfont
+ * use custom font
+ */
+function atma_add_google_fonts() {
   wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic', false ); 
 }
-add_action( 'wp_enqueue_scripts', 'mcv_add_google_fonts' );
-  
-function mcv_scripts() {
+add_action( 'wp_enqueue_scripts', 'atma_add_google_fonts' );
+/**
+ * Theme Stylesheet & Javascripts
+ * UIKit
+ */
+function atma_scripts() {
   // CSS
   wp_deregister_script( 'jquery' );
   wp_enqueue_script( 'jquery', get_template_directory_uri() . '/lib/jquery/jquery.min.js', array(), '2.2.3', false );
@@ -56,19 +66,18 @@ function mcv_scripts() {
   wp_enqueue_style( 'uikit-search', get_template_directory_uri() . '/lib/uikit/css/components/search.almost-flat.min.css', false, '2.26.2' );
   wp_enqueue_style( 'style', get_stylesheet_uri(), false, '2017.0' );
 }
-add_action( 'wp_enqueue_scripts', 'mcv_scripts' );
+add_action( 'wp_enqueue_scripts', 'atma_scripts' );
 
 /**
- * Load configuration
- * Theme 
+ * Load theme post type, taxonomy, settings
  */
-function mcv_load_configurations() {
+function atma_load_configurations() {
 
   require( get_template_directory() . '/inc/theme-metabox.php' );
   require( get_template_directory() . '/inc/theme-post-type.php' );
   require( get_template_directory() . '/inc/theme-responsive-menu.php' );
 
 }
-add_action( 'after_setup_theme', 'mcv_load_configurations' );
+add_action( 'after_setup_theme', 'atma_load_configurations' );
 
 

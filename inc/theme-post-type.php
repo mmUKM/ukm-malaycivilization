@@ -3,985 +3,492 @@
  * @package ATMA
  * @subpackage malaycivilization
  * 
- * List Module
- * --------------------------------------------------
- * 01. Adat Perpatih
- * 02. Karya Jawi (Jawi Works)
- * 03. Karya Khas N. A Halim
- * 04. Pangkalan Data ATMA (PADAT)
- * 05. Malay Dictionary Of End Syllables
- * 06. Malay Dictionaries By Non-Malays
- * 07. Sari Online
- * 08. Peribahasa
- * 09. Pantun Baba
- * 10. Sejuta Pantun
- * 11. Koleksi Tenas Effendy
- * 12. Koleksi Yang Quee Yee
- * 13. Seni Ukir Kayu
- * 14. Tokoh Pemikir Alam Melayu
- * 15. Slideshow
- * ---------------------------------------------------
+ * @global type $wp_query
+ * @param type $template
+ * @return type
  */
-function mcv_template_include( $template ) {
+function atma_template_include( $template ) {
   
   global $wp_query;
   $plugindir = get_template_directory();
 
   $post_type = get_query_var('post_type');
 
-  if( $post_type == 'mcv_adat_perpatih' ) {
-    return $plugindir . '/templates/single-mcv_adat_perpatih.php';
+  if( $post_type == 'atma_warisan' ) {
+    return $plugindir . '/templates/single-atma_warisan.php';
   }
 
-  if( $post_type == 'mcv_dic_non_malay' ) {
-    return $plugindir . '/templates/single-mcv_dic_non_malay.php';
+  if( $post_type == 'atma_padat' ) {
+    return $plugindir . '/templates/single-atma_padat.php';
   }
 
-  if( $post_type == 'mcv_dic_syllables' ) {
-    return $plugindir . '/templates/single-mcv_dic_syllables.php';
+  if( $post_type == 'atma_tpkh' ) {
+    return $plugindir . '/templates/single-atma_tpkh.php';
   }
 
-  if( $post_type == 'mcv_karya_jawi' ) {
-    return $plugindir . '/templates/single-mcv_karya_jawi.php';
+  if( $post_type == 'atma_kamus' ) {
+    return $plugindir . '/templates/single-atma_kamus.php';
   }
 
-  if( $post_type == 'mcv_na_halim' ) {
-    return $plugindir . '/templates/single-mcv_tokoh_pemikir.php';
+  if (is_tax( 'atma_warisan_category' )) {
+    return $plugindir . '/templates/taxonomy-atma_warisan_category.php';
   }
-
-  if( $post_type == 'mcv_padat' ) {
-    return $plugindir . '/templates/single-mcv_padat.php';
+  
+  if (is_tax( 'atma_padat_category' )) {
+    return $plugindir . '/templates/taxonomy-atma_padat_category.php';
   }
-
-  if( $post_type == 'mcv_tokoh_pemikir' ) {
-    return $plugindir . '/templates/single-mcv_tokoh_pemikir.php';
+  
+  if (is_tax( 'atma_tpkh_category' )) {
+    return $plugindir . '/templates/taxonomy-atma_tpkh_category.php';
   }
-
-//   if (is_tax('prodcategories')) {
-//       return $plugindir . '/themefiles/taxonomy-prodcategories.php';
-//   }
+  
+  if (is_tax( 'atma_kamus_category' )) {
+    return $plugindir . '/templates/taxonomy-atma_kamus_category.php';
+  }
 
   return $template;   
 }
-add_filter( 'template_include', 'mcv_template_include' );
+add_filter( 'template_include', 'atma_template_include' );
 
-function mcv_custom_module() {
-
-  /*
-   * Custom Module 01
-   * Module Name: Adat Perpatih
+function atma_custom_post_type() {
+  /**
+   * Register Post Type
+   * 01. Warisan
+   * 02. PADAT
+   * 03. Tokoh Pemikir dan Koleksi Khas
+   * 04. Kamus
+   * 05. Slideshow
    */
 
   $labels = array(
-    'name'                  => _x( 'Adat Perpatih', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Adat Perpatih', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Adat Perpatih', 'mcv' ),
-    'name_admin_bar'        => __( 'Adat Perpatih', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'adat_perpatih',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
+    'name'                  => _x( 'Warisan', 'Post Type General Name', 'atma' ),
+    'singular_name'         => _x( 'Warisan', 'Post Type Singular Name', 'atma' ),
+    'menu_name'             => __( 'Warisan', 'atma' ),
+    'name_admin_bar'        => __( 'Warisan', 'atma' ),
+    'archives'              => __( 'Item Archives', 'atma' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'atma' ),
+    'all_items'             => __( 'All Items', 'atma' ),
+    'add_new_item'          => __( 'Add New Item', 'atma' ),
+    'add_new'               => __( 'Add New', 'atma' ),
+    'new_item'              => __( 'New Item', 'atma' ),
+    'edit_item'             => __( 'Edit Item', 'atma' ),
+    'update_item'           => __( 'Update Item', 'atma' ),
+    'view_item'             => __( 'View Item', 'atma' ),
+    'search_items'          => __( 'Search Item', 'atma' ),
+    'not_found'             => __( 'Not found', 'atma' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'atma' ),
+    'featured_image'        => __( 'Featured Image', 'atma' ),
+    'set_featured_image'    => __( 'Set featured image', 'atma' ),
+    'remove_featured_image' => __( 'Remove featured image', 'atma' ),
+    'use_featured_image'    => __( 'Use as featured image', 'atma' ),
+    'insert_into_item'      => __( 'Insert into item', 'atma' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'atma' ),
+    'items_list'            => __( 'Items list', 'atma' ),
+    'items_list_navigation' => __( 'Items list navigation', 'atma' ),
+    'filter_items_list'     => __( 'Filter items list', 'atma' ),
   );
   $args = array(
-    'label'                 => __( 'Adat Perpatih', 'mcv' ),
-    'description'           => __( 'Collections of  Negeri Sembilan Public Library and The Museum of Negeri Sembilan.', 'mcv' ),
+    'label'                 => __( 'Warisan', 'atma' ),
+    'description'           => __( 'Collections of Warisan', 'atma' ),
     'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_adat_pepatih_category' ),
-    'hierarchical'          => false,
+    'supports'              => array( 'title', 'revisions', 'page-attributes', ),
+    'taxonomies'            => array( 'atma_warisan_category' ),
+    'hierarchical'          => true,
     'public'                => true,
     'show_ui'               => true,
     'show_in_menu'          => true,
     //'menu_position'         => 5,
     'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
+    'show_in_admin_bar'     => false,
     'show_in_nav_menus'     => true,
     'can_export'            => true,
-    'has_archive'           => true,
+    'has_archive'           => 'arkib-warisan',
     'exclude_from_search'   => false,
     'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_adat_pepatih', $args );
-
-  /*
-   * Custom Module 02
-   * Module Name: Karya Jawi (Jawi Works)
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Karya Jawi', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Karya Jawi', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Karya Jawi', 'mcv' ),
-    'name_admin_bar'        => __( 'Karya Jawi', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'karya_jawi',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Karya Jawi', 'mcv' ),
-    'description'           => __( 'Collections of  Negeri Sembilan Public Library and The Museum of Negeri Sembilan.', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_karya_jawi_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_karya_jawi', $args );
-
-  /*
-   * Custom Module 03
-   * Module Name: Koleksi Khas N.A. Halim
-   */
-
-  $labels = array(
-    'name'                  => _x( 'N A Halim', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'N A Halim', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'N A Halim', 'mcv' ),
-    'name_admin_bar'        => __( 'N A Halim', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'na_halim',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'N A Halim', 'mcv' ),
-    'description'           => __( 'Collections of  N.A. Halim.', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_na_halim_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_na_halim', $args );
-
-   /*
-   * Custom Module 04
-   * Module Name: Pangkalan Data ATMA (PADAT)
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Pangkalan Data ATMA', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Pangkalan Data ATMA', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Pangkalan Data ATMA', 'mcv' ),
-    'name_admin_bar'        => __( 'Pangkalan Data ATMA', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'padat',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Pangkalan Data ATMA', 'mcv' ),
-    'description'           => __( 'Collections of  N.A. Halim.', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_padat_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_padat', $args );
-
-   /*
-   * Custom Module 05
-   * Module Name: Malay Dictionary Of End Syllables
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Malay Dictionary Of End Syllables', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Malay Dictionary Of End Syllables', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Malay Dictionary Of End Syllables', 'mcv' ),
-    'name_admin_bar'        => __( 'Malay Dictionary Of End Syllables', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'dic_syllables',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Malay Dictionary Of End Syllables', 'mcv' ),
-    'description'           => __( 'Collections of  Malay Dictionary Of End Syllables', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_dic_syllables_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_dic_syllables', $args );
-
-   /*
-   * Custom Module 06
-   * Module Name: Malay Dictionaries By Non-Malays
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Malay Dictionaries By Non-Malays', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Malay Dictionaries By Non-Malays', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Malay Dictionaries By Non-Malays', 'mcv' ),
-    'name_admin_bar'        => __( 'Malay Dictionaries By Non-Malays', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'dic_non_malay',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Malay Dictionaries By Non-Malays', 'mcv' ),
-    'description'           => __( 'Collections of  N.A. Halim.', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_dic_non_malay_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_dic_non_malay', $args );
-
-  /*
-   * Custom Module 07
-   * Module Name: Sari Online
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Sari Online', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Sari Online', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Sari Online', 'mcv' ),
-    'name_admin_bar'        => __( 'Sari Online', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'sari_online',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Sari Online', 'mcv' ),
-    'description'           => __( 'Collections of Sari Online', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_sari_online_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_sari_online', $args );
-
-  /*
-   * Custom Module 08
-   * Module Name: Peribahasa
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Peribahasa', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Peribahasa', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Peribahasa', 'mcv' ),
-    'name_admin_bar'        => __( 'Peribahasa', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'peribahasa',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Peribahasa', 'mcv' ),
-    'description'           => __( 'Collections of Peribahasa', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_peribahasa_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_peribahasa', $args );
-
-  /*
-   * Custom Module 09
-   * Module Name: Pantun Baba
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Pantun Baba', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Pantun Baba', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Pantun Baba', 'mcv' ),
-    'name_admin_bar'        => __( 'Pantun Baba', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'pantun_baba',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Pantun Baba', 'mcv' ),
-    'description'           => __( 'Collections of Pantun Baba', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_pantun_baba_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_pantun_baba', $args );
-
-    /*
-   * Custom Module 10
-   * Module Name: Sejuta Pantun
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Sejuta Pantun', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Sejuta Pantun', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Sejuta Pantun', 'mcv' ),
-    'name_admin_bar'        => __( 'Sejuta Pantun', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'sejuta_pantun',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Sejuta Pantun', 'mcv' ),
-    'description'           => __( 'Collections of Sejuta Pantun', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_sejuta_pantun_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_sejuta_pantun', $args );
-
-  /*
-   * Custom Module 11
-   * Module Name: Tenas Effendy
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Tenas Effendy', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Tenas Effendy', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Tenas Effendy', 'mcv' ),
-    'name_admin_bar'        => __( 'Tenas Effendy', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'tenas_effendy',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Tenas Effendy', 'mcv' ),
-    'description'           => __( 'Collections of Tenas Effendy', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_tenas_effendy_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_tenas_effendy', $args );
-
-  /*
-   * Custom Module 12
-   * Module Name: Yang Quee Yee
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Yang Quee Yee', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Yang Quee Yee', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Yang Quee Yee', 'mcv' ),
-    'name_admin_bar'        => __( 'Yang Quee Yee', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'yang_quee_yee',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Yang Quee Yee', 'mcv' ),
-    'description'           => __( 'Collections of Yang Quee Yee', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_yang_quee_yee_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_yang_quee_yee', $args );
-
-  /*
-   * Custom Module 13
-   * Module Name: Seni Ukir Kayu
-   */
-
-  $labels = array(
-    'name'                  => _x( 'Seni Ukir Kayu', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Seni Ukir Kayu', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Seni Ukir Kayu', 'mcv' ),
-    'name_admin_bar'        => __( 'Seni Ukir Kayu', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'seni_ukir_kayu',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Seni Ukir Kayu', 'mcv' ),
-    'description'           => __( 'Collections of Seni Ukir Kayu', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_seni_ukir_kayu_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_seni_ukir_kayu', $args );
-
-  /*
-   * Custom Module 14
-   * Module Name: Tokoh Pemikir Alam Melayu
-   */
-  
-  function mcv_lightbox_gallery( $file_list_meta_key, $img_size = 'medium' ) {
-
-  $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
-
-  echo '<div class="gallery">';
-
-  foreach ( (array) $files as $attachment_id => $attachment_url ) {
-    echo '<a class="padding" href="'. wp_get_attachment_url( $attachment_id ) .'" data-uk-lightbox="&#123;group:&#39;group-'. get_the_ID() .'&#39;&#125;" title="'. get_the_title( $attachment_id ) .'">';
-    echo wp_get_attachment_image( $attachment_id, $img_size );
-    echo '</a>';
-  }
-  echo '</div>';
-}
-
-  $labels = array(
-    'name'                  => _x( 'Tokoh Pemikir', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Tokoh Pemikir', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Tokoh Pemikir', 'mcv' ),
-    'name_admin_bar'        => __( 'Tokoh Pemikir', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent:', 'mcv' ),
-    'all_items'             => __( 'All', 'mcv' ),
-    'add_new_item'          => __( 'Add New', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New', 'mcv' ),
-    'edit_item'             => __( 'Edit', 'mcv' ),
-    'update_item'           => __( 'Update', 'mcv' ),
-    'view_item'             => __( 'View', 'mcv' ),
-    'search_items'          => __( 'Search', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $rewrite = array(
-    'slug'                  => 'tokoh_pemikir',
-    'with_front'            => true,
-    'pages'                 => true,
-    'feeds'                 => true,
-  );
-  $args = array(
-    'label'                 => __( 'Tokoh Pemikir', 'mcv' ),
-    'description'           => __( 'Collections of Tokoh Pemikir Alam Melayu', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'mcv_tokoh_pemikir_category' ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    //'menu_position'         => 5,
-    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
-    'rewrite'               => $rewrite,
-    'capability_type'       => 'post',
-  );
-  register_post_type( 'mcv_tokoh_pemikir', $args );
-  
-    $labels = array(
-    'name'                  => _x( 'Slideshows', 'Post Type General Name', 'mcv' ),
-    'singular_name'         => _x( 'Slideshow', 'Post Type Singular Name', 'mcv' ),
-    'menu_name'             => __( 'Slideshow', 'mcv' ),
-    'name_admin_bar'        => __( 'Slideshow', 'mcv' ),
-    'archives'              => __( 'Item Archives', 'mcv' ),
-    'parent_item_colon'     => __( 'Parent Item:', 'mcv' ),
-    'all_items'             => __( 'All Items', 'mcv' ),
-    'add_new_item'          => __( 'Add New Item', 'mcv' ),
-    'add_new'               => __( 'Add New', 'mcv' ),
-    'new_item'              => __( 'New Item', 'mcv' ),
-    'edit_item'             => __( 'Edit Item', 'mcv' ),
-    'update_item'           => __( 'Update Item', 'mcv' ),
-    'view_item'             => __( 'View Item', 'mcv' ),
-    'search_items'          => __( 'Search Item', 'mcv' ),
-    'not_found'             => __( 'Not found', 'mcv' ),
-    'not_found_in_trash'    => __( 'Not found in Trash', 'mcv' ),
-    'featured_image'        => __( 'Featured Image', 'mcv' ),
-    'set_featured_image'    => __( 'Set featured image', 'mcv' ),
-    'remove_featured_image' => __( 'Remove featured image', 'mcv' ),
-    'use_featured_image'    => __( 'Use as featured image', 'mcv' ),
-    'insert_into_item'      => __( 'Insert into item', 'mcv' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this item', 'mcv' ),
-    'items_list'            => __( 'Items list', 'mcv' ),
-    'items_list_navigation' => __( 'Items list navigation', 'mcv' ),
-    'filter_items_list'     => __( 'Filter items list', 'mcv' ),
-  );
-  $args = array(
-    'label'                 => __( 'Slideshow', 'mcv' ),
-    'description'           => __( 'Frontpage image slideshow', 'mcv' ),
-    'labels'                => $labels,
-    'supports'              => array( 'title', ),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    'menu_position'         => 5,
-    'menu_icon'             => 'dashicons-format-gallery',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,    
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => true,
+    'query_var'             => 'warisan',
     'capability_type'       => 'page',
   );
-  register_post_type( 'mcv_slideshow', $args );
+  register_post_type( 'atma_warisan', $args );
+
+  $labels = array(
+    'name'                  => _x( 'PADAT', 'Post Type General Name', 'atma' ),
+    'singular_name'         => _x( 'PADAT', 'Post Type Singular Name', 'atma' ),
+    'menu_name'             => __( 'PADAT', 'atma' ),
+    'name_admin_bar'        => __( 'PADAT', 'atma' ),
+    'archives'              => __( 'Item Archives', 'atma' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'atma' ),
+    'all_items'             => __( 'All Items', 'atma' ),
+    'add_new_item'          => __( 'Add New Item', 'atma' ),
+    'add_new'               => __( 'Add New', 'atma' ),
+    'new_item'              => __( 'New Item', 'atma' ),
+    'edit_item'             => __( 'Edit Item', 'atma' ),
+    'update_item'           => __( 'Update Item', 'atma' ),
+    'view_item'             => __( 'View Item', 'atma' ),
+    'search_items'          => __( 'Search Item', 'atma' ),
+    'not_found'             => __( 'Not found', 'atma' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'atma' ),
+    'featured_image'        => __( 'Featured Image', 'atma' ),
+    'set_featured_image'    => __( 'Set featured image', 'atma' ),
+    'remove_featured_image' => __( 'Remove featured image', 'atma' ),
+    'use_featured_image'    => __( 'Use as featured image', 'atma' ),
+    'insert_into_item'      => __( 'Insert into item', 'atma' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'atma' ),
+    'items_list'            => __( 'Items list', 'atma' ),
+    'items_list_navigation' => __( 'Items list navigation', 'atma' ),
+    'filter_items_list'     => __( 'Filter items list', 'atma' ),
+  );
+  $args = array(
+    'label'                 => __( 'PADAT', 'atma' ),
+    'description'           => __( 'Pangkalan Data ATMA', 'atma' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'revisions', 'page-attributes', ),
+    'taxonomies'            => array( 'atma_padat_category' ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    //'menu_position'         => 5,
+    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
+    'show_in_admin_bar'     => false,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => 'arkib-padat',
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'query_var'             => 'padat',
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'atma_padat', $args );
+
+
+  $labels = array(
+    'name'                  => _x( 'Tokoh & Koleksi', 'Post Type General Name', 'atma' ),
+    'singular_name'         => _x( 'Tokoh & Koleksi', 'Post Type Singular Name', 'atma' ),
+    'menu_name'             => __( 'Tokoh & Koleksi', 'atma' ),
+    'name_admin_bar'        => __( 'Tokoh & Koleksi', 'atma' ),
+    'archives'              => __( 'Item Archives', 'atma' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'atma' ),
+    'all_items'             => __( 'All Items', 'atma' ),
+    'add_new_item'          => __( 'Add New Item', 'atma' ),
+    'add_new'               => __( 'Add New', 'atma' ),
+    'new_item'              => __( 'New Item', 'atma' ),
+    'edit_item'             => __( 'Edit Item', 'atma' ),
+    'update_item'           => __( 'Update Item', 'atma' ),
+    'view_item'             => __( 'View Item', 'atma' ),
+    'search_items'          => __( 'Search Item', 'atma' ),
+    'not_found'             => __( 'Not found', 'atma' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'atma' ),
+    'featured_image'        => __( 'Featured Image', 'atma' ),
+    'set_featured_image'    => __( 'Set featured image', 'atma' ),
+    'remove_featured_image' => __( 'Remove featured image', 'atma' ),
+    'use_featured_image'    => __( 'Use as featured image', 'atma' ),
+    'insert_into_item'      => __( 'Insert into item', 'atma' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'atma' ),
+    'items_list'            => __( 'Items list', 'atma' ),
+    'items_list_navigation' => __( 'Items list navigation', 'atma' ),
+    'filter_items_list'     => __( 'Filter items list', 'atma' ),
+  );
+  $args = array(
+    'label'                 => __( 'Tokoh & Koleksi', 'atma' ),
+    'description'           => __( 'Tokoh Pemikir dan Koleksi Khas', 'atma' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'revisions', 'page-attributes', ),
+    'taxonomies'            => array( 'atma_tpkh_category' ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    //'menu_position'         => 5,
+    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
+    'show_in_admin_bar'     => false,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => 'arkib-tpkh',
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'query_var'             => 'tpkh',
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'atma_tpkh', $args );
+
+  $labels = array(
+    'name'                  => _x( 'Kamus', 'Post Type General Name', 'atma' ),
+    'singular_name'         => _x( 'Kamus', 'Post Type Singular Name', 'atma' ),
+    'menu_name'             => __( 'Kamus', 'atma' ),
+    'name_admin_bar'        => __( 'Kamus', 'atma' ),
+    'archives'              => __( 'Item Archives', 'atma' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'atma' ),
+    'all_items'             => __( 'All Items', 'atma' ),
+    'add_new_item'          => __( 'Add New Item', 'atma' ),
+    'add_new'               => __( 'Add New', 'atma' ),
+    'new_item'              => __( 'New Item', 'atma' ),
+    'edit_item'             => __( 'Edit Item', 'atma' ),
+    'update_item'           => __( 'Update Item', 'atma' ),
+    'view_item'             => __( 'View Item', 'atma' ),
+    'search_items'          => __( 'Search Item', 'atma' ),
+    'not_found'             => __( 'Not found', 'atma' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'atma' ),
+    'featured_image'        => __( 'Featured Image', 'atma' ),
+    'set_featured_image'    => __( 'Set featured image', 'atma' ),
+    'remove_featured_image' => __( 'Remove featured image', 'atma' ),
+    'use_featured_image'    => __( 'Use as featured image', 'atma' ),
+    'insert_into_item'      => __( 'Insert into item', 'atma' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'atma' ),
+    'items_list'            => __( 'Items list', 'atma' ),
+    'items_list_navigation' => __( 'Items list navigation', 'atma' ),
+    'filter_items_list'     => __( 'Filter items list', 'atma' ),
+  );
+  $args = array(
+    'label'                 => __( 'Kamus', 'atma' ),
+    'description'           => __( 'Colllections of Kamus', 'atma' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'revisions', 'page-attributes', ),
+    'taxonomies'            => array( 'atma_kamus_category' ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    //'menu_position'         => 5,
+    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
+    'show_in_admin_bar'     => false,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => 'arkib-kamus',
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'query_var'             => 'kamus',
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'atma_kamus', $args );
+
+  $labels = array(
+    'name'                  => _x( 'Slideshows', 'Post Type General Name', 'atma' ),
+    'singular_name'         => _x( 'Slideshow', 'Post Type Singular Name', 'atma' ),
+    'menu_name'             => __( 'Slideshow', 'atma' ),
+    'name_admin_bar'        => __( 'Slideshow', 'atma' ),
+    'archives'              => __( 'Item Archives', 'atma' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'atma' ),
+    'all_items'             => __( 'All Items', 'atma' ),
+    'add_new_item'          => __( 'Add New Item', 'atma' ),
+    'add_new'               => __( 'Add New', 'atma' ),
+    'new_item'              => __( 'New Item', 'atma' ),
+    'edit_item'             => __( 'Edit Item', 'atma' ),
+    'update_item'           => __( 'Update Item', 'atma' ),
+    'view_item'             => __( 'View Item', 'atma' ),
+    'search_items'          => __( 'Search Item', 'atma' ),
+    'not_found'             => __( 'Not found', 'atma' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'atma' ),
+    'featured_image'        => __( 'Featured Image', 'atma' ),
+    'set_featured_image'    => __( 'Set featured image', 'atma' ),
+    'remove_featured_image' => __( 'Remove featured image', 'atma' ),
+    'use_featured_image'    => __( 'Use as featured image', 'atma' ),
+    'insert_into_item'      => __( 'Insert into item', 'atma' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'atma' ),
+    'items_list'            => __( 'Items list', 'atma' ),
+    'items_list_navigation' => __( 'Items list navigation', 'atma' ),
+    'filter_items_list'     => __( 'Filter items list', 'atma' ),
+  );
+  $args = array(
+    'label'                 => __( 'Slideshow', 'atma' ),
+    'description'           => __( 'Frontpage slideshow banner', 'atma' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'revisions', 'page-attributes', ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    //'menu_position'         => 5,
+    'menu_icon'             => get_template_directory_uri() . '/img/slideshow.svg',
+    'show_in_admin_bar'     => false,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => false,   
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'query_var'             => 'slideshow',
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'atma_slideshow', $args );
 
 }
-add_action( 'init', 'mcv_custom_module', 0 );
+add_action( 'init', 'atma_custom_post_type', 0 );
+
+/**
+ * Register Taxonomy for:
+ * 01. Warisan
+ * 02. PADAT
+ * 03. Tokoh Pemikir & Koleksi Khas
+ * 04. Kamus
+ */
+
+function atma_custom_taxonomy() {
+  /**
+   * @name Kategori Warisan
+   */
+  $labels = array(
+    'name'                       => _x( 'Categories', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Category', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'kategori-warisan',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_warisan_category', array( 'atma_warisan' ), $args );
+  
+  /**
+   * @name PADAT
+   */
+  $labels = array(
+    'name'                       => _x( 'Categories', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Category', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'kategori-padat',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_padat_category', array( 'atma_padat' ), $args );
+  
+  /**
+   * @name Tokoh Pemikir & Koleksi Khas
+   */
+
+  $labels = array(
+    'name'                       => _x( 'Categories', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Category', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'kategori-tpkh',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_tpkh_category', array( 'atma_tpkh' ), $args );
+  
+  /**
+   * @name Kamus
+   */
+    $labels = array(
+    'name'                       => _x( 'Categories', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Category', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'kategori-kamus',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_kamus_category', array( 'atma_kamus' ), $args );
+}
+add_action( 'init', 'atma_custom_taxonomy', 0 );
