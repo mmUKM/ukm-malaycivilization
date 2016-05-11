@@ -79,5 +79,3 @@ function atma_load_configurations() {
 
 }
 add_action( 'after_setup_theme', 'atma_load_configurations' );
-
-

@@ -7,7 +7,7 @@
 get_header(); ?>
 <div class="wrapper">
   <article class="padding">
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php while ( have_posts() ) : the_post(); ?>
     <?php the_title( '<h2>', '</h2>' ); ?>
     <?php echo wpautop( get_post_meta( get_the_ID(), '_atma_tpkh_main_article', true ) ); ?>
     <ul class="uk-subnav uk-subnav-pill" data-uk-switcher="{connect:'#tokoh'}">
@@ -25,11 +25,9 @@ get_header(); ?>
       <li><?php echo wpautop( get_post_meta( get_the_ID(), '_atma_tpkh_tokoh_bibliografi', true ) ); ?></li>
       <li><?php echo wpautop( get_post_meta( get_the_ID(), '_atma_tpkh_tokoh_analisis', true ) ); ?></li>
       <li><?php echo wpautop( get_post_meta( get_the_ID(), '_atma_tpkh_tokoh_pemikiran', true ) ); ?></li>
-      <li><?php atma_lightbox_gallery( '_atma_tpkh_tokoh_foto', 'post-thumbnail' ); ?></li>
+      <li><?php atma_tokoh_gallery( '_atma_tpkh_tokoh_foto', 'post-thumbnail' ); ?></li>
     </ul>
-<?php endwhile; else: ?>
-
-<?php endif; ?>
+<?php endwhile; ?>
   </article>
 </div>
 <?php get_footer(); ?>
