@@ -16,9 +16,10 @@
 </head>
 
 <body <?php body_class(); ?>>
+<div class="sticky">
   <header>
     <nav class="top-nav">
-      <?php 
+      <?php
         wp_nav_menu(array(
           'theme_location'  => 'top',
           'menu'            => 'Top Navigation',
@@ -36,11 +37,11 @@
   </header>
   <nav class="main-nav">
     <div class="wrapper">
-      <?php 
+      <?php
         wp_nav_menu(array(
           'theme_location'  => 'main',
           'menu'            => 'Main Navigation',
-          'container_id'    => 'main-nav',
+          'container_id'    => 'nav-main',
           'walker'          => new ATMA_Main_Nav_Walker()
         ));
       ?>

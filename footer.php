@@ -4,9 +4,10 @@
 * @subpackage Malaycivilization
 */
 ?>
+</div><!-- end .sticky -->
 <footer>
 <nav class="top-nav">
-  <?php 
+  <?php
     wp_nav_menu(array(
       'theme_location'  => 'footer',
       'menu'            => 'Footer Navigation',

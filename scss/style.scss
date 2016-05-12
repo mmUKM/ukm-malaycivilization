@@ -1,5 +1,6 @@
 @import "12-column-grid";
-@import "main-nav";
+@import "nav-database";
+@import "nav-main";
 
 html {
   font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -50,6 +51,36 @@ padding-right {
 
 .padding-left {
   padding-left: 20px;
+}
+
+// Sticky Footer
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.sticky {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -200px;
+}
+
+.sticky:after {
+  content: "";
+  display: block;
+}
+
+footer, .sticky:after {
+  height: 200px;
+}
+
+footer {
+  background: #333;
+  color: #ccc;
+  padding-top: 40px;
 }
 
 header {

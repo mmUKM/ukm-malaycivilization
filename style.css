@@ -192,11 +192,10 @@ Author: Jamaludin Rajalu
     width: 99.99%;
   }
 }
-#main-nav,
-#main-nav ul,
-#main-nav ul li,
-#main-nav ul li a,
-#main-nav #menu-button {
+#nav-database,
+#nav-database ul,
+#nav-database ul li,
+#nav-database ul li a {
   margin: 0;
   padding: 0;
   border: 0;
@@ -209,8 +208,134 @@ Author: Jamaludin Rajalu
   box-sizing: border-box;
 }
 
-#main-nav:after,
-#main-nav > ul:after {
+#nav-database {
+  width: 220px;
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+}
+
+#nav-database ul ul {
+  display: none;
+}
+
+#nav-database > ul > li.active > ul {
+  display: block;
+}
+
+.align-right {
+  float: right;
+}
+
+#nav-database > ul > li > a {
+  padding: 16px 22px;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background: #3ab4a6;
+  -webkit-transition: color .2s ease;
+  -o-transition: color .2s ease;
+  transition: color .2s ease;
+}
+
+#nav-database > ul > li > a:hover {
+  color: #d8f3f0;
+}
+
+#nav-database ul > li.has-sub > a:after {
+  position: absolute;
+  right: 26px;
+  top: 19px;
+  z-index: 5;
+  display: block;
+  height: 10px;
+  width: 2px;
+  background: #ffffff;
+  content: "";
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+
+#nav-database ul > li.has-sub > a:before {
+  position: absolute;
+  right: 22px;
+  top: 23px;
+  display: block;
+  width: 10px;
+  height: 2px;
+  background: #ffffff;
+  content: "";
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+
+#nav-database ul > li.has-sub.open > a:after,
+#nav-database ul > li.has-sub.open > a:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#nav-database ul ul li a {
+  padding: 14px 22px;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 14px;
+  text-decoration: none;
+  color: #dddddd;
+  background: #49505a;
+  -webkit-transition: color .2s ease;
+  -o-transition: color .2s ease;
+  transition: color .2s ease;
+}
+
+#nav-database ul ul ul li a {
+  padding-left: 32px;
+}
+
+#nav-database ul ul li a:hover {
+  color: #ffffff;
+}
+
+#nav-database ul ul > li.has-sub > a:after {
+  top: 16px;
+  right: 26px;
+  background: #dddddd;
+}
+
+#nav-database ul ul > li.has-sub > a:before {
+  top: 20px;
+  background: #dddddd;
+}
+
+#nav-main,
+#nav-main ul,
+#nav-main ul li,
+#nav-main ul li a,
+#nav-main #menu-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#nav-main:after,
+#nav-main > ul:after {
   content: ".";
   display: block;
   clear: both;
@@ -219,11 +344,11 @@ Author: Jamaludin Rajalu
   height: 0;
 }
 
-#main-nav #menu-button {
+#nav-main #menu-button {
   display: none;
 }
 
-#main-nav {
+#nav-main {
   width: auto;
   font-family: 'Open Sans', Helvetica, sans-serif;
   background: #39b1cc;
@@ -235,33 +360,33 @@ Author: Jamaludin Rajalu
   background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
 }
 
-#main-nav > ul {
+#nav-main > ul {
   box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.05);
 }
 
-#main-nav.align-right > ul > li {
+#nav-main.align-right > ul > li {
   float: right;
 }
 
-#main-nav > ul > li {
+#nav-main > ul > li {
   float: left;
   display: inline-block;
 }
 
-#main-nav.align-center > ul {
+#nav-main.align-center > ul {
   float: none;
   text-align: center;
 }
 
-#main-nav.align-center > ul > li {
+#nav-main.align-center > ul > li {
   float: none;
 }
 
-#main-nav.align-center ul ul {
+#nav-main.align-center ul ul {
   text-align: left;
 }
 
-#main-nav > ul > li > a {
+#nav-main > ul > li > a {
   padding: 18px 25px 21px 25px;
   border-right: 1px solid rgba(80, 80, 80, 0.12);
   text-decoration: none;
@@ -272,19 +397,19 @@ Author: Jamaludin Rajalu
   letter-spacing: 1px;
 }
 
-#main-nav > ul > li:hover > a,
-#main-nav > ul > li > a:hover,
-#main-nav > ul > li.active > a {
+#nav-main > ul > li:hover > a,
+#nav-main > ul > li > a:hover,
+#nav-main > ul > li.active > a {
   color: #ffffff;
   background: #32a9c3;
   background: rgba(0, 0, 0, 0.1);
 }
 
-#main-nav > ul > li.has-sub > a {
+#nav-main > ul > li.has-sub > a {
   padding-right: 45px;
 }
 
-#main-nav > ul > li.has-sub > a::after {
+#nav-main > ul > li.has-sub > a::after {
   content: "";
   position: absolute;
   width: 0;
@@ -295,12 +420,12 @@ Author: Jamaludin Rajalu
   top: 22px;
 }
 
-#main-nav > ul > li.has-sub.active > a::after,
-#main-nav > ul > li.has-sub:hover > a {
+#nav-main > ul > li.has-sub.active > a::after,
+#nav-main > ul > li.has-sub:hover > a {
   border-top-color: #ffffff;
 }
 
-#main-nav ul ul {
+#nav-main ul ul {
   position: absolute;
   left: -9999px;
   top: 60px;
@@ -314,11 +439,11 @@ Author: Jamaludin Rajalu
   transition: top 0.2s ease, opacity 0.2s ease-in;
 }
 
-#main-nav.align-right ul ul {
+#nav-main.align-right ul ul {
   text-align: right;
 }
 
-#main-nav > ul > li > ul::after {
+#nav-main > ul > li > ul::after {
   content: "";
   position: absolute;
   width: 0;
@@ -329,12 +454,12 @@ Author: Jamaludin Rajalu
   left: 20px;
 }
 
-#main-nav.align-right > ul > li > ul::after {
+#nav-main.align-right > ul > li > ul::after {
   left: auto;
   right: 20px;
 }
 
-#main-nav ul ul ul::after {
+#nav-main ul ul ul::after {
   content: "";
   position: absolute;
   width: 0;
@@ -345,50 +470,50 @@ Author: Jamaludin Rajalu
   left: -4px;
 }
 
-#main-nav.align-right ul ul ul::after {
+#nav-main.align-right ul ul ul::after {
   border-right-color: transparent;
   border-left-color: #ffffff;
   left: auto;
   right: -4px;
 }
 
-#main-nav > ul > li > ul {
+#nav-main > ul > li > ul {
   top: 120px;
 }
 
-#main-nav > ul > li:hover > ul {
+#nav-main > ul > li:hover > ul {
   top: 52px;
   left: 0;
   opacity: 1;
 }
 
-#main-nav.align-right > ul > li:hover > ul {
+#nav-main.align-right > ul > li:hover > ul {
   left: auto;
   right: 0;
 }
 
-#main-nav ul ul ul {
+#nav-main ul ul ul {
   padding-top: 0;
   padding-left: 6px;
 }
 
-#main-nav.align-right ul ul ul {
+#nav-main.align-right ul ul ul {
   padding-right: 6px;
 }
 
-#main-nav ul ul > li:hover > ul {
+#nav-main ul ul > li:hover > ul {
   left: 180px;
   top: 0;
   opacity: 1;
 }
 
-#main-nav.align-right ul ul > li:hover > ul {
+#nav-main.align-right ul ul > li:hover > ul {
   left: auto;
   right: 100%;
   opacity: 1;
 }
 
-#main-nav ul ul li a {
+#nav-main ul ul li a {
   text-decoration: none;
   font-weight: 400;
   padding: 11px 25px;
@@ -398,27 +523,27 @@ Author: Jamaludin Rajalu
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1), -1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-#main-nav ul ul li:hover > a,
-#main-nav ul ul li.active > a {
+#nav-main ul ul li:hover > a,
+#nav-main ul ul li.active > a {
   color: #333333;
 }
 
-#main-nav ul ul li:first-child > a {
+#nav-main ul ul li:first-child > a {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
-#main-nav ul ul li:last-child > a {
+#nav-main ul ul li:last-child > a {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
-#main-nav > ul > li > ul::after {
+#nav-main > ul > li > ul::after {
   position: absolute;
   display: block;
 }
 
-#main-nav ul ul li.has-sub > a::after {
+#nav-main ul ul li.has-sub > a::after {
   content: "";
   position: absolute;
   width: 0;
@@ -429,63 +554,63 @@ Author: Jamaludin Rajalu
   top: 14px;
 }
 
-#main-nav.align-right ul ul li.has-sub > a::after {
+#nav-main.align-right ul ul li.has-sub > a::after {
   border-left-color: transparent;
   border-right-color: #777777;
   right: auto;
   left: 17px;
 }
 
-#main-nav ul ul li.has-sub.active > a::after,
-#main-nav ul ul li.has-sub:hover > a::after {
+#nav-main ul ul li.has-sub.active > a::after,
+#nav-main ul ul li.has-sub:hover > a::after {
   border-left-color: #333333;
 }
 
-#main-nav.align-right ul ul li.has-sub.active > a::after,
-#main-nav.align-right ul ul li.has-sub:hover > a::after {
+#nav-main.align-right ul ul li.has-sub.active > a::after,
+#nav-main.align-right ul ul li.has-sub:hover > a::after {
   border-right-color: #333333;
   border-left-color: transparent;
 }
 
 @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
-  #main-nav {
+  #nav-main {
     background: #39b1cc;
   }
 
-  #main-nav > ul {
+  #nav-main > ul {
     display: none;
   }
 
-  #main-nav > ul.open {
+  #nav-main > ul.open {
     display: block;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-  #main-nav.align-right > ul {
+  #nav-main.align-right > ul {
     float: none;
   }
 
-  #main-nav.align-center > ul {
+  #nav-main.align-center > ul {
     text-align: left;
   }
 
-  #main-nav > ul > li,
-  #main-nav.align-right > ul > li {
+  #nav-main > ul > li,
+  #nav-main.align-right > ul > li {
     float: none;
     display: block;
   }
 
-  #main-nav > ul > li > a {
+  #nav-main > ul > li > a {
     padding: 18px 25px 18px 25px;
     border-right: 0;
   }
 
-  #main-nav > ul > li:hover > a,
-  #main-nav > ul > li.active > a {
+  #nav-main > ul > li:hover > a,
+  #nav-main > ul > li.active > a {
     background: rgba(0, 0, 0, 0.1);
   }
 
-  #main-nav #menu-button {
+  #nav-main #menu-button {
     display: block;
     text-decoration: none;
     font-size: 13px;
@@ -497,16 +622,16 @@ Author: Jamaludin Rajalu
     cursor: pointer;
   }
 
-  #main-nav ul ul,
-  #main-nav ul li:hover > ul,
-  #main-nav > ul > li > ul,
-  #main-nav ul ul ul,
-  #main-nav ul ul li:hover > ul,
-  #main-nav.align-right ul ul,
-  #main-nav.align-right ul li:hover > ul,
-  #main-nav.align-right > ul > li > ul,
-  #main-nav.align-right ul ul ul,
-  #main-nav.align-right ul ul li:hover > ul {
+  #nav-main ul ul,
+  #nav-main ul li:hover > ul,
+  #nav-main > ul > li > ul,
+  #nav-main ul ul ul,
+  #nav-main ul ul li:hover > ul,
+  #nav-main.align-right ul ul,
+  #nav-main.align-right ul li:hover > ul,
+  #nav-main.align-right > ul > li > ul,
+  #nav-main.align-right ul ul ul,
+  #nav-main.align-right ul ul li:hover > ul {
     left: 0;
     right: auto;
     top: auto;
@@ -517,26 +642,26 @@ Author: Jamaludin Rajalu
     text-align: left;
   }
 
-  #main-nav ul ul li {
+  #nav-main ul ul li {
     width: 100%;
   }
 
-  #main-nav ul ul li a {
+  #nav-main ul ul li a {
     width: 100%;
     box-shadow: none;
     padding-left: 35px;
   }
 
-  #main-nav ul ul ul li a {
+  #nav-main ul ul ul li a {
     padding-left: 45px;
   }
 
-  #main-nav ul ul li:first-child > a,
-  #main-nav ul ul li:last-child > a {
+  #nav-main ul ul li:first-child > a,
+  #nav-main ul ul li:last-child > a {
     border-radius: 0;
   }
 
-  #main-nav #menu-button::after {
+  #nav-main #menu-button::after {
     display: block;
     content: '';
     position: absolute;
@@ -548,7 +673,7 @@ Author: Jamaludin Rajalu
     top: 18px;
   }
 
-  #main-nav #menu-button::before {
+  #nav-main #menu-button::before {
     display: block;
     content: '';
     position: absolute;
@@ -559,8 +684,8 @@ Author: Jamaludin Rajalu
     top: 28px;
   }
 
-  #main-nav > ul > li.has-sub > a::after,
-  #main-nav ul ul li.has-sub > a::after {
+  #nav-main > ul > li.has-sub > a::after,
+  #nav-main ul ul li.has-sub > a::after {
     display: none;
   }
 }
@@ -613,6 +738,35 @@ padding-right {
 
 .padding-left {
   padding-left: 20px;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.sticky {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -200px;
+}
+
+.sticky:after {
+  content: "";
+  display: block;
+}
+
+footer, .sticky:after {
+  height: 200px;
+}
+
+footer {
+  background: #333;
+  color: #ccc;
+  padding-top: 40px;
 }
 
 header #top-nav #top-nav-right {
