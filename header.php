@@ -41,7 +41,7 @@
           'theme_location'  => 'main',
           'menu'            => 'Main Navigation',
           'container_id'    => 'main-nav',
-          'walker'          => new MCV_Main_Nav_Walker()
+          'walker'          => new ATMA_Main_Nav_Walker()
         ));
       ?>
     </div>

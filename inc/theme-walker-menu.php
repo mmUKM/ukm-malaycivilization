@@ -7,7 +7,7 @@
 /**
  * Main Navigation
  */
-class MCV_Main_Nav_Walker extends Walker {
+class ATMA_Main_Nav_Walker extends Walker {
 
   var $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
   
@@ -70,7 +70,7 @@ class MCV_Main_Nav_Walker extends Walker {
 /**
  * Accordian menus for database page
  */
-class MCV_Accordian_Nav_Walker extends Walker {
+class ATMA_Database_Nav_Walker extends Walker {
 
   var $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
   

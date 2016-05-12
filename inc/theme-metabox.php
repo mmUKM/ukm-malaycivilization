@@ -23,12 +23,22 @@ $prefix = '_atma_';
  * @package ukm-malaycivilization
  * @subpackage atma_tpkh: Tokoh Pemikir
  */
-
+/**
+ * Main content
+ * only display when needed
+ */
 $tpkh_main = new_cmb2_box( array(
     'id'            => $prefix . 'tpkh_main',
     'title'         => __( 'Main Content', 'atma' ),
     'object_types'  => array( 'atma_tpkh', ),
     'closed'        => false,
+) );
+
+$tpkh_main->add_field( array(
+    'name' => __( 'Display this content', 'cmb2' ),
+    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'id'   => $prefix . 'tpkh_main_on',
+    'type' => 'checkbox',
 ) );
 
 $tpkh_main->add_field( array(
@@ -38,12 +48,22 @@ $tpkh_main->add_field( array(
     'type'    => 'wysiwyg',
     'options' => array( 'textarea_rows' => 5, ),
 ) );
-
+/**
+ * Tokoh Pemikir contents
+ * only display when needed
+ */
 $tpkh_pemikir = new_cmb2_box( array(
     'id'            => $prefix . 'tpkh_tokoh',
     'title'         => __( 'Tokoh Pemikir Contents', 'atma' ),
     'object_types'  => array( 'atma_tpkh', ),
     'closed'        => true,
+) );
+
+$tpkh_pemikir->add_field( array(
+    'name' => __( 'Display this content', 'cmb2' ),
+    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'id'   => $prefix . 'tpkh_tokoh_on',
+    'type' => 'checkbox',
 ) );
 
 $tpkh_pemikir->add_field( array(
@@ -96,6 +116,7 @@ $tpkh_pemikir->add_field( array(
 
 /**
  * Koleksi Khas
+ * only dosplay when needed
  */
 $tpkh_koleksi= new_cmb2_box( array(
     'id'            => $prefix . 'tpkh_koleksi',
@@ -105,9 +126,16 @@ $tpkh_koleksi= new_cmb2_box( array(
 ) );
 
 $tpkh_koleksi->add_field( array(
-    'name'    => __( 'Pengenalan', 'atma' ),
+    'name' => __( 'Display this content', 'cmb2' ),
+    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'id'   => $prefix . 'tpkh_koleksi_on',
+    'type' => 'checkbox',
+) );
+
+$tpkh_koleksi->add_field( array(
+    'name'    => __( 'Biografi', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'tpkh_koleksi_pengenalan',
+    'id'      => $prefix . 'tpkh_koleksi_biografi',
     'type'    => 'wysiwyg',
     'options' => array( 'textarea_rows' => 5, ),
 ) );
