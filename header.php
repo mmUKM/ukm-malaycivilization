@@ -1,9 +1,6 @@
 <?php
 /**
  * @package ukm-malaycivilization
- * @author jrajalu
- * @see codex.wordpress.org
- * @see cssmenumakaer.com
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">

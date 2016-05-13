@@ -1,7 +1,6 @@
 <?php
 /**
- * @package ATMA
- * @subpackage malaycivilization
+ * @package ukm-malaycivilization
  */
 
 /**

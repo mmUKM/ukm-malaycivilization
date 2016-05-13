@@ -1,8 +1,8 @@
 <?php
 /**
- * @package atma
- * @since ukm-malaycivilization 1.0
- * 
+ * @package ukm-malaycivilization
+ */
+/**
  * Theme Update from github.com
  * @name ukm-malaycivilization
  * @link https://github.com/mmUKM/ukm-malaycivilization
