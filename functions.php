@@ -1,8 +1,8 @@
 <?php
 /**
- * @package ukm-malaycivilization
- */
-/**
+ * @package ATMA
+ * @subpackage malaycivilization
+ *
  * Theme Update from github.com
  * @name ukm-malaycivilization
  * @link https://github.com/mmUKM/ukm-malaycivilization
@@ -73,6 +73,7 @@ add_action( 'wp_enqueue_scripts', 'atma_scripts' );
  */
 function atma_load_configurations() {
 
+  require( get_template_directory() . '/inc/theme-login.php' );
   require( get_template_directory() . '/inc/theme-metabox.php' );
   require( get_template_directory() . '/inc/theme-post-type.php' );
   require( get_template_directory() . '/inc/theme-walker-menu.php' );

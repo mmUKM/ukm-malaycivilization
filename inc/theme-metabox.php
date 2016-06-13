@@ -141,6 +141,50 @@ $tpkh_koleksi->add_field( array(
 ) );
 
 /**
+ * Warisan: Main Content
+ */
+$wari_main = new_cmb2_box( array(
+    'id'            => $prefix . 'wari_main',
+    'title'         => __( 'Main Content', 'atma' ),
+    'object_types'  => array( 'atma_warisan', ),
+    'closed'        => true,
+) );
+
+$wari_main->add_field( array(
+    'name' => __( 'Display this content', 'cmb2' ),
+    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'id'   => $prefix . 'wari_ap_on',
+    'type' => 'checkbox',
+) );
+
+$wari_main->add_field( array(
+    'name'    => __( 'Content', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_main_content',
+    'type'    => 'wysiwyg',
+    'options' => array( 'textarea_rows' => 5, ),
+) );
+
+
+/**
+ * Warisan: Adat Perpatih
+ * only dosplay when needed
+ */
+$wari_ap = new_cmb2_box( array(
+    'id'            => $prefix . 'wari_ap',
+    'title'         => __( 'Adat Perpatih', 'atma' ),
+    'object_types'  => array( 'atma_warisan', ),
+    'closed'        => true,
+) );
+
+$wari_ap->add_field( array(
+    'name' => __( 'Display this content', 'cmb2' ),
+    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'id'   => $prefix . 'wari_ap_on',
+    'type' => 'checkbox',
+) );
+
+/**
  * @package ukm-malaycivilization
  * @subpackage slideshow
  */
