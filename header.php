@@ -1,6 +1,7 @@
 <?php
 /**
- * @package ukm-malaycivilization
+ * @package ATMA
+ * @subpackage malaycivilization
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
