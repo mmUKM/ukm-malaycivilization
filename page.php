@@ -1,4 +1,10 @@
-<?php get_header(); ?>
+<?php
+/**
+ * @package ATMA
+ * @subpackage malaycivilization
+ */
+
+get_header(); ?>
 
 <div class="wrapper">
   <article class="padding">
