@@ -7,6 +7,10 @@
 get_header(); ?>
 <div class="wrapper">
   <article class="padding">
+    <div class="large-3-12">
+      <?php get_template_part( 'templates/nav', 'database' ); ?>
+    </div>
+    <div class="large-9-12">
     <?php
     
       $onMain = get_post_meta( get_the_ID(), '_atma_tpkh_main_on', true );
@@ -37,6 +41,7 @@ get_header(); ?>
       <?php } ?>
       <?php if ( $onKoleksi == on ) { echo wpautop( get_post_meta( get_the_ID(), '_atma_tpkh_koleksi_biografi', true ) ); } ?>
     <?php endwhile; ?>
+    </div>
   </article>
 </div>
 <?php get_footer(); ?>

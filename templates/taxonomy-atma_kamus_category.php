@@ -9,6 +9,10 @@ get_header(); ?>
 <div class="wrapper">
   <article class="padding">
     <h1><?php single_cat_title(); ?></h1>
+    <div class="large-3-12">
+      <?php get_template_part( 'templates/nav', 'database' ); ?>
+    </div>
+    <div class="large-9-12">
     <?php
       $query = new WP_Query( array(
         'post_type'           => 'atma_kamus',
@@ -27,6 +31,7 @@ get_header(); ?>
 
       <?php endif; ?>
     </ul>
+    </div>
   </article>
 </div>
 

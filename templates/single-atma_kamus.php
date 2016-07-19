@@ -8,6 +8,10 @@ get_header(); ?>
 
 <div class="wrapper">
   <article class="padding">
+    <div class="large-3-12">
+      <?php get_template_part( 'templates/nav', 'database' ); ?>
+    </div>
+    <div class="large-9-12">
     <?php while( have_posts() ) : the_post(); ?>
 
     <?php the_title( '<h1>', '</h1>' ); ?>
@@ -104,6 +108,7 @@ get_header(); ?>
     <?php } ?>
 
     <?php endwhile; ?>
+    </div>
   </article>
 </div>
 

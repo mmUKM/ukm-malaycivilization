@@ -27,6 +27,7 @@ function atma_setup() {
   register_nav_menus( array(
     'top'       => __( 'Top Navigation', 'atma' ),
     'main'      => __( 'Main Navigation', 'atma' ),
+    'database'  => __( 'Database Navigation', 'atma' ),
     'footer'    => __( 'Footer Navigation', 'atma' ),
   ) );
   add_filter( 'show_admin_bar', '__return_false' );

@@ -258,7 +258,7 @@ $wari_pb->add_field( array(
 
 /**
  * Warisan: Seni Ukir Melayu Tradisional
- * only dosplay when needed
+ * only display when needed
  */
 $wari_sumt = new_cmb2_box( array(
     'id'            => $prefix . 'wari_sumt',

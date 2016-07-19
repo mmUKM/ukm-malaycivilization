@@ -2,7 +2,7 @@
     "name": "malaycivilization-master",
     "dependencies": {},
     "devDependencies": {
-        "TGM-Plugin-Activation": "~2.6.1",
+        "TGM-Plugin-Activation": "https://github.com/TGMPA/TGM-Plugin-Activation.git#~2.6.1",
         "fitvids": "~1.1.0",
         "jqnewsTicker": "https://github.com/jayeshmagare/jqnewsTicker.git#~1.0.2",
         "CMB2": "https://github.com/WebDevStudios/CMB2.git#^2.2.2",
