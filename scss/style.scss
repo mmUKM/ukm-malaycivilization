@@ -109,6 +109,26 @@ header {
   }
 }
 
+ul.kamus-list {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  li {
+    border-bottom: 1px solid #eee;
+    padding-top: 15px;
+    padding-left: 10px;
+  }
+  li:nth-child(even) {
+    background: #eee;
+  }
+}
+
+.kamus-detail-link {
+  display: block;
+  float: right;
+  padding-right: 10px;
+}
+
 table.kamus {
   padding: 20px 20px 20px 0;
   td {

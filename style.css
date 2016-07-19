@@ -1,7 +1,7 @@
 /*
 Theme Name: Malay Civilization
 Theme URI: https://github.com/jrajalu/malaycivilization
-Version: 0.0.1
+Version: 0.0.2
 Description: One Stop Resource Centre for Malay World Information and Research
 Author: Jamaludin Rajalu
 Author URI: https://www.facebook.com/jrajalu
@@ -792,6 +792,26 @@ header #top-nav #top-nav-right li a:visited {
 header #top-nav #top-nav-right li a:hover {
   color: #fff;
   text-decoration: none;
+}
+
+ul.kamus-list {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+ul.kamus-list li {
+  border-bottom: 1px solid #eee;
+  padding-top: 15px;
+  padding-left: 10px;
+}
+ul.kamus-list li:nth-child(even) {
+  background: #eee;
+}
+
+.kamus-detail-link {
+  display: block;
+  float: right;
+  padding-right: 10px;
 }
 
 table.kamus {

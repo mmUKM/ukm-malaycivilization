@@ -141,21 +141,6 @@ $tpkh_koleksi->add_field( array(
 ) );
 
 /**
- * Lightbox Gallery
- * tpkh_tokoh_pemikir
- */
-function atma_tokoh_gallery( $file_list_meta_key, $img_size = 'medium' ) {
-  $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
-  echo '<div>';
-  foreach ( (array) $files as $attachment_id => $attachment_url ) {
-    echo '<a class="padding" href="'. wp_get_attachment_url( $attachment_id ) .'" data-uk-lightbox="&#123;group:&#39;group-'. get_the_ID() .'&#39;&#125;" title="'. get_the_title( $attachment_id ) .'">';
-    echo wp_get_attachment_image( $attachment_id, $img_size );
-    echo '</a>';
-  }
-  echo '</div>';
-}
-
-/**
  * Warisan: Main Content
  */
 $wari_main = new_cmb2_box( array(
@@ -594,3 +579,19 @@ $slideshow->add_field( array(
 }
   
 add_action( 'cmb2_admin_init', 'atma_post_type_metabox' );
+
+/**
+ * Additional settings for images and photogallery
+ * Lightbox Gallery
+ * tpkh_tokoh_pemikir
+ */
+function atma_tokoh_gallery( $file_list_meta_key, $img_size = 'medium' ) {
+  $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
+  echo '<div>';
+  foreach ( (array) $files as $attachment_id => $attachment_url ) {
+    echo '<a class="padding" href="'. wp_get_attachment_url( $attachment_id ) .'" data-uk-lightbox="&#123;group:&#39;group-'. get_the_ID() .'&#39;&#125;" title="'. get_the_title( $attachment_id ) .'">';
+    echo wp_get_attachment_image( $attachment_id, $img_size );
+    echo '</a>';
+  }
+  echo '</div>';
+}

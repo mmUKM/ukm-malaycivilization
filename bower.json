@@ -4,8 +4,8 @@
   "devDependencies": {
     "TGM-Plugin-Activation": "https://github.com/TGMPA/TGM-Plugin-Activation.git#~2.5.2",
     "fitvids": "~1.1.0",
-    "uikit": "~2.26.4",
     "jqnewsTicker": "https://github.com/jayeshmagare/jqnewsTicker.git#~1.0.2",
-    "CMB2": "https://github.com/WebDevStudios/CMB2.git#^2.2.2"
+    "CMB2": "https://github.com/WebDevStudios/CMB2.git#^2.2.2",
+    "uikit": "^2.26.4"
   }
 }
