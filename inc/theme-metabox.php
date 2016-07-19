@@ -409,7 +409,7 @@ $wari_td->add_field( array(
 $kamus_main = new_cmb2_box( array(
     'id'            => $prefix . 'kamus_main',
     'title'         => __( 'Main Content', 'atma' ),
-    'object_types'  => array( 'atma_warisan', ),
+    'object_types'  => array( 'atma_kamus', ),
     'closed'        => true,
 ) );
 
@@ -425,7 +425,7 @@ $kamus_main->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'kamus_main_content',
     'type'    => 'wysiwyg',
-    'options' => array( 'textarea_rows' => 5, ),
+    'options' => array( 'textarea_rows' => 7, ),
 ) );
 
 /** (1) Malay Dictionary of End Syllables */
@@ -487,7 +487,7 @@ $kamus_es->add_field( array(
 ) );
 
 $kamus_es->add_field( array(
-    'name' => __( 'Desciption', 'atma' ),
+    'name' => __( 'Description', 'atma' ),
     'desc' => __( '', 'atma' ),
     'id'   => $prefix . 'kamus_es_desc',
     'type' => 'text',

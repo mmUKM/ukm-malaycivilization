@@ -794,6 +794,13 @@ header #top-nav #top-nav-right li a:hover {
   text-decoration: none;
 }
 
+table.kamus {
+  padding: 20px 20px 20px 0;
+}
+table.kamus td {
+  padding: 10px 20px;
+}
+
 #footer-nav ul {
   list-style-type: none;
   min-width: 200px;
