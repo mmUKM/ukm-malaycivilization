@@ -30,7 +30,7 @@ get_header(); ?>
 
     <?php if ( $kamuseson == on ) { ?>
     <div class>
-      <table class="kamus">
+      <table class="data-content">
         <tr>
           <td><strong>Root Word</strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_root', true ); ?></td>
@@ -70,7 +70,7 @@ get_header(); ?>
     <?php if ( $kamusnmon == on ) { ?>
     <div class>
       <img src="<?php echo get_post_meta( get_the_ID(), '_atma_kamus_nm_image', true ); ?>" alt="">
-      <table class="kamus">
+      <table class="data-content">
         <tr>
           <td><strong>Title</strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_nm_title', true ); ?></td>

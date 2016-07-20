@@ -15,8 +15,8 @@ get_header(); ?>
     <div class="large-9-12">
     <?php
       $query = new WP_Query( array(
-        'post_type'           => 'atma_kamus',
-        'atma_kamus_category' => get_query_var( 'atma_kamus_category' ),
+        'post_type'           => 'atma_padat',
+        'atma_padat_keyword' => get_query_var( 'atma_padat_keyword' ),
         'posts_per_page'      => -1,
         'order'               => 'ASC'
       ));

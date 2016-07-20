@@ -38,10 +38,22 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_category.php';
   }
   
+  if (is_tax( 'atma_warisan_database' )) {
+    return $plugindir . '/templates/taxonomy-atma_warisan_database.php';
+  }
+
+    if (is_tax( 'atma_warisan_keyword' )) {
+    return $plugindir . '/templates/taxonomy-atma_warisan_keyword.php';
+  }
+
   if (is_tax( 'atma_padat_category' )) {
     return $plugindir . '/templates/taxonomy-atma_padat_category.php';
   }
   
+  if (is_tax( 'atma_padat_keyword' )) {
+    return $plugindir . '/templates/taxonomy-atma_padat_keyword.php';
+  }
+
   if (is_tax( 'atma_tpkh_category' )) {
     return $plugindir . '/templates/taxonomy-atma_tpkh_category.php';
   }
@@ -109,7 +121,7 @@ function atma_custom_post_type() {
     //'menu_position'         => 5,
     'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
     'show_in_admin_bar'     => false,
-    'show_in_nav_menus'     => true,
+    'show_in_nav_menus'     => false,
     'can_export'            => true,
     'has_archive'           => 'arkib-warisan',
     'exclude_from_search'   => false,
@@ -159,7 +171,7 @@ function atma_custom_post_type() {
     //'menu_position'         => 5,
     'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
     'show_in_admin_bar'     => false,
-    'show_in_nav_menus'     => true,
+    'show_in_nav_menus'     => false,
     'can_export'            => true,
     'has_archive'           => 'arkib-padat',
     'exclude_from_search'   => false,
@@ -210,7 +222,7 @@ function atma_custom_post_type() {
     //'menu_position'         => 5,
     'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
     'show_in_admin_bar'     => false,
-    'show_in_nav_menus'     => true,
+    'show_in_nav_menus'     => false,
     'can_export'            => true,
     'has_archive'           => 'arkib-tpkh',
     'exclude_from_search'   => false,
@@ -260,7 +272,7 @@ function atma_custom_post_type() {
     //'menu_position'         => 5,
     'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
     'show_in_admin_bar'     => false,
-    'show_in_nav_menus'     => true,
+    'show_in_nav_menus'     => false,
     'can_export'            => true,
     'has_archive'           => 'arkib-kamus',
     'exclude_from_search'   => false,
@@ -312,7 +324,7 @@ function atma_custom_post_type() {
     //'menu_position'         => 5,
     'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
     'show_in_admin_bar'     => false,
-    'show_in_nav_menus'     => true,
+    'show_in_nav_menus'     => false,
     'can_export'            => true,
     'has_archive'           => 'arkib-karya',
     'exclude_from_search'   => false,
@@ -363,7 +375,7 @@ function atma_custom_post_type() {
     //'menu_position'         => 5,
     'menu_icon'             => get_template_directory_uri() . '/img/slideshow.svg',
     'show_in_admin_bar'     => false,
-    'show_in_nav_menus'     => true,
+    'show_in_nav_menus'     => false,
     'can_export'            => true,
     'has_archive'           => false,   
     'exclude_from_search'   => false,
@@ -388,7 +400,7 @@ function atma_custom_taxonomy() {
    * @name Kategori Warisan
    */
   $labels = array(
-    'name'                       => _x( 'Categories', 'Taxonomy General Name', 'atma' ),
+    'name'                       => _x( 'Warisan Categories', 'Taxonomy General Name', 'atma' ),
     'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
     'menu_name'                  => __( 'Category', 'atma' ),
     'all_items'                  => __( 'All Items', 'atma' ),
@@ -427,10 +439,94 @@ function atma_custom_taxonomy() {
   register_taxonomy( 'atma_warisan_category', array( 'atma_warisan' ), $args );
   
   /**
+   * @name Database Warisan
+   */
+  $labels = array(
+    'name'                       => _x( 'Warisan Databases', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Database', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Database', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'kategori-warisan',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_warisan_database', array( 'atma_warisan' ), $args );
+
+  /**
+   * @name Keyword Warisan
+   */
+  $labels = array(
+    'name'                       => _x( 'Warisan Keywords', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Keyword', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Keyword', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'kategori-warisan',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_warisan_keyword', array( 'atma_warisan' ), $args );
+
+  /**
    * @name PADAT
    */
   $labels = array(
-    'name'                       => _x( 'Categories', 'Taxonomy General Name', 'atma' ),
+    'name'                       => _x( 'PADAT Categories', 'Taxonomy General Name', 'atma' ),
     'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
     'menu_name'                  => __( 'Category', 'atma' ),
     'all_items'                  => __( 'All Items', 'atma' ),
@@ -467,13 +563,54 @@ function atma_custom_taxonomy() {
     'rewrite'                    => $rewrite,
   );
   register_taxonomy( 'atma_padat_category', array( 'atma_padat' ), $args );
+  /**
+   * @name Keyword PADAT
+   */
+    $labels = array(
+    'name'                       => _x( 'PADAT Keywords', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Keyword', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Keyword', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'keyword-padat',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_padat_keyword', array( 'atma_padat' ), $args );
   
   /**
    * @name Tokoh Pemikir & Koleksi Khas
    */
 
   $labels = array(
-    'name'                       => _x( 'Categories', 'Taxonomy General Name', 'atma' ),
+    'name'                       => _x( 'Tokoh Categories', 'Taxonomy General Name', 'atma' ),
     'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
     'menu_name'                  => __( 'Category', 'atma' ),
     'all_items'                  => __( 'All Items', 'atma' ),
@@ -515,7 +652,7 @@ function atma_custom_taxonomy() {
    * @name Kamus
    */
     $labels = array(
-    'name'                       => _x( 'Categories', 'Taxonomy General Name', 'atma' ),
+    'name'                       => _x( 'Kamus Categories', 'Taxonomy General Name', 'atma' ),
     'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
     'menu_name'                  => __( 'Category', 'atma' ),
     'all_items'                  => __( 'All Items', 'atma' ),
@@ -555,7 +692,7 @@ function atma_custom_taxonomy() {
   /**
    * Karya
    */
-      $labels = array(
+  $labels = array(
     'name'                       => _x( 'Categories', 'Taxonomy General Name', 'atma' ),
     'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
     'menu_name'                  => __( 'Category', 'atma' ),

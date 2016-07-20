@@ -81,3 +81,30 @@ function atma_load_configurations() {
 
 }
 add_action( 'after_setup_theme', 'atma_load_configurations' );
+
+/**
+ * Widgets
+ * Register sidebar
+ */
+function atma_widgets() {
+  register_sidebar( array(
+    'name'            => __( 'Page Sidebar', 'ukmtheme' ),
+    'id'              => 'sidebar-1',
+    'description'     => __( 'Appears in frontpage, pages, posts and post type.', 'ukmtheme' ),
+    'before_widget'   => '<aside class="widgets padding-bottom">',
+    'after_widget'    => '</aside>',
+    'before_title'    => '<h3 class="widget-title">',
+    'after_title'     => '</h3>',
+  ) );
+
+  register_sidebar( array(
+    'name'            => __( 'Frontpage: Three Column', 'ukmtheme' ),
+    'id'              => 'sidebar-2',
+    'description'     => __( 'Appears when using the optional Front Page', 'ukmtheme' ),
+    'before_widget'   => '<div class="uk-width-medium-1-3" style="min-height: 100px;">',
+    'after_widget'    => '</div>',
+    'before_title'    => '<h3 class="widget-title">',
+    'after_title'     => '</h3>',
+  ) );
+}
+add_action( 'widgets_init', 'atma_widgets' );

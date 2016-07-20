@@ -18,12 +18,6 @@ header {
 
 .main-nav {
   background: #39b1cc;
-  background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
-  background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-  background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-  background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-  background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
   position: relative;
   z-index: 2;
 }
@@ -65,7 +59,7 @@ html, body {
 .sticky {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -200px;
+  margin-bottom: -150px;
 }
 
 .sticky:after {
@@ -74,7 +68,7 @@ html, body {
 }
 
 footer, .sticky:after {
-  height: 200px;
+  min-height: 150px;
 }
 
 footer {
@@ -109,7 +103,7 @@ header {
   }
 }
 
-ul.kamus-list {
+ul.data-content-list {
   list-style-type: none;
   margin-left: 0;
   padding-left: 0;
@@ -123,13 +117,13 @@ ul.kamus-list {
   }
 }
 
-.kamus-detail-link {
+.data-content-detail-link {
   display: block;
   float: right;
   padding-right: 10px;
 }
 
-table.kamus {
+table.data-content {
   padding: 20px 20px 20px 0;
   td {
     padding: 10px 20px;
