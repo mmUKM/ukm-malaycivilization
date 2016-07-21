@@ -5,7 +5,7 @@
  */
 
 get_header(); ?>
-<div class="wrapper">
+<div class="uk-clearfix wrapper">
   <article class="padding">
     <div class="large-3-12">
       <?php get_template_part( 'templates/nav', 'database' ); ?>

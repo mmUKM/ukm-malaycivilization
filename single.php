@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-<div class="wrapper">
+<div class="uk-clearfix wrapper">
   <article class="padding">
     <?php while( have_posts() ) : the_post(); ?>
 

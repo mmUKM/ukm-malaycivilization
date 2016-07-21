@@ -29,14 +29,14 @@
         ));
       ?>
     </nav>
-    <div class="wrapper">
+    <div class="uk-clearfix wrapper">
       <a href="<?php bloginfo( 'url' ); ?>">
         <img src="<?php echo get_template_directory_uri() . __( '/img/logo-mcv-en.svg', 'mcv' ); ?>" data-uk-svg>
       </a>
     </div>
   </header>
   <nav class="main-nav">
-    <div class="wrapper">
+    <div class="uk-clearfix wrapper">
       <?php
         wp_nav_menu(array(
           'theme_location'  => 'main',

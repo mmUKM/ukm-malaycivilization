@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-<div class="wrapper">
+<div class="uk-clearfix wrapper">
   <article class="padding">
     <h1><?php single_cat_title(); ?></h1>
     <div class="large-3-12">
