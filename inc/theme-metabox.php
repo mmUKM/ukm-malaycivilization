@@ -558,6 +558,13 @@ $kamus_nm->add_field( array(
 ) );
 
 $kamus_nm->add_field( array(
+    'name' => __( 'Image', 'atma' ),
+    'desc' => __( 'Upload book or pdf cover in JPG format', 'atma' ),
+    'id'   => $prefix . 'kamus_nm_file',
+    'type' => 'file',
+) );
+
+$kamus_nm->add_field( array(
     'name' => __( 'Title', 'atma' ),
     'desc' => __( '', 'atma' ),
     'id'   => $prefix . 'kamus_nm_title',

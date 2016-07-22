@@ -103,6 +103,10 @@ get_header(); ?>
           <td><strong>Page Total</strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_nm_page_total', true ); ?></td>
         </tr>
+        <tr>
+          <td><strong>File</strong></td>
+          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_kamus_nm_file', true ); ?>"><?php _e( 'Download', 'atma' ); ?></a></td>
+        </tr>
       </table>
     </div>
     <?php } ?>

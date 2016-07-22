@@ -11,6 +11,10 @@ $('#main-nav').prepend('<div id="menu-button">Menu</div>');
 			menu.addClass('open');
 		}
 	});
+});
+} )( jQuery );
+( function( $ ) {
+$( document ).ready(function() {
 	// menu-database
 	$('#menu-database li.active').addClass('open').children('ul').show();
 		$('#menu-database li.has-sub>a').on('click', function(){
