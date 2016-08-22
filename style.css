@@ -707,7 +707,7 @@ header {
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -773,6 +773,7 @@ header #top-nav #top-nav-right li {
 }
 header #top-nav #top-nav-right li a {
   color: #000;
+  font-size: 12px;
 }
 header #top-nav #top-nav-right li a:visited {
   color: #000;

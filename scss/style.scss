@@ -23,7 +23,7 @@ header {
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -90,6 +90,7 @@ header {
         padding: 5px 10px 0 10px;
         a {
           color: #000;
+          font-size: 12px;
         }
         a:visited {
           color: #000;
