@@ -16,11 +16,14 @@ require( get_template_directory() . '/lib/theme-updates/theme-update-checker.php
  * favicon.ico for all pages
  * wp-login, dashboard, frontpage
  */
-
-function add_favicon() {
+function atma_favicon() {
   $favicon_url = get_stylesheet_directory_uri() . '/favicon.ico';
   echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
 }
+
+add_action( 'login_head', 'atma_favicon' );
+add_action( 'admin_head', 'atma_favicon' );
+add_action( 'wp_head', 'atma_favicon' );
 /**
  * Theme configuration
  */
