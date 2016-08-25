@@ -1,7 +1,7 @@
 /*
 Theme Name: Malay Civilization
 Theme URI: https://github.com/jrajalu/malaycivilization
-Version: 0.0.7
+Version: 0.0.8
 Description: One Stop Resource Centre for Malay World Information and Research
 Author: Jamaludin Rajalu
 Author URI: https://www.facebook.com/jrajalu
@@ -128,6 +128,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     width: 99.99%;
   }
 }
+
 @media only screen and (max-width: 640px) {
   [class*="large-"] {
     width: 99.99%;
@@ -195,6 +196,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     width: 99.99%;
   }
 }
+
 #nav-database,
 #nav-database ul,
 #nav-database ul li,
@@ -686,6 +688,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     display: none;
   }
 }
+
 html {
   font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 1em;
@@ -767,17 +770,21 @@ header #top-nav #top-nav-right {
   padding: 0 0 0 0;
   float: right;
 }
+
 header #top-nav #top-nav-right li {
   display: inline-block;
   padding: 5px 10px 0 10px;
 }
+
 header #top-nav #top-nav-right li a {
   color: #000;
   font-size: 12px;
 }
+
 header #top-nav #top-nav-right li a:visited {
   color: #000;
 }
+
 header #top-nav #top-nav-right li a:hover {
   color: #fff;
   text-decoration: none;
@@ -788,11 +795,13 @@ ul.data-content-list {
   margin-left: 0;
   padding-left: 0;
 }
+
 ul.data-content-list li {
   border-bottom: 1px solid #eee;
   padding-top: 15px;
   padding-left: 10px;
 }
+
 ul.data-content-list li:nth-child(even) {
   background: #eee;
 }
@@ -806,6 +815,7 @@ ul.data-content-list li:nth-child(even) {
 table.data-content {
   padding: 20px 20px 20px 0;
 }
+
 table.data-content td {
   padding: 10px 20px;
 }
@@ -817,6 +827,7 @@ table.data-content td {
   margin: 0 auto;
   padding: 0;
 }
+
 #footer-nav ul li {
   display: inline-block;
   padding: 10px;

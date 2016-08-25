@@ -657,6 +657,13 @@ $padat_ba->add_field( array(
 ) );
 
 $padat_ba->add_field( array(
+    'name' => __( 'Thumbnail', 'cmb2' ),
+    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'id'   => $prefix . 'padat_ba_thumbnail',
+    'type' => 'file',
+) );
+
+$padat_ba->add_field( array(
     'name'    => __( 'Title', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'padat_ba_title',
@@ -711,6 +718,13 @@ $padat_ba->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'padat_ba_page_total',
     'type'    => 'text',
+) );
+
+$padat_ba->add_field( array(
+    'name' => __( 'File', 'cmb2' ),
+    'desc' => __( 'Upload pdf file', 'cmb2' ),
+    'id'   => $prefix . 'padat_ba_file',
+    'type' => 'file',
 ) );
 
 /**
