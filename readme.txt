@@ -1,8 +1,8 @@
 === UKM Malaycivilization ===
 Contributors: Jamaludin Rajalu
-Requires at least: WordPress 4.4
-Tested up to: WordPress 4.4
-Version: 0.0.8
+Requires at least: WordPress 4.0
+Tested up to: WordPress 4.6
+Version: 0.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: red, two column, three column, four column, responsive design
@@ -15,7 +15,7 @@ WordPress theme for UKM website and other departments under UKM.
 * Custom Logo
 * Social Links
 * Post Formats
-* The GPL v3.0 or later license. :) Use it to make something cool.
+* The GPL v2.0 or later license. :) Use it to make something cool.
 
 For more information about UKM Malaycivilization please go to https://github.com/mmUKM/ukm-malaycivilization.
 
