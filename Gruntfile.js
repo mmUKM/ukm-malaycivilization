@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: 'bower_components/jquery/dist',
+          cwd: 'bower_components/jquery.min',
           src: '*',
           dest: 'lib/jquery'
         },
@@ -18,12 +18,6 @@ module.exports = function(grunt) {
           cwd: 'bower_components/CMB2',
           src: '**',
           dest: 'lib/cmb2'
-        },
-        {
-          expand: true,
-          cwd: 'bower_components/fitvids',
-          src: 'jquery.fitvids.js',
-          dest: 'lib/fitvids'
         },
         {
           expand: true,
