@@ -1,7 +1,7 @@
 /*
 Theme Name: Malay Civilization
 Theme URI: https://github.com/jrajalu/malaycivilization
-Version: 0.0.9
+Version: 0.0.10
 Description: One Stop Resource Centre for Malay World Information and Research
 Author: Jamaludin Rajalu
 Author URI: https://www.facebook.com/jrajalu
@@ -215,7 +215,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 #nav-database {
   width: 200px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
   color: #ffffff;
 }
 
@@ -228,17 +228,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 
 #nav-database > ul > li > a {
-  padding: 15px 20px;
+  padding: 15px 25px;
   border-left: 1px solid #459db1;
   border-right: 1px solid #459db1;
   border-top: 1px solid #459db1;
   cursor: pointer;
   z-index: 2;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 13px;
   text-decoration: none;
-  color: #ffffff;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  color: #d3eced;
   background: #39b1cc;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
@@ -408,7 +406,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 #nav-main {
   width: auto;
-  font-family: 'Open Sans', Helvetica, sans-serif;
   background: #39b1cc;
 }
 
@@ -443,10 +440,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   border-right: 1px solid rgba(80, 80, 80, 0.12);
   text-decoration: none;
   font-size: 13px;
-  font-weight: 700;
   color: #d3eced;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 #nav-main > ul > li:hover > a,
@@ -743,7 +737,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 
 html {
-  font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   font-size: 1em;
 }
 
@@ -752,14 +746,14 @@ italic {
   color: #444;
 }
 
-header {
+.main-header {
   background: #ccc;
 }
 
 .main-nav {
   background: #39b1cc;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .wrapper {
@@ -785,6 +779,22 @@ padding-right {
 
 .padding-left {
   padding-left: 20px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.post-title {
+  padding: 20px 20px;
 }
 
 * {

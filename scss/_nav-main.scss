@@ -28,11 +28,9 @@
 }
 #nav-main {
   width: auto;
-  font-family: 'Open Sans', Helvetica, sans-serif;
   background: #39b1cc;
 }
 #nav-main > ul {
-  //background: url('images/bg.png');
   box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.05);
 }
 #nav-main.align-right > ul > li {
@@ -57,10 +55,7 @@
   border-right: 1px solid rgba(80, 80, 80, 0.12);
   text-decoration: none;
   font-size: 13px;
-  font-weight: 700;
   color: #d3eced;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 #nav-main > ul > li:hover > a,
 #nav-main > ul > li > a:hover,

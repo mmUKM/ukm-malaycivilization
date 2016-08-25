@@ -47,12 +47,12 @@ $('#nav-database li.has-sub>a').on('click', function(){
 		b = textColor.slice(0, textColor.indexOf(')'));
 		var l = rgbToHsl(r, g, b);
 		if (l > 0.7) {
-			$('#nav-database>ul>li>a').css('text-shadow', '0 1px 1px rgba(0, 0, 0, .35)');
+			$('#nav-database>ul>li>a').css('text-shadow', '0 0 0 rgba(0, 0, 0, .35)');
 			$('#nav-database>ul>li>a>span').css('border-color', 'rgba(0, 0, 0, .35)');
 		}
 		else
 		{
-			$('#nav-database>ul>li>a').css('text-shadow', '0 1px 0 rgba(255, 255, 255, .35)');
+			$('#nav-database>ul>li>a').css('text-shadow', '0 0 0 rgba(255, 255, 255, .35)');
 			$('#nav-database>ul>li>a>span').css('border-color', 'rgba(255, 255, 255, .35)');
 		}
 	})();

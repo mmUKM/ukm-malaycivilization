@@ -17,5 +17,5 @@ get_header(); ?>
     <?php endwhile; ?>
   </article>
 </div>
-
+<?php get_template_part( 'content', 'after' ); ?>
 <?php get_footer(); ?>

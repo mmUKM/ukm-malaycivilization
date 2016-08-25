@@ -120,7 +120,7 @@ module.exports = function(grunt) {
           'scss/admin.scss',
           'scss/*.scss'
         ],
-        tasks: ['sass', 'usebanner'],
+        tasks: ['sass', 'usebanner', 'cssbeautifier'],
           options: {
             livereload: true
           }

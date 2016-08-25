@@ -3,7 +3,7 @@
 @import "nav-main";
 
 html {
-  font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   font-size: 1em;
 }
 
@@ -12,14 +12,14 @@ italic {
   color: #444;
 }
 
-header {
+.main-header {
   background: #ccc;
 }
 
 .main-nav {
   background: #39b1cc;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .wrapper {
@@ -45,6 +45,22 @@ padding-right {
 
 .padding-left {
   padding-left: 20px;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.post-title {
+  padding: 20px 20px;
 }
 
 // Sticky Footer

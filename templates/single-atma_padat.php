@@ -7,14 +7,13 @@
 get_header(); ?>
 
 <div class="uk-clearfix wrapper">
-  <article class="padding">
+  <?php get_template_part( 'content', 'before' ); ?>
+  <article class="padding column">
     <div class="large-3-12">
       <?php get_template_part( 'templates/nav', 'database' ); ?>
     </div>
     <div class="large-9-12">
     <?php while( have_posts() ) : the_post(); ?>
-
-    <?php the_title( '<h1>', '</h1>' ); ?>
 
     <?php
       $padatmainon  = get_post_meta( get_the_ID(), '_atma_padat_main_on', true );
@@ -22,13 +21,14 @@ get_header(); ?>
     ?>
 
     <?php if ( $padatmainon == on ) { ?>
-    <div class>
-      <?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_kamus_main_content', true ) ); ?>
+    <div>
+      <?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_padat_main_content', true ) ); ?>
     </div>
     <?php } ?>
 
     <?php if ( $padatbaon == on ) { ?>
-    <div class>
+    <div>
+      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_padat_ba_thumbnail', true ); ?>" width="200" alt="">
       <table class="data-content">
         <tr>
           <td><strong>Title</strong></td>
@@ -70,6 +70,10 @@ get_header(); ?>
           <td><strong>Page Total</strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_padat_ba_page_total', true ); ?></td>
         </tr>
+        <tr>
+          <td><strong>Download</strong></td>
+          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_padat_ba_file', true ); ?>">Portable Document Format (PDF)</a></td>
+        </tr>
       </table>
     </div>
     <?php } ?>
@@ -77,5 +81,5 @@ get_header(); ?>
     </div>
   </article>
 </div>
-
+<?php get_template_part( 'content', 'after' ); ?>
 <?php get_footer(); ?>

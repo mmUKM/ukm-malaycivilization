@@ -17,7 +17,7 @@
 
 <body <?php body_class(); ?>>
 <div class="sticky">
-  <header>
+  <header class="main-header">
     <nav class="top-nav">
       <?php
         wp_nav_menu(array(
