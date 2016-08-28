@@ -1,8 +1,8 @@
 ( function( $ ) {
 $( document ).ready(function() {
 // main-nav
-$('#main-nav').prepend('<div id="menu-button">Menu</div>');
-	$('#main-nav #menu-button').on('click', function(){
+$('#nav-main').prepend('<div id="menu-button">Menu</div>');
+	$('#nav-main #menu-button').on('click', function(){
 		var menu = $(this).next('ul');
 		if (menu.hasClass('open')) {
 			menu.removeClass('open');

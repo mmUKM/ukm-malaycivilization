@@ -5,6 +5,6 @@
     "uikit": "v2.26.4",
     "CMB2": "https://github.com/WebDevStudios/CMB2.git#v2.2.1",
     "TGM-Plugin-Activation": "https://github.com/TGMPA/TGM-Plugin-Activation.git#v2.6.1",
-    "jquery.min": "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+    "jquery": "1.12.4"
   }
 }

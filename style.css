@@ -1,7 +1,7 @@
 /*
 Theme Name: Malay Civilization
 Theme URI: https://github.com/jrajalu/malaycivilization
-Version: 0.0.14
+Version: 0.0.16
 Description: One Stop Resource Centre for Malay World Information and Research
 Author: Jamaludin Rajalu
 Author URI: https://www.facebook.com/jrajalu
@@ -214,8 +214,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 
 #nav-database {
-  width: 200px;
-  font-family: sans-serif;
+  min-width: 200px;
   color: #ffffff;
 }
 
@@ -737,8 +736,26 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 
 html {
+  font: 400 16px/20px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 15px 0;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  font-size: 1em;
+  font-weight: 400;
+  color: #444;
+  text-transform: none;
+}
+
+.uk-link, a {
+  color: #39b1cc;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.uk-link:hover, a:hover {
+  color: #38aac3;
+  text-decoration: underline;
 }
 
 em,
@@ -753,6 +770,7 @@ italic {
 .main-nav {
   background: #39b1cc;
   position: relative;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.05);
   z-index: 3;
 }
 

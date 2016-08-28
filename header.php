@@ -17,7 +17,7 @@
 
 <body <?php body_class(); ?>>
 <div class="sticky">
-  <header class="main-header">
+  <header class="uk-clearfix main-header">
     <nav class="top-nav">
       <?php
         wp_nav_menu(array(
@@ -35,8 +35,8 @@
       </a>
     </div>
   </header>
-  <nav class="main-nav">
-    <div class="uk-clearfix wrapper">
+  <nav class="uk-clearfix main-nav">
+    <div class="wrapper">
       <?php
         wp_nav_menu(array(
           'theme_location'  => 'main',

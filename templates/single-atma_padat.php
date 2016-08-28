@@ -12,7 +12,7 @@ get_header(); ?>
     <div class="large-3-12">
       <?php get_template_part( 'templates/nav', 'database' ); ?>
     </div>
-    <div class="large-9-12">
+    <div class="large-9-12 padding-left">
     <?php while( have_posts() ) : the_post(); ?>
 
     <?php
@@ -21,13 +21,13 @@ get_header(); ?>
     ?>
 
     <?php if ( $padatmainon == on ) { ?>
-    <div>
+    <div id="padat-main-content">
       <?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_padat_main_content', true ) ); ?>
     </div>
     <?php } ?>
 
     <?php if ( $padatbaon == on ) { ?>
-    <div>
+    <div id="padat-ba-content">
       <img src="<?php echo get_post_meta( get_the_ID(), '_atma_padat_ba_thumbnail', true ); ?>" width="200" alt="">
       <table class="data-content">
         <tr>

@@ -7,16 +7,16 @@
 get_header(); ?>
 
 <div class="uk-clearfix wrapper">
-  <article class="padding">
+  <article class="padding column">
     <h1><?php single_cat_title(); ?></h1>
     <div class="large-3-12">
       <?php get_template_part( 'templates/nav', 'database' ); ?>
     </div>
-    <div class="large-9-12">
+    <div class="large-9-12 padding-left">
     <?php
       $query = new WP_Query( array(
         'post_type'           => 'atma_padat',
-        'atma_padat_keyword' => get_query_var( 'atma_padat_keyword' ),
+        'atma_padat_keyword'  => get_query_var( 'atma_padat_keyword' ),
         'posts_per_page'      => -1,
         'order'               => 'ASC'
       ));

@@ -5,7 +5,7 @@ $query = new WP_Query(
     'posts_per_page'  => -1
 ) );
 ?>
-<div class="uk-slidenav-position" data-uk-slideshow="{animation:'slice-up-down', autoplay:true, autoplayInterval:7000}">
+<div class="uk-clearfix uk-slidenav-position" data-uk-slideshow="{animation:'slice-up-down', autoplay:true, autoplayInterval:7000}">
     <ul class="uk-slideshow">
       <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
       <li>

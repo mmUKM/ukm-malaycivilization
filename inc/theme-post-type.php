@@ -464,7 +464,7 @@ function atma_custom_taxonomy() {
     'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
   );
   $rewrite = array(
-    'slug'                       => 'kategori-warisan',
+    'slug'                       => 'database-warisan',
     'with_front'                 => true,
     'hierarchical'               => false,
   );
@@ -506,7 +506,7 @@ function atma_custom_taxonomy() {
     'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
   );
   $rewrite = array(
-    'slug'                       => 'kategori-warisan',
+    'slug'                       => 'keyword-warisan',
     'with_front'                 => true,
     'hierarchical'               => false,
   );

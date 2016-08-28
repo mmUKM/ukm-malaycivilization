@@ -14,7 +14,7 @@ get_header(); ?>
     <div class="large-3-12">
       <?php get_template_part( 'templates/nav', 'database' ); ?>
     </div>
-    <div class="large-9-12">
+    <div class="large-9-12 padding-left">
     <?php while( have_posts() ) : the_post(); ?>
       <?php the_content(); ?>
     <?php endwhile; ?>
