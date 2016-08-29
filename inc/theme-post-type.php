@@ -34,35 +34,39 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/single-atma_karya.php';
   }
 
-  if (is_tax( 'atma_warisan_category' )) {
+  if ( is_tax( 'atma_warisan_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_category.php';
   }
   
-  if (is_tax( 'atma_warisan_database' )) {
+  if ( is_tax( 'atma_warisan_database' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_database.php';
   }
 
-    if (is_tax( 'atma_warisan_keyword' )) {
+  if ( is_tax( 'atma_warisan_keyword' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_keyword.php';
   }
+  
+  if ( is_tax( 'atma_warisan_topic' ) ) {
+    return $plugindir . '/templates/taxonomy-atma_warisan_topic.php';
+  }
 
-  if (is_tax( 'atma_padat_category' )) {
+  if ( is_tax( 'atma_padat_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_padat_category.php';
   }
   
-  if (is_tax( 'atma_padat_keyword' )) {
+  if ( is_tax( 'atma_padat_keyword' ) ) {
     return $plugindir . '/templates/taxonomy-atma_padat_keyword.php';
   }
 
-  if (is_tax( 'atma_tpkh_category' )) {
+  if ( is_tax( 'atma_tpkh_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_tpkh_category.php';
   }
   
-  if (is_tax( 'atma_kamus_category' )) {
+  if ( is_tax( 'atma_kamus_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_kamus_category.php';
   }
   
-  if (is_tax( 'atma_karya_category' )) {
+  if ( is_tax( 'atma_karya_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_karya_category.php';
   }
 
@@ -113,7 +117,7 @@ function atma_custom_post_type() {
     'description'           => __( 'Collections of Warisan', 'atma' ),
     'labels'                => $labels,
     'supports'              => array( 'title', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'atma_warisan_category' ),
+    'taxonomies'            => array( 'atma_warisan_category', 'atma_warisan_database', 'atma_warisan_keywords', 'atma_warisan_topic' ),
     'hierarchical'          => true,
     'public'                => true,
     'show_ui'               => true,
@@ -521,7 +525,47 @@ function atma_custom_taxonomy() {
     'rewrite'                    => $rewrite,
   );
   register_taxonomy( 'atma_warisan_keyword', array( 'atma_warisan' ), $args );
-
+  /**
+   * @name Topic Warisan
+   */
+  $labels = array(
+    'name'                       => _x( 'Warisan Topics', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Topic', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Topic', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'topic-warisan',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_warisan_topic', array( 'atma_warisan' ), $args );
   /**
    * @name PADAT
    */

@@ -2,30 +2,39 @@
 /**
  * @package ATMA
  * @subpackage malaycivilization
+ * 
+ * Custom Metabox 2
+ * -----------------------------
+ * Menambah field/form/metabox pada custom post type
+ * Rujuk dokumentasi di laman @link https://github.com/WebDevStudios/CMB2/wiki untuk jenis-jenis field
+ * atau boleh rujuk di dalam folder @subpackage ukm-civilization-master /vendor/cmb2/example-functions.php
+ *
+ * Semak pautan fuction cmb2 samada berada di dalam folder yang betul.
+ * Pautan sedia ada adalah /vendor/cmb2/init.php
  */
-
-/**
- * Hook CMB2
- */
-
 if ( file_exists(  get_template_directory() . '/vendor/cmb2/init.php' ) ) {
   require_once  get_template_directory() . '/vendor/cmb2/init.php';
 } elseif ( file_exists(  get_template_directory()  . '/vendor/CMB2/init.php' ) ) {
   require_once  get_template_directory()  . '/vendor/CMB2/init.php';
 }
-
-function atma_post_type_metabox() {
-
-$prefix = '_atma_';
-
-
 /**
- * @package ukm-malaycivilization
- * @subpackage atma_tpkh: Tokoh Pemikir
+ * Post Type yang Terlibat
+ * -----------------------------
+ * 1. Kamus
+ * 2. PADAT (Pangkalan Data ATMA)
+ * 3. Slideshow
+ * 4. Tokoh Pemikir dan Koleksi Khas
+ * 5. Warisan
  */
+function atma_post_type_metabox() {
 /**
- * Main content
- * only display when needed
+ * Nama prefix adalah _atma_
+ * Dahulukan _atma_ pada setiap field yang dipanggil
+ */
+$prefix = '_atma_';
+/**
+ * Metabox untuk post type Tokoh Pemikir dan Koleksi Khas
+ * Semak fail single-atma_tpkh.php untuk membuat perubahan
  */
 $tpkh_main = new_cmb2_box( array(
     'id'            => $prefix . 'tpkh_main',
@@ -192,30 +201,9 @@ $wari_ap->add_field( array(
 ) );
 
 $wari_ap->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ap_title',
-    'type'    => 'text',
-) );
-
-$wari_ap->add_field( array(
     'name'    => __( 'Author', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_ap_author',
-    'type'    => 'text',
-) );
-
-$wari_ap->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ap_database',
-    'type'    => 'text',
-) );
-
-$wari_ap->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ap_topic',
     'type'    => 'text',
 ) );
 
@@ -238,7 +226,7 @@ $wari_ap->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_ap_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $wari_ap->add_field( array(
@@ -275,23 +263,9 @@ $wari_kj->add_field( array(
 ) );
 
 $wari_kj->add_field( array(
-    'name' => __( 'Title', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
-    'id'   => $prefix . 'wari_kj_title',
-    'type' => 'text',
-) );
-
-$wari_kj->add_field( array(
     'name' => __( 'Author', 'cmb2' ),
     'desc' => __( 'check this box to display this content only', 'cmb2' ),
     'id'   => $prefix . 'wari_kj_author',
-    'type' => 'text',
-) );
-
-$wari_kj->add_field( array(
-    'name' => __( 'Topic', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
-    'id'   => $prefix . 'wari_kj_topic',
     'type' => 'text',
 ) );
 
@@ -310,24 +284,17 @@ $wari_kj->add_field( array(
 ) );
 
 $wari_kj->add_field( array(
-    'name' => __( 'Title', 'cmb2' ),
+    'name' => __( 'Page Total', 'cmb2' ),
     'desc' => __( 'check this box to display this content only', 'cmb2' ),
     'id'   => $prefix . 'wari_kj_page_total',
     'type' => 'text_small',
 ) );
 
 $wari_kj->add_field( array(
-    'name' => __( 'Author', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
-    'id'   => $prefix . 'wari_kj_cover',
-    'type' => 'file',
-) );
-
-$wari_kj->add_field( array(
     'name' => __( 'PDF File URL', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'desc' => __( 'Upload compressed  .pdf file', 'cmb2' ),
     'id'   => $prefix . 'wari_kj_file',
-    'type' => 'text',
+    'type' => 'file',
 ) );
 
 /**
@@ -349,20 +316,6 @@ $wari_pbh->add_field( array(
 ) );
 
 $wari_pbh->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
-    'id'   => $prefix . 'wari_pbh_thumbnail',
-    'type' => 'file',
-) );
-
-$wari_pbh->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_pbh_title',
-    'type'    => 'text',
-) );
-
-$wari_pbh->add_field( array(
     'name'    => __( 'Author', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_pbh_author',
@@ -377,16 +330,9 @@ $wari_pbh->add_field( array(
 ) );
 
 $wari_pbh->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
+    'name'    => __( 'Subject', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_pbh_topic',
-    'type'    => 'text',
-) );
-
-$wari_pbh->add_field( array(
-    'name'    => __( 'Source', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_pbh_source',
+    'id'      => $prefix . 'wari_pbh_subject',
     'type'    => 'text',
 ) );
 
@@ -398,30 +344,30 @@ $wari_pbh->add_field( array(
 ) );
 
 $wari_pbh->add_field( array(
-    'name'    => __( 'Year', 'atma' ),
+    'name'    => __( 'Label', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_pbh_year',
-    'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'id'      => $prefix . 'wari_pbh_label',
+    'type'    => 'text',
 ) );
 
 $wari_pbh->add_field( array(
-    'name'    => __( 'Page Total', 'atma' ),
+    'name'    => __( 'Description', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_pbh_page_total',
-    'type'    => 'text_small',
+    'id'      => $prefix . 'wari_pbh_desc',
+    'type'    => 'wysiwyg',
+    'options' => array( 'textarea_rows' => 5, ),
 ) );
 
 $wari_pbh->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
-    'id'   => $prefix . 'wari_pbh_file',
-    'type' => 'file',
+    'name'    => __( 'Language', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_pbh_lang',
+    'type'    => 'text',
 ) );
 
 /**
  * Warisan: Sejuta Pantun
- * only dosplay when needed
+ * only display when needed
  */
 $wari_sp = new_cmb2_box( array(
     'id'            => $prefix . 'wari_sp',
@@ -438,37 +384,9 @@ $wari_sp->add_field( array(
 ) );
 
 $wari_sp->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
-    'id'   => $prefix . 'wari_sp_thumbnail',
-    'type' => 'file',
-) );
-
-$wari_sp->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_sp_title',
-    'type'    => 'text',
-) );
-
-$wari_sp->add_field( array(
     'name'    => __( 'Author', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_sp_author',
-    'type'    => 'text',
-) );
-
-$wari_sp->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_sp_database',
-    'type'    => 'text',
-) );
-
-$wari_sp->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_sp_topic',
     'type'    => 'text',
 ) );
 
