@@ -44,8 +44,8 @@ $tpkh_main = new_cmb2_box( array(
 ) );
 
 $tpkh_main->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'tpkh_main_on',
     'type' => 'checkbox',
 ) );
@@ -69,8 +69,8 @@ $tpkh_pemikir = new_cmb2_box( array(
 ) );
 
 $tpkh_pemikir->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'tpkh_tokoh_on',
     'type' => 'checkbox',
 ) );
@@ -125,7 +125,7 @@ $tpkh_pemikir->add_field( array(
 
 /**
  * Koleksi Khas
- * only dosplay when needed
+ * only display when needed
  */
 $tpkh_koleksi= new_cmb2_box( array(
     'id'            => $prefix . 'tpkh_koleksi',
@@ -135,8 +135,8 @@ $tpkh_koleksi= new_cmb2_box( array(
 ) );
 
 $tpkh_koleksi->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'tpkh_koleksi_on',
     'type' => 'checkbox',
 ) );
@@ -160,8 +160,8 @@ $wari_main = new_cmb2_box( array(
 ) );
 
 $wari_main->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_main_on',
     'type' => 'checkbox',
 ) );
@@ -177,7 +177,7 @@ $wari_main->add_field( array(
 
 /**
  * Warisan: Adat Perpatih
- * only dosplay when needed
+ * only display when needed
  */
 $wari_ap = new_cmb2_box( array(
     'id'            => $prefix . 'wari_ap',
@@ -187,15 +187,15 @@ $wari_ap = new_cmb2_box( array(
 ) );
 
 $wari_ap->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_ap_on',
     'type' => 'checkbox',
 ) );
 
 $wari_ap->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'Book or Article cover', 'atma' ),
     'id'   => $prefix . 'wari_ap_thumbnail',
     'type' => 'file',
 ) );
@@ -237,15 +237,15 @@ $wari_ap->add_field( array(
 ) );
 
 $wari_ap->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
+    'name' => __( 'File', 'atma' ),
+    'desc' => __( 'Upload pdf file', 'atma' ),
     'id'   => $prefix . 'wari_ap_file',
     'type' => 'file',
 ) );
 
 /**
  * Warisan: Karya Jawi
- * only dosplay when needed
+ * only display when needed
  */
 
 $wari_kj = new_cmb2_box( array(
@@ -256,50 +256,57 @@ $wari_kj = new_cmb2_box( array(
 ) );
 
 $wari_kj->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_kj_on',
     'type' => 'checkbox',
 ) );
 
 $wari_kj->add_field( array(
-    'name' => __( 'Author', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
+    'id'   => $prefix . 'wari_kj_thumbnail',
+    'type' => 'file',
+) );
+
+$wari_kj->add_field( array(
+    'name' => __( 'Author', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_kj_author',
     'type' => 'text',
 ) );
 
 $wari_kj->add_field( array(
-    'name' => __( 'Source', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Source', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_kj_source',
     'type' => 'text',
 ) );
 
 $wari_kj->add_field( array(
-    'name' => __( 'Accession No', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Accession No', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_kj_author',
     'type' => 'text_small',
 ) );
 
 $wari_kj->add_field( array(
-    'name' => __( 'Page Total', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Page Total', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_kj_page_total',
     'type' => 'text_small',
 ) );
 
 $wari_kj->add_field( array(
-    'name' => __( 'PDF File URL', 'cmb2' ),
-    'desc' => __( 'Upload compressed  .pdf file', 'cmb2' ),
+    'name' => __( 'PDF File URL', 'atma' ),
+    'desc' => __( 'Upload compressed  .pdf file', 'atma' ),
     'id'   => $prefix . 'wari_kj_file',
     'type' => 'file',
 ) );
 
 /**
  * Warisan: Peribahasa
- * only dosplay when needed
+ * only display when needed
  */
 $wari_pbh = new_cmb2_box( array(
     'id'            => $prefix . 'wari_pbh',
@@ -309,8 +316,8 @@ $wari_pbh = new_cmb2_box( array(
 ) );
 
 $wari_pbh->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_pbh_on',
     'type' => 'checkbox',
 ) );
@@ -319,20 +326,6 @@ $wari_pbh->add_field( array(
     'name'    => __( 'Author', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_pbh_author',
-    'type'    => 'text',
-) );
-
-$wari_pbh->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_pbh_database',
-    'type'    => 'text',
-) );
-
-$wari_pbh->add_field( array(
-    'name'    => __( 'Subject', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_pbh_subject',
     'type'    => 'text',
 ) );
 
@@ -377,8 +370,8 @@ $wari_sp = new_cmb2_box( array(
 ) );
 
 $wari_sp->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_sp_on',
     'type' => 'checkbox',
 ) );
@@ -409,26 +402,20 @@ $wari_sp->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_sp_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $wari_sp->add_field( array(
-    'name'    => __( 'Page Total', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_sp_page_total',
-    'type'    => 'text_small',
-) );
-
-$wari_sp->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
-    'id'   => $prefix . 'wari_sp_file',
-    'type' => 'file',
+    'name' => __( 'Text', 'atma' ),
+    'desc' => __( 'Upload pdf file', 'atma' ),
+    'id'   => $prefix . 'wari_sp_text',
+    'type'    => 'wysiwyg',
+    'options' => array( 'textarea_rows' => 5, ),
 ) );
 
 /**
  * Warisan: Pantun Baba
- * only dosplay when needed
+ * only display when needed
  */
 $wari_pb = new_cmb2_box( array(
     'id'            => $prefix . 'wari_pb',
@@ -438,44 +425,23 @@ $wari_pb = new_cmb2_box( array(
 ) );
 
 $wari_pb->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_pb_on',
     'type' => 'checkbox',
 ) );
 
 $wari_pb->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'Book or Article cover', 'atma' ),
     'id'   => $prefix . 'wari_pb_thumbnail',
     'type' => 'file',
-) );
-
-$wari_pb->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_pb_title',
-    'type'    => 'text',
 ) );
 
 $wari_pb->add_field( array(
     'name'    => __( 'Author', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_pb_author',
-    'type'    => 'text',
-) );
-
-$wari_pb->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_pb_database',
-    'type'    => 'text',
-) );
-
-$wari_pb->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_pb_topic',
     'type'    => 'text',
 ) );
 
@@ -498,7 +464,7 @@ $wari_pb->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_pb_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $wari_pb->add_field( array(
@@ -509,10 +475,10 @@ $wari_pb->add_field( array(
 ) );
 
 $wari_pb->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
-    'id'   => $prefix . 'wari_pb_file',
-    'type' => 'file',
+    'name' => __( 'Label', 'atma' ),
+    'desc' => __( 'field description (optional)', 'atma' ),
+    'id'   => $prefix . 'wari_pb_label',
+    'type' => 'text',
 ) );
 
 /**
@@ -527,24 +493,17 @@ $wari_sumt = new_cmb2_box( array(
 ) );
 
 $wari_sumt->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_sumt_on',
     'type' => 'checkbox',
 ) );
 
 $wari_sumt->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'Book or Article cover', 'atma' ),
     'id'   => $prefix . 'wari_sumt_thumbnail',
     'type' => 'file',
-) );
-
-$wari_sumt->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_sumt_title',
-    'type'    => 'text',
 ) );
 
 $wari_sumt->add_field( array(
@@ -587,26 +546,104 @@ $wari_sumt->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_sumt_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $wari_sumt->add_field( array(
-    'name'    => __( 'Page Total', 'atma' ),
+    'name'    => __( 'Label', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_sumt_page_total',
+    'id'      => $prefix . 'wari_sumt_label',
+    'type'    => 'text',
+) );
+
+$wari_sumt->add_field( array(
+    'name' => __( 'Description', 'atma' ),
+    'desc' => __( 'Upload pdf file', 'atma' ),
+    'id'   => $prefix . 'wari_sumt_desc',
+    'type'    => 'wysiwyg',
+    'options' => array( 'textarea_rows' => 5, ),
+) );
+
+$wari_sumt->add_field( array(
+    'name'    => __( 'Type', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_type',
+    'type'    => 'text',
+) );
+
+$wari_sumt->add_field( array(
+    'name'    => __( 'Material', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_material',
+    'type'    => 'text',
+) );
+
+$wari_sumt->add_field( array(
+    'name'    => __( 'Publication Place', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_pub_place',
+    'type'    => 'text',
+) );
+
+$wari_sumt->add_field( array(
+    'name'    => __( 'Publication Name', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_pub_name',
+    'type'    => 'text',
+) );
+
+$wari_sumt->add_field( array(
+    'name'    => __( 'Wood', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_wood',
+    'type'    => 'text',
+) );
+
+$wari_sumt->add_field( array(
+    'name'    => __( 'Width', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_width',
     'type'    => 'text_small',
 ) );
 
 $wari_sumt->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
-    'id'   => $prefix . 'wari_sumt_file',
-    'type' => 'file',
+    'name'    => __( 'Height', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_height',
+    'type'    => 'text_small',
+) );
+
+$wari_sumt->add_field( array(
+    'name'    => __( 'Value', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_value',
+    'type'    => 'text_small',
+) );
+
+$wari_sumt->add_field( array(
+    'name'    => __( 'Technique', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_technique',
+    'type'    => 'text',
+) );
+
+$wari_sumt->add_field( array(
+    'name'    => __( 'Motif', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_motif',
+    'type'    => 'text',
+) );
+
+$wari_sumt->add_field( array(
+    'name'    => __( 'Current Value', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_cur_value',
+    'type'    => 'text',
 ) );
 
 /**
  * Warisan: Raja-raja Melayu
- * only dosplay when needed
+ * only display when needed
  */
 $wari_rrm = new_cmb2_box( array(
     'id'            => $prefix . 'wari_rrm',
@@ -616,15 +653,15 @@ $wari_rrm = new_cmb2_box( array(
 ) );
 
 $wari_rrm->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_rrm_on',
     'type' => 'checkbox',
 ) );
 
 $wari_rrm->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'Book or Article cover', 'atma' ),
     'id'   => $prefix . 'wari_rrm_thumbnail',
     'type' => 'file',
 ) );
@@ -676,7 +713,7 @@ $wari_rrm->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_rrm_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $wari_rrm->add_field( array(
@@ -687,32 +724,32 @@ $wari_rrm->add_field( array(
 ) );
 
 $wari_rrm->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
+    'name' => __( 'File', 'atma' ),
+    'desc' => __( 'Upload pdf file', 'atma' ),
     'id'   => $prefix . 'wari_rrm_file',
     'type' => 'file',
 ) );
 /**
- * Warisan: Maritim Alam Melayu
- * only dosplay when needed
+ * Warisan: Arkeologi Maritim Alam Melayu
+ * only display when needed
  */
 $wari_mam = new_cmb2_box( array(
-    'id'            => $prefix . 'wari_mam',
-    'title'         => __( 'Maritim Alam Melayu', 'atma' ),
+    'id'            => $prefix . 'wari_amam',
+    'title'         => __( 'Arkeologi Maritim Alam Melayu', 'atma' ),
     'object_types'  => array( 'atma_warisan', ),
     'closed'        => true,
 ) );
 
 $wari_mam->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
-    'id'   => $prefix . 'wari_km_on',
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
+    'id'   => $prefix . 'wari_amam_on',
     'type' => 'checkbox',
 ) );
 
 $wari_mam->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'Book or Article cover', 'atma' ),
     'id'   => $prefix . 'wari_mam_thumbnail',
     'type' => 'file',
 ) );
@@ -764,7 +801,7 @@ $wari_mam->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_mam_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $wari_mam->add_field( array(
@@ -775,15 +812,15 @@ $wari_mam->add_field( array(
 ) );
 
 $wari_mam->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
+    'name' => __( 'File', 'atma' ),
+    'desc' => __( 'Upload pdf file', 'atma' ),
     'id'   => $prefix . 'wari_mam_file',
     'type' => 'file',
 ) );
 
 /**
  * Warisan: Busana Melayu
- * only dosplay when needed
+ * only display when needed
  */
 $wari_bm = new_cmb2_box( array(
     'id'            => $prefix . 'wari_bm',
@@ -793,15 +830,15 @@ $wari_bm = new_cmb2_box( array(
 ) );
 
 $wari_bm->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_bm_on',
     'type' => 'checkbox',
 ) );
 
 $wari_bm->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'Book or Article cover', 'atma' ),
     'id'   => $prefix . 'wari_bm_thumbnail',
     'type' => 'file',
 ) );
@@ -853,7 +890,7 @@ $wari_bm->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_bm_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $wari_bm->add_field( array(
@@ -864,15 +901,15 @@ $wari_bm->add_field( array(
 ) );
 
 $wari_bm->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
+    'name' => __( 'File', 'atma' ),
+    'desc' => __( 'Upload pdf file', 'atma' ),
     'id'   => $prefix . 'wari_bm_file',
     'type' => 'file',
 ) );
 
 /**
  * Warisan: Arkeologi Alam Melayu
- * only dosplay when needed
+ * only display when needed
  */
 $wari_aam = new_cmb2_box( array(
     'id'            => $prefix . 'wari_aam',
@@ -882,15 +919,15 @@ $wari_aam = new_cmb2_box( array(
 ) );
 
 $wari_aam->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_aam_on',
     'type' => 'checkbox',
 ) );
 
 $wari_aam->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'Book or Article cover', 'atma' ),
     'id'   => $prefix . 'wari_aam_thumbnail',
     'type' => 'file',
 ) );
@@ -942,7 +979,7 @@ $wari_aam->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_aam_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $wari_aam->add_field( array(
@@ -953,15 +990,15 @@ $wari_aam->add_field( array(
 ) );
 
 $wari_aam->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
+    'name' => __( 'File', 'atma' ),
+    'desc' => __( 'Upload pdf file', 'atma' ),
     'id'   => $prefix . 'wari_aam_file',
     'type' => 'file',
 ) );
 
 /**
  * Warisan: Etnik Alam Melayu
- * only dosplay when needed
+ * only display when needed
  */
 $wari_eam = new_cmb2_box( array(
     'id'            => $prefix . 'wari_eam',
@@ -971,15 +1008,15 @@ $wari_eam = new_cmb2_box( array(
 ) );
 
 $wari_eam->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_eam_on',
     'type' => 'checkbox',
 ) );
 
 $wari_eam->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'Book or Article cover', 'atma' ),
     'id'   => $prefix . 'wari_eam_thumbnail',
     'type' => 'file',
 ) );
@@ -1031,7 +1068,7 @@ $wari_eam->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_eam_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $wari_eam->add_field( array(
@@ -1042,15 +1079,15 @@ $wari_eam->add_field( array(
 ) );
 
 $wari_eam->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
+    'name' => __( 'File', 'atma' ),
+    'desc' => __( 'Upload pdf file', 'atma' ),
     'id'   => $prefix . 'wari_eam_file',
     'type' => 'file',
 ) );
 
 /**
  * Warisan: Tarian Tradisional
- * only dosplay when needed
+ * only display when needed
  */
 $wari_ttd = new_cmb2_box( array(
     'id'            => $prefix . 'wari_ttd',
@@ -1060,15 +1097,15 @@ $wari_ttd = new_cmb2_box( array(
 ) );
 
 $wari_ttd->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_ttd_on',
     'type' => 'checkbox',
 ) );
 
 $wari_ttd->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'Book or Article cover', 'atma' ),
     'id'   => $prefix . 'wari_ttd_thumbnail',
     'type' => 'file',
 ) );
@@ -1120,7 +1157,7 @@ $wari_ttd->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_ttd_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $wari_ttd->add_field( array(
@@ -1131,8 +1168,8 @@ $wari_ttd->add_field( array(
 ) );
 
 $wari_ttd->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
+    'name' => __( 'File', 'atma' ),
+    'desc' => __( 'Upload pdf file', 'atma' ),
     'id'   => $prefix . 'wari_ttd_file',
     'type' => 'file',
 ) );
@@ -1154,8 +1191,8 @@ $kamus_main = new_cmb2_box( array(
 ) );
 
 $kamus_main->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'kamus_main_on',
     'type' => 'checkbox',
 ) );
@@ -1177,8 +1214,8 @@ $kamus_es = new_cmb2_box( array(
 ) );
 
 $kamus_es->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'kamus_es_on',
     'type' => 'checkbox',
 ) );
@@ -1242,8 +1279,8 @@ $kamus_nm = new_cmb2_box( array(
 ) );
 
 $kamus_nm->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'kamus_nm_on',
     'type' => 'checkbox',
 ) );
@@ -1325,8 +1362,8 @@ $padat_main = new_cmb2_box( array(
 ) );
 
 $padat_main->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'padat_main_on',
     'type' => 'checkbox',
 ) );
@@ -1348,15 +1385,15 @@ $padat_ba = new_cmb2_box( array(
 ) );
 
 $padat_ba->add_field( array(
-    'name' => __( 'Display this content', 'cmb2' ),
-    'desc' => __( 'check this box to display this content only', 'cmb2' ),
+    'name' => __( 'Display this content', 'atma' ),
+    'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'padat_ba_on',
     'type' => 'checkbox',
 ) );
 
 $padat_ba->add_field( array(
-    'name' => __( 'Thumbnail', 'cmb2' ),
-    'desc' => __( 'Book or Article cover', 'cmb2' ),
+    'name' => __( 'Thumbnail', 'atma' ),
+    'desc' => __( 'Book or Article cover', 'atma' ),
     'id'   => $prefix . 'padat_ba_thumbnail',
     'type' => 'file',
 ) );
@@ -1408,7 +1445,7 @@ $padat_ba->add_field( array(
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'padat_ba_year',
     'type'    => 'text_date',
-    'date_format'  => 'Y/m/d',
+    'date_format'  => 'Y',
 ) );
 
 $padat_ba->add_field( array(
@@ -1419,8 +1456,8 @@ $padat_ba->add_field( array(
 ) );
 
 $padat_ba->add_field( array(
-    'name' => __( 'File', 'cmb2' ),
-    'desc' => __( 'Upload pdf file', 'cmb2' ),
+    'name' => __( 'File', 'atma' ),
+    'desc' => __( 'Upload pdf file', 'atma' ),
     'id'   => $prefix . 'padat_ba_file',
     'type' => 'file',
 ) );

@@ -6,11 +6,11 @@
 
 get_header(); ?>
 <div class="uk-clearfix wrapper">
-  <article class="padding">
-    <div class="large-3-12">
+  <article class="padding col">
+    <div class="lg-3">
       <?php get_template_part( 'templates/nav', 'database' ); ?>
     </div>
-    <div class="large-9-12 padding-left">
+    <div class="lg-9 padding-left">
     <?php
     
       $onMain = get_post_meta( get_the_ID(), '_atma_tpkh_main_on', true );

@@ -44,7 +44,7 @@ module.exports = function(grunt) {
           noCache: true
         },
         files: {
-          'style.css': 'scss/style.scss',
+          'style.css': 'scss/main.scss',
           'css/admin.css': 'scss/admin.scss'
         }
       }

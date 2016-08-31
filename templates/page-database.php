@@ -9,12 +9,12 @@
 get_header(); ?>
 
 <div class="uk-clearfix wrapper">
-  <article class="padding column">
+  <article class="padding col">
     <?php get_template_part( 'content', 'before' ); ?>
-    <div class="large-3-12">
+    <div class="lg-3 padding-bottom">
       <?php get_template_part( 'templates/nav', 'database' ); ?>
     </div>
-    <div class="large-9-12 padding-left">
+    <div class="lg-9 padding-left">
     <?php while( have_posts() ) : the_post(); ?>
       <?php the_content(); ?>
     <?php endwhile; ?>

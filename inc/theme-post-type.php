@@ -47,6 +47,10 @@ function atma_template_include( $template ) {
   }
   
   if ( is_tax( 'atma_warisan_topic' ) ) {
+    return $plugindir . '/templates/taxonomy-atma_warisan_subject.php';
+  }
+  
+  if ( is_tax( 'atma_warisan_topic' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_topic.php';
   }
 
@@ -117,7 +121,7 @@ function atma_custom_post_type() {
     'description'           => __( 'Collections of Warisan', 'atma' ),
     'labels'                => $labels,
     'supports'              => array( 'title', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'atma_warisan_category', 'atma_warisan_database', 'atma_warisan_keywords', 'atma_warisan_topic' ),
+    'taxonomies'            => array( 'atma_warisan_category', 'atma_warisan_database', 'atma_warisan_keywords', 'atma_warisan_subject','atma_warisan_topic' ),
     'hierarchical'          => true,
     'public'                => true,
     'show_ui'               => true,
@@ -426,7 +430,7 @@ function atma_custom_taxonomy() {
     'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
   );
   $rewrite = array(
-    'slug'                       => 'kategori-warisan',
+    'slug'                       => 'category-warisan',
     'with_front'                 => true,
     'hierarchical'               => false,
   );
@@ -525,6 +529,47 @@ function atma_custom_taxonomy() {
     'rewrite'                    => $rewrite,
   );
   register_taxonomy( 'atma_warisan_keyword', array( 'atma_warisan' ), $args );
+    /**
+   * @name Subject Warisan
+   */
+  $labels = array(
+    'name'                       => _x( 'Warisan Subjects', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Subject', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Subject', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'subject-warisan',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_warisan_subject', array( 'atma_warisan' ), $args );
   /**
    * @name Topic Warisan
    */
@@ -776,3 +821,30 @@ function atma_custom_taxonomy() {
   register_taxonomy( 'atma_karya_category', array( 'atma_karya' ), $args );
 }
 add_action( 'init', 'atma_custom_taxonomy', 0 );
+
+/**
+ * Manage custom column
+ */
+function set_atma_warisan_columns($columns) {
+  return array(
+      'cb'                    => '<input type="checkbox" />',
+      'title'                 => __( 'Title', 'atma' ),
+      'atma_warisan_category' => __( 'Category', 'atma' ),
+      'atma_warisan_database' => __( 'Database', 'atma' ),
+      'atma_warisan_topic'    => __( 'Topic', 'atma' ),
+      'atma_warisan_subject'  => __( 'Subject', 'atma' ),
+      'date'                  => __( 'Date' )
+  );
+}
+
+function custom_atma_warisan_column( $column, $post_id ) {
+  switch ( $column ) {
+    case 'atma_warisan_category' : echo get_the_term_list( $post->ID, 'atma_warisan_category', '', ', ','' ); break;
+    case 'atma_warisan_database' : echo get_the_term_list( $post->ID, 'atma_warisan_database', '', ', ','' ); break;
+    case 'atma_warisan_topic' : echo get_the_term_list( $post->ID, 'atma_warisan_topic', '', ', ','' ); break;
+    case 'atma_warisan_subject' : echo get_the_term_list( $post->ID, 'atma_warisan_subject', '', ', ','' ); break;
+  }
+}
+
+add_filter( 'manage_atma_warisan_posts_columns' , 'set_atma_warisan_columns' );
+add_action( 'manage_atma_warisan_posts_custom_column' , 'custom_atma_warisan_column', 10, 2 );

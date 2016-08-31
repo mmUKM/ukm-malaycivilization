@@ -8,11 +8,11 @@ get_header(); ?>
 
 <div class="uk-clearfix wrapper">
   <?php get_template_part( 'content', 'before' ); ?>
-  <article class="padding column">
-    <div class="large-3-12">
+  <article class="padding col">
+    <div class="lg-3">
       <?php get_template_part( 'templates/nav', 'database' ); ?>
     </div>
-    <div class="large-9-12 padding-left">
+    <div class="lg-9 padding-left">
     <?php while( have_posts() ) : the_post(); ?>
     <?php
       $kamusmainon  = get_post_meta( get_the_ID(), '_atma_kamus_main_on', true );

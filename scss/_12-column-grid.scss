@@ -1,191 +1,191 @@
 $col: 99.99%;
 $box: border-box;
 
-.column {
+.col {
   width: $col;
   box-sizing: $box;
 }
 
-.column:after {
+.col:after {
   content: "";
   display: table;
   clear: both;
 }
 
-[class*="large-"] {
+[class*="lg-"] {
   box-sizing: $box;
   display: block;
   float: left;
 }
-.large-1-12 {
+.lg-1 {
   width: ($col / 12) * 1;
 }
 
-.large-2-12 {
+.lg-2 {
   width: ($col / 12) * 2;
 }
 
-.large-3-12 {
+.lg-3 {
   width: ($col / 12) * 3;
 }
 
-.large-4-12 {
+.lg-4 {
   width: ($col / 12) * 4;
 }
 
-.large-5-12 {
+.lg-5 {
   width: ($col / 12) * 5;
 }
 
-.large-6-12 {
+.lg-6 {
   width: ($col / 12) * 6;
 }
 
-.large-7-12 {
+.lg-7 {
   width: ($col / 12) * 7;
 }
 
-.large-8-12 {
+.lg-8 {
   width: ($col / 12) * 8;
 }
 
-.large-9-12 {
+.lg-9 {
   width: ($col / 12) * 9;
 }
 
-.large-10-12 {
+.lg-10 {
   width: ($col / 12) * 10;
 }
 
-.large-11-12 {
+.lg-11 {
   width: ($col / 12) * 11;
 }
 
-.large-12-12 {
+.lg-12 {
   width: ($col / 12) * 12;
 }
   
 @media only screen and (min-width: 641px) and (max-width: 959px) {
   
-  [class*="medium-"] {
+  [class*="md-"] {
     box-sizing: $box;
     display: block;
     float: left;
   }
-  .medium-1-12 {
+  .md-1 {
     width: ($col / 12) * 1;
   }
 
-  .medium-2-12 {
+  .md-2 {
     width: ($col / 12) * 2;
   }
 
-  .medium-3-12 {
+  .md-3 {
     width: ($col / 12) * 3;
   }
 
-  .medium-4-12 {
+  .md-4 {
     width: ($col / 12) * 4;
   }
 
-  .medium-5-12 {
+  .md-5 {
     width: ($col / 12) * 5;
   }
 
-  .medium-6-12 {
+  .md-6 {
     width: ($col / 12) * 6;
   }
 
-  .medium-7-12 {
+  .md-7 {
     width: ($col / 12) * 7;
   }
 
-  .medium-8-12 {
+  .md-8 {
     width: ($col / 12) * 8;
   }
 
-  .medium-9-12 {
+  .md-9 {
     width: ($col / 12) * 9;
   }
 
-  .medium-10-12 {
+  .md-10 {
     width: ($col / 12) * 10;
   }
 
-  .medium-11-12 {
+  .md-11 {
     width: ($col / 12) * 11;
   }
 
-  .medium-12-12 {
+  .md-12 {
     width: ($col / 12) * 12;
   }
 }
 
 @media only screen and (max-width: 640px) {
   
-   [class*="large-"] {
+   [class*="lg-"] {
     width: 99.99%;
     display: block;
     float: none;
   }
   
-  [class*="medium-"] {
+  [class*="md-"] {
     width: 99.99%;
     display: block;
     float: none;
   }
   
-  [class*="small-"] {
+  [class*="sm-"] {
     box-sizing: $box;
     display: block;
     float: left;
   }
 
-  .small-1-12 {
+  .sm-1 {
     width: ($col / 12) * 1;
   }
 
-  .small-2-12 {
+  .sm-2 {
     width: ($col / 12) * 2;
   }
 
-  .small-3-12 {
+  .sm-3 {
     width: ($col / 12) * 3;
   }
 
-  .small-4-12 {
+  .sm-4 {
     width: ($col / 12) * 4;
   }
 
-  .small-5-12 {
+  .sm-5 {
     width: ($col / 12) * 5;
   }
 
-  .small-6-12 {
+  .sm-6 {
     width: ($col / 12) * 6;
   }
 
-  .small-7-12 {
+  .sm-7 {
     width: ($col / 12) * 7;
   }
 
-  .small-8-12 {
+  .sm-8 {
     width: ($col / 12) * 8;
   }
 
-  .small-9-12 {
+  .sm-9 {
     width: ($col / 12) * 9;
   }
 
-  .small-10-12 {
+  .sm-10 {
     width: ($col / 12) * 10;
   }
 
-  .small-11-12 {
+  .sm-11 {
     width: ($col / 12) * 11;
   }
 
-  .small-12-12 {
+  .sm-12 {
     width: ($col / 12) * 12;
   }
   
