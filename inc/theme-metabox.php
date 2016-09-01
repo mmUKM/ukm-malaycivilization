@@ -507,23 +507,16 @@ $wari_sumt->add_field( array(
 ) );
 
 $wari_sumt->add_field( array(
+    'name'    => __( 'Comment', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_sumt_comment',
+    'type'    => 'text',
+) );
+
+$wari_sumt->add_field( array(
     'name'    => __( 'Author', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'wari_sumt_author',
-    'type'    => 'text',
-) );
-
-$wari_sumt->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_sumt_database',
-    'type'    => 'text',
-) );
-
-$wari_sumt->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_sumt_topic',
     'type'    => 'text',
 ) );
 
@@ -659,76 +652,6 @@ $wari_rrm->add_field( array(
     'type' => 'checkbox',
 ) );
 
-$wari_rrm->add_field( array(
-    'name' => __( 'Thumbnail', 'atma' ),
-    'desc' => __( 'Book or Article cover', 'atma' ),
-    'id'   => $prefix . 'wari_rrm_thumbnail',
-    'type' => 'file',
-) );
-
-$wari_rrm->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_rrm_title',
-    'type'    => 'text',
-) );
-
-$wari_rrm->add_field( array(
-    'name'    => __( 'Author', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_rrm_author',
-    'type'    => 'text',
-) );
-
-$wari_rrm->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_rrm_database',
-    'type'    => 'text',
-) );
-
-$wari_rrm->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_rrm_topic',
-    'type'    => 'text',
-) );
-
-$wari_rrm->add_field( array(
-    'name'    => __( 'Source', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_rrm_source',
-    'type'    => 'text',
-) );
-
-$wari_rrm->add_field( array(
-    'name'    => __( 'Accession No', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_rrm_accession_no',
-    'type'    => 'text_small',
-) );
-
-$wari_rrm->add_field( array(
-    'name'    => __( 'Year', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_rrm_year',
-    'type'    => 'text_date',
-    'date_format'  => 'Y',
-) );
-
-$wari_rrm->add_field( array(
-    'name'    => __( 'Page Total', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_rrm_page_total',
-    'type'    => 'text_small',
-) );
-
-$wari_rrm->add_field( array(
-    'name' => __( 'File', 'atma' ),
-    'desc' => __( 'Upload pdf file', 'atma' ),
-    'id'   => $prefix . 'wari_rrm_file',
-    'type' => 'file',
-) );
 /**
  * Warisan: Arkeologi Maritim Alam Melayu
  * only display when needed
@@ -745,77 +668,6 @@ $wari_mam->add_field( array(
     'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_amam_on',
     'type' => 'checkbox',
-) );
-
-$wari_mam->add_field( array(
-    'name' => __( 'Thumbnail', 'atma' ),
-    'desc' => __( 'Book or Article cover', 'atma' ),
-    'id'   => $prefix . 'wari_mam_thumbnail',
-    'type' => 'file',
-) );
-
-$wari_mam->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_mam_title',
-    'type'    => 'text',
-) );
-
-$wari_mam->add_field( array(
-    'name'    => __( 'Author', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_mam_author',
-    'type'    => 'text',
-) );
-
-$wari_mam->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_mam_database',
-    'type'    => 'text',
-) );
-
-$wari_mam->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_mam_topic',
-    'type'    => 'text',
-) );
-
-$wari_mam->add_field( array(
-    'name'    => __( 'Source', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_mam_source',
-    'type'    => 'text',
-) );
-
-$wari_mam->add_field( array(
-    'name'    => __( 'Accession No', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_mam_accession_no',
-    'type'    => 'text_small',
-) );
-
-$wari_mam->add_field( array(
-    'name'    => __( 'Year', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_mam_year',
-    'type'    => 'text_date',
-    'date_format'  => 'Y',
-) );
-
-$wari_mam->add_field( array(
-    'name'    => __( 'Page Total', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_mam_page_total',
-    'type'    => 'text_small',
-) );
-
-$wari_mam->add_field( array(
-    'name' => __( 'File', 'atma' ),
-    'desc' => __( 'Upload pdf file', 'atma' ),
-    'id'   => $prefix . 'wari_mam_file',
-    'type' => 'file',
 ) );
 
 /**
@@ -836,77 +688,6 @@ $wari_bm->add_field( array(
     'type' => 'checkbox',
 ) );
 
-$wari_bm->add_field( array(
-    'name' => __( 'Thumbnail', 'atma' ),
-    'desc' => __( 'Book or Article cover', 'atma' ),
-    'id'   => $prefix . 'wari_bm_thumbnail',
-    'type' => 'file',
-) );
-
-$wari_bm->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_bm_title',
-    'type'    => 'text',
-) );
-
-$wari_bm->add_field( array(
-    'name'    => __( 'Author', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_bm_author',
-    'type'    => 'text',
-) );
-
-$wari_bm->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_bm_database',
-    'type'    => 'text',
-) );
-
-$wari_bm->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_bm_topic',
-    'type'    => 'text',
-) );
-
-$wari_bm->add_field( array(
-    'name'    => __( 'Source', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_bm_source',
-    'type'    => 'text',
-) );
-
-$wari_bm->add_field( array(
-    'name'    => __( 'Accession No', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_bm_accession_no',
-    'type'    => 'text_small',
-) );
-
-$wari_bm->add_field( array(
-    'name'    => __( 'Year', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_bm_year',
-    'type'    => 'text_date',
-    'date_format'  => 'Y',
-) );
-
-$wari_bm->add_field( array(
-    'name'    => __( 'Page Total', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_bm_page_total',
-    'type'    => 'text_small',
-) );
-
-$wari_bm->add_field( array(
-    'name' => __( 'File', 'atma' ),
-    'desc' => __( 'Upload pdf file', 'atma' ),
-    'id'   => $prefix . 'wari_bm_file',
-    'type' => 'file',
-) );
-
 /**
  * Warisan: Arkeologi Alam Melayu
  * only display when needed
@@ -923,77 +704,6 @@ $wari_aam->add_field( array(
     'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_aam_on',
     'type' => 'checkbox',
-) );
-
-$wari_aam->add_field( array(
-    'name' => __( 'Thumbnail', 'atma' ),
-    'desc' => __( 'Book or Article cover', 'atma' ),
-    'id'   => $prefix . 'wari_aam_thumbnail',
-    'type' => 'file',
-) );
-
-$wari_aam->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_aam_title',
-    'type'    => 'text',
-) );
-
-$wari_aam->add_field( array(
-    'name'    => __( 'Author', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_aam_author',
-    'type'    => 'text',
-) );
-
-$wari_aam->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_aam_database',
-    'type'    => 'text',
-) );
-
-$wari_aam->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_aam_topic',
-    'type'    => 'text',
-) );
-
-$wari_aam->add_field( array(
-    'name'    => __( 'Source', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_aam_source',
-    'type'    => 'text',
-) );
-
-$wari_aam->add_field( array(
-    'name'    => __( 'Accession No', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_aam_accession_no',
-    'type'    => 'text_small',
-) );
-
-$wari_aam->add_field( array(
-    'name'    => __( 'Year', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_aam_year',
-    'type'    => 'text_date',
-    'date_format'  => 'Y',
-) );
-
-$wari_aam->add_field( array(
-    'name'    => __( 'Page Total', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_aam_page_total',
-    'type'    => 'text_small',
-) );
-
-$wari_aam->add_field( array(
-    'name' => __( 'File', 'atma' ),
-    'desc' => __( 'Upload pdf file', 'atma' ),
-    'id'   => $prefix . 'wari_aam_file',
-    'type' => 'file',
 ) );
 
 /**
@@ -1014,77 +724,6 @@ $wari_eam->add_field( array(
     'type' => 'checkbox',
 ) );
 
-$wari_eam->add_field( array(
-    'name' => __( 'Thumbnail', 'atma' ),
-    'desc' => __( 'Book or Article cover', 'atma' ),
-    'id'   => $prefix . 'wari_eam_thumbnail',
-    'type' => 'file',
-) );
-
-$wari_eam->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_eam_title',
-    'type'    => 'text',
-) );
-
-$wari_eam->add_field( array(
-    'name'    => __( 'Author', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_eam_author',
-    'type'    => 'text',
-) );
-
-$wari_eam->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_eam_database',
-    'type'    => 'text',
-) );
-
-$wari_eam->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_eam_topic',
-    'type'    => 'text',
-) );
-
-$wari_eam->add_field( array(
-    'name'    => __( 'Source', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_eam_source',
-    'type'    => 'text',
-) );
-
-$wari_eam->add_field( array(
-    'name'    => __( 'Accession No', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_eam_accession_no',
-    'type'    => 'text_small',
-) );
-
-$wari_eam->add_field( array(
-    'name'    => __( 'Year', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_eam_year',
-    'type'    => 'text_date',
-    'date_format'  => 'Y',
-) );
-
-$wari_eam->add_field( array(
-    'name'    => __( 'Page Total', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_eam_page_total',
-    'type'    => 'text_small',
-) );
-
-$wari_eam->add_field( array(
-    'name' => __( 'File', 'atma' ),
-    'desc' => __( 'Upload pdf file', 'atma' ),
-    'id'   => $prefix . 'wari_eam_file',
-    'type' => 'file',
-) );
-
 /**
  * Warisan: Tarian Tradisional
  * only display when needed
@@ -1101,77 +740,6 @@ $wari_ttd->add_field( array(
     'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_ttd_on',
     'type' => 'checkbox',
-) );
-
-$wari_ttd->add_field( array(
-    'name' => __( 'Thumbnail', 'atma' ),
-    'desc' => __( 'Book or Article cover', 'atma' ),
-    'id'   => $prefix . 'wari_ttd_thumbnail',
-    'type' => 'file',
-) );
-
-$wari_ttd->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ttd_title',
-    'type'    => 'text',
-) );
-
-$wari_ttd->add_field( array(
-    'name'    => __( 'Author', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ttd_author',
-    'type'    => 'text',
-) );
-
-$wari_ttd->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ttd_database',
-    'type'    => 'text',
-) );
-
-$wari_ttd->add_field( array(
-    'name'    => __( 'Topic', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ttd_topic',
-    'type'    => 'text',
-) );
-
-$wari_ttd->add_field( array(
-    'name'    => __( 'Source', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ttd_source',
-    'type'    => 'text',
-) );
-
-$wari_ttd->add_field( array(
-    'name'    => __( 'Accession No', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ttd_accession_no',
-    'type'    => 'text_small',
-) );
-
-$wari_ttd->add_field( array(
-    'name'    => __( 'Year', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ttd_year',
-    'type'    => 'text_date',
-    'date_format'  => 'Y',
-) );
-
-$wari_ttd->add_field( array(
-    'name'    => __( 'Page Total', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'wari_ttd_page_total',
-    'type'    => 'text_small',
-) );
-
-$wari_ttd->add_field( array(
-    'name' => __( 'File', 'atma' ),
-    'desc' => __( 'Upload pdf file', 'atma' ),
-    'id'   => $prefix . 'wari_ttd_file',
-    'type' => 'file',
 ) );
 
 /**

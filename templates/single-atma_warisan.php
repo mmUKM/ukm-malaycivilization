@@ -220,33 +220,37 @@ get_header(); ?>
       </table>
     </div>
     <?php }//end waripbhon?>
-    <?php if ( $warispon == on ) { ?>
-    <div id="padat-ba-content">
-      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_thumbnail', true ); ?>" width="200" alt="">
+    <?php
+    /**
+     * Paparan halaman Warisan: Sejuta Pantun
+     */
+    if ( $warispon == on ) { ?>
+    <div id="warisan-sp-content">
+      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_sp_thumbnail', true ); ?>" width="200" alt="">
       <table class="data-content">
         <tr>
           <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_title', true ); ?></td>
+          <td><?php the_title(); ?></td>
         </tr>
         <tr>
           <td><strong>Author</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_author', true ); ?></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sp_author', true ); ?></td>
         </tr>
         <tr>
           <td><strong>Database</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_database', true ); ?></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_database', '', ', ', '' ); ?></td>
         </tr>
         <tr>
           <td><strong>Topic</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_topic', true ); ?></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_topic', '', ', ', '' ); ?></td>
         </tr>
         <tr>
           <td><strong>Source</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_source', true ); ?></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sp_source', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Keywords</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_keyword', '', ', ', '' ); ?></td>
+          <td><strong>Subject</strong></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_subject', '', ', ', '' ); ?></td>
         </tr>
         <tr>
           <td><strong>Accession No</strong></td>
@@ -254,50 +258,50 @@ get_header(); ?>
         </tr>
         <tr>
           <td><strong>Year</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_year', true ); ?></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sp_year', true ); ?></td>
         </tr>
         <tr>
           <td><strong>Category</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_category', '', '<br>', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Page Total</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_page_total', true ); ?></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_category', '', '<br>', '' ); ?></td>
         </tr>
         <tr>
           <td><strong>Download</strong></td>
-          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_file', true ); ?>">Portable Document Format (PDF)</a></td>
+          <td><?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_wari_sp_text', true ) ); ?></td>
         </tr>
       </table>
     </div>
     <?php }//end warispon?>
-    <?php if ( $waripbon == on ) { ?>
-    <div id="padat-ba-content">
-      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_thumbnail', true ); ?>" width="200" alt="">
+    <?php
+    /**
+     * Paparan halaman untuk Warisan: Pantun Baba
+     */
+    if ( $waripbon == on ) { ?>
+    <div id="warisan-pb-content">
+      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_pb_thumbnail', true ); ?>" width="200" alt="">
       <table class="data-content">
         <tr>
           <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_title', true ); ?></td>
+          <td><?php the_title(); ?></td>
         </tr>
         <tr>
           <td><strong>Author</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_author', true ); ?></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_pb_author', true ); ?></td>
         </tr>
         <tr>
           <td><strong>Database</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_database', true ); ?></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_database', '', ', ', '' ); ?></td>
         </tr>
         <tr>
           <td><strong>Topic</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_topic', true ); ?></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_topic', '', ', ', '' ); ?></td>
         </tr>
         <tr>
           <td><strong>Source</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_source', true ); ?></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_pb_source', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Keywords</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_keyword', '', ', ', '' ); ?></td>
+          <td><strong>Subject</strong></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_subject', '', ', ', '' ); ?></td>
         </tr>
         <tr>
           <td><strong>Accession No</strong></td>
@@ -305,380 +309,122 @@ get_header(); ?>
         </tr>
         <tr>
           <td><strong>Year</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_year', true ); ?></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_pb_year', true ); ?></td>
         </tr>
         <tr>
           <td><strong>Category</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_category', '', '<br>', '' ); ?></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_category', '', '<br>', '' ); ?></td>
         </tr>
         <tr>
-          <td><strong>Page Total</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_page_total', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Download</strong></td>
-          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_file', true ); ?>">Portable Document Format (PDF)</a></td>
+          <td><strong>Text</strong></td>
+          <td><?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_wari_pb_text', true ) ); ?></td>
         </tr>
       </table>
     </div>
     <?php }//end waripbon?>
-    <?php if ( $warisumton == on ) { ?>
-    <div id="padat-ba-content">
-      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_thumbnail', true ); ?>" width="200" alt="">
+    <?php
+    /**
+     * Paparan halam untuk Warisan: Seni Ukir Melayu Tradisional
+     */
+    if ( $warisumton == on ) { ?>
+    <div id="wari-sumt-content">
+      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_thumbnail', true ); ?>" width="200" alt="">
       <table class="data-content">
         <tr>
           <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_title', true ); ?></td>
+          <td><?php the_title(); ?></td>
+        </tr>
+        <tr>
+          <td><strong>Comments</strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_comment', true ); ?></td>
         </tr>
         <tr>
           <td><strong>Author</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_author', true ); ?></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_author', true ); ?></td>
         </tr>
         <tr>
           <td><strong>Database</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_database', true ); ?></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_database', '', ',', '' ); ?></td>
         </tr>
         <tr>
           <td><strong>Topic</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_topic', true ); ?></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_topic', '', ',', '' ); ?></td>
         </tr>
         <tr>
           <td><strong>Source</strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_source', true ); ?></td>
         </tr>
         <tr>
+          <td><strong>Subject</strong></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_subject', '', ', ', '' ); ?></td>
+        </tr>
+        <tr>
           <td><strong>Keywords</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_keyword', '', ', ', '' ); ?></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_keyword', '', ', ', '' ); ?></td>
         </tr>
         <tr>
           <td><strong>Accession No</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_accession_no', true ); ?></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_accession_no', true ); ?></td>
         </tr>
         <tr>
           <td><strong>Year</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_year', true ); ?></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_year', true ); ?></td>
         </tr>
         <tr>
           <td><strong>Category</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_category', '', '<br>', '' ); ?></td>
+          <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_category', '', ',', '' ); ?></td>
         </tr>
         <tr>
-          <td><strong>Page Total</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_page_total', true ); ?></td>
+          <td><strong>Label</strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_label', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Download</strong></td>
-          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_file', true ); ?>">Portable Document Format (PDF)</a></td>
+          <td><strong>Description</strong></td>
+          <td><?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_wari_ba_page_total', true ) ); ?></td>
+        </tr>
+        <tr>
+          <td><strong>Type</strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_type', true ); ?></td>
+        </tr>
+        <tr>
+          <td><strong>Material</strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_material', true ); ?></td>
+        </tr>
+        <tr>
+          <td><strong><?php _e( 'Publication Place', 'atma' ); ?></strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_pub_place', true ); ?></td>
+        </tr>
+        <tr>
+          <td><strong><?php _e( 'Wood', 'atma' ); ?></strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_wood', true ); ?></td>
+        </tr>
+        <tr>
+          <td><strong><?php _e( 'Width', 'atma' ); ?></strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_width', true ); ?></td>
+        </tr>
+        <tr>
+          <td><strong><?php _e( 'Height', 'atma' ); ?></strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_height', true ); ?></td>
+        </tr>
+        <tr>
+          <td><strong><?php _e( 'Value', 'atma' ); ?></strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_value', true ); ?></td>
+        </tr>
+        <tr>
+          <td><strong><?php _e( 'Technique', 'atma' ); ?></strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_technique', true ); ?></td>
+        </tr>
+        <tr>
+          <td><strong><?php _e( 'Motif', 'atma' ); ?></strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_sumt_motif', true ); ?></td>
+        </tr>
+        <tr>
+          <td><strong><?php _e( 'Current Value', 'atma' ); ?></strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_cur_value', true ); ?></td>
         </tr>
       </table>
     </div>
     <?php }//end warisumton?>
-    <?php if ( $warirrmon == on ) { ?>
-    <div id="padat-ba-content">
-      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_thumbnail', true ); ?>" width="200" alt="">
-      <table class="data-content">
-        <tr>
-          <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_title', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Author</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_author', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Database</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_database', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Topic</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_topic', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Source</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_source', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Keywords</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_keyword', '', ', ', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Accession No</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_accession_no', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Year</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_year', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Category</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_category', '', '<br>', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Page Total</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_page_total', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Download</strong></td>
-          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_file', true ); ?>">Portable Document Format (PDF)</a></td>
-        </tr>
-      </table>
-    </div>
-    <?php }//end warirrmon?>
-    <?php if ( $warimamon == on ) { ?>
-    <div id="padat-ba-content">
-      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_thumbnail', true ); ?>" width="200" alt="">
-      <table class="data-content">
-        <tr>
-          <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_title', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Author</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_author', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Database</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_database', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Topic</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_topic', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Source</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_source', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Keywords</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_keyword', '', ', ', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Accession No</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_accession_no', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Year</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_year', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Category</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_category', '', '<br>', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Page Total</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_page_total', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Download</strong></td>
-          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_file', true ); ?>">Portable Document Format (PDF)</a></td>
-        </tr>
-      </table>
-    </div>
-    <?php }//end warimamon?>
-    <?php if ( $waribmon == on ) { ?>
-    <div id="padat-ba-content">
-      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_thumbnail', true ); ?>" width="200" alt="">
-      <table class="data-content">
-        <tr>
-          <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_title', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Author</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_author', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Database</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_database', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Topic</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_topic', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Source</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_source', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Keywords</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_keyword', '', ', ', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Accession No</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_accession_no', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Year</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_year', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Category</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_category', '', '<br>', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Page Total</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_page_total', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Download</strong></td>
-          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_file', true ); ?>">Portable Document Format (PDF)</a></td>
-        </tr>
-      </table>
-    </div>
-    <?php }//end waribmon?>
-    <?php if ( $wariaamon == on ) { ?>
-    <div id="padat-ba-content">
-      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_thumbnail', true ); ?>" width="200" alt="">
-      <table class="data-content">
-        <tr>
-          <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_title', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Author</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_author', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Database</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_database', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Topic</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_topic', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Source</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_source', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Keywords</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_keyword', '', ', ', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Accession No</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_accession_no', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Year</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_year', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Category</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_category', '', '<br>', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Page Total</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_page_total', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Download</strong></td>
-          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_file', true ); ?>">Portable Document Format (PDF)</a></td>
-        </tr>
-      </table>
-    </div>
-    <?php }//end wariaamon?>
-    <?php if ( $warieamon == on ) { ?>
-    <div id="padat-ba-content">
-      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_thumbnail', true ); ?>" width="200" alt="">
-      <table class="data-content">
-        <tr>
-          <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_title', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Author</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_author', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Database</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_database', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Topic</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_topic', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Source</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_source', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Keywords</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_keyword', '', ', ', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Accession No</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_accession_no', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Year</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_year', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Category</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_category', '', '<br>', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Page Total</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_page_total', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Download</strong></td>
-          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_file', true ); ?>">Portable Document Format (PDF)</a></td>
-        </tr>
-      </table>
-    </div>
-    <?php }//end warieamon?>
-    <?php if ( $warittdon == on ) { ?>
-    <div id="padat-ba-content">
-      <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_thumbnail', true ); ?>" width="200" alt="">
-      <table class="data-content">
-        <tr>
-          <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_title', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Author</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_author', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Database</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_database', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Topic</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_topic', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Source</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_source', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Keywords</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_keyword', '', ', ', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Accession No</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_accession_no', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Year</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_year', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Category</strong></td>
-          <td><?php echo get_the_term_list( $post->ID, 'atma_padat_category', '', '<br>', '' ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Page Total</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_page_total', true ); ?></td>
-        </tr>
-        <tr>
-          <td><strong>Download</strong></td>
-          <td><a href="<?php echo get_post_meta( get_the_ID(), '_atma_wari_ba_file', true ); ?>">Portable Document Format (PDF)</a></td>
-        </tr>
-      </table>
-    </div>
-    <?php }//end waritdon?>    
     <?php endwhile; ?>
     </div>
   </article>
