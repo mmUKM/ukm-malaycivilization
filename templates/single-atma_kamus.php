@@ -30,35 +30,35 @@ get_header(); ?>
     <div id="kamus-es-content">
       <table class="data-content">
         <tr>
-          <td><strong>Root Word</strong></td>
+          <td><strong><?php _e( 'Root Word', 'atma' ); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_root', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Author</strong></td>
+          <td><strong><?php _e( 'Author', 'atma'); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_author', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Database</strong></td>
+          <td><strong><?php _e( 'Database', 'atma' ); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_db', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Topic</strong></td>
+          <td><strong><?php _e( 'Topic', 'atma' ); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_topic', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Subject</strong></td>
+          <td><strong><?php _e( 'Subject', 'atma' ); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_subject', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Accession No</strong></td>
+          <td><strong><?php _e( 'Accession No.', 'atma' ); ?></strong></td>
           <td><?php echo get_the_ID() ?></td>
         </tr>
         <tr>
-          <td><strong>Year</strong></td>
+          <td><strong><?php _e( 'Year', 'atma' ); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_year', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Description</strong></td>
+          <td><strong><?php _e( 'Description', 'atma' ); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_desc', true ); ?></td>
         </tr>
       </table>
@@ -70,19 +70,19 @@ get_header(); ?>
       <img src="<?php echo get_post_meta( get_the_ID(), '_atma_kamus_nm_image', true ); ?>" alt="">
       <table class="data-content">
         <tr>
-          <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_nm_title', true ); ?></td>
+          <td><strong><?php _e( 'Title', 'atma' ); ?></strong></td>
+          <td><?php the_title(); ?></td>
         </tr>
         <tr>
-          <td><strong>Author</strong></td>
+          <td><strong><?php _e( 'Author', 'atma' ); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_nm_author', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Database</strong></td>
+          <td><strong><?php _e( 'Database', 'atma' ); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_nm_db', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Topic</strong></td>
+          <td><strong><?php _e( 'Topic', 'atma'); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_nm_topic', true ); ?></td>
         </tr>
         <tr>
