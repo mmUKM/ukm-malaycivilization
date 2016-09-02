@@ -7,7 +7,7 @@
 get_header(); ?>
 
 <div class="uk-clearfix wrapper">
-  <article class="padding">
+  <article class="padding col">
     <h1><?php single_cat_title(); ?></h1>
     <div class="lg-3">
       <?php get_template_part( 'templates/nav', 'database' ); ?>
@@ -25,11 +25,11 @@ get_header(); ?>
     ?>
     <ul class="data-content-list">
     <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
-      <li class="col">
+      <li class="col padding">
         <div class="lg-10">
           <?php the_title( '<h3>', '</h3>' ); ?>
           <div class="kamus-category-description">
-            <?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_desc', true ); ?>
+            <em><?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_desc', true ); ?></em>
           </div>
         </div>
         <div class="lg-2"><a class="data-content-detail-link" href="<?php echo get_permalink(); ?>"><?php _e( 'Detail', 'atma' ); ?></a></div>
@@ -38,19 +38,16 @@ get_header(); ?>
 
       <?php endif; ?>
     </ul>
-      <div class="uk-clearfix">
+      <div class="uk-clearfix padding">
         <?php
         global $wp_query;
 
         $big = 999999999; // need an unlikely integer
-        $translated = __( 'Page', 'mytextdomain' ); // Supply translatable string
-
         echo paginate_links( array(
             'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
             'format'  => '?paged=%#%',
             'current' => max( 1, get_query_var('paged') ),
             'total'   => $wp_query->max_num_pages,
-            'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
         ) );
         ?>
       </div>
