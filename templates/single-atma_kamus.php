@@ -31,7 +31,7 @@ get_header(); ?>
       <table class="data-content">
         <tr>
           <td><strong><?php _e( 'Root Word', 'atma' ); ?></strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_kamus_es_root', true ); ?></td>
+          <td><?php the_title(); ?></td>
         </tr>
         <tr>
           <td><strong><?php _e( 'Author', 'atma'); ?></strong></td>

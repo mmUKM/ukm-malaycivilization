@@ -18,17 +18,11 @@ get_header(); ?>
     <?php
       $warimainon   = get_post_meta( get_the_ID(), '_atma_wari_main_on', true );
       $wariaapon    = get_post_meta( get_the_ID(), '_atma_wari_ap_on', true );
-      $warikjon     = get_post_meta( get_the_ID(), '_atma_wari_main_on', true );
+      $warikjon     = get_post_meta( get_the_ID(), '_atma_wari_kj_on', true );
       $waripbhon    = get_post_meta( get_the_ID(), '_atma_wari_pbh_on', true );
       $warispon     = get_post_meta( get_the_ID(), '_atma_wari_sp_on', true );
       $waripbon     = get_post_meta( get_the_ID(), '_atma_wari_pb_on', true );
       $warisumton   = get_post_meta( get_the_ID(), '_atma_wari_sumt_on', true );
-      $warirrmon    = get_post_meta( get_the_ID(), '_atma_wari_rrm_on', true );
-      $warimamon    = get_post_meta( get_the_ID(), '_atma_wari_mam_on', true );
-      $waribmon     = get_post_meta( get_the_ID(), '_atma_wari_bm_on', true );
-      $wariaamon    = get_post_meta( get_the_ID(), '_atma_wari_aam_on', true );
-      $warieamon    = get_post_meta( get_the_ID(), '_atma_wari_eam_on', true );
-      $warittdon     = get_post_meta( get_the_ID(), '_atma_wari_td_on', true );
     ?>
 
     <?php if ( $warimainon == on ) { ?>
@@ -102,23 +96,23 @@ get_header(); ?>
       <img src="<?php echo get_post_meta( get_the_ID(), '_atma_wari_kj_thumbnail', true ); ?>" width="200" alt="">
       <table class="data-content">
         <tr>
-          <td><strong>Title</strong></td>
+          <td><strong><?php _e('Title', 'atma' ); ?></strong></td>
           <td><?php the_title(); ?></td>
         </tr>
         <tr>
-          <td><strong>Author</strong></td>
+          <td><strong><?php _e( 'Author', 'atma' ); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_kj_author', true ); ?></td>
         </tr>
         <tr>
-          <td><strong>Database</strong></td>
+          <td><strong><?php _e( 'Database', 'atma' ); ?></strong></td>
           <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_database', '', ', ','' ); ?></td>
         </tr>
         <tr>
-          <td><strong>Topic</strong></td>
+          <td><strong><?php _e( 'Topic', 'atma' ); ?></strong></td>
           <td><?php echo get_the_term_list( $post->ID, 'atma_warisan_topic', '', ', ','' ); ?></td>
         </tr>
         <tr>
-          <td><strong>Source</strong></td>
+          <td><strong><?php _e( 'Source', 'atma' ); ?></strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_wari_kj_source', true ); ?></td>
         </tr>
         <tr>

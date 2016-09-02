@@ -2,32 +2,11 @@
 Contributors: Jamaludin Rajalu
 Requires at least: WordPress 4.0
 Tested up to: WordPress 4.6
-Version: 0.0.16
+Version: 0.0.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: red, two column, three column, four column, responsive design
-
-== Description ==
-WordPress theme for UKM website and other departments under UKM.
-
-* Mobile-first, Responsive Layout
-* Custom Colors
-* Custom Logo
-* Social Links
-* Post Formats
-* The GPL v2.0 or later license. :) Use it to make something cool.
-
-For more information about UKM Malaycivilization please go to https://github.com/mmUKM/ukm-malaycivilization.
-
-== Installation ==
-
-1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
-2. Upload zip file that downloaded from http://www.ukm.my/template.
-3. Click on the 'Activate' button to use your new theme right away.
-4. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
 == Copyright ==
-
 UKM Malaycivilization WordPress Theme
 Copyright (C) 2016  Jamaludin Rajalu
 
@@ -53,7 +32,3 @@ Source: https://github.com/WebDevStudios/CMB2
 UIKit
 License: Copyright YOOtheme GmbH under the MIT license.
 Source: https://github.com/uikit/uikit
-
-== Notes ==
-
-Thank you for using it.

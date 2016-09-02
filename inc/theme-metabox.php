@@ -286,7 +286,7 @@ $wari_kj->add_field( array(
 $wari_kj->add_field( array(
     'name' => __( 'Accession No', 'atma' ),
     'desc' => __( 'check this box to display this content only', 'atma' ),
-    'id'   => $prefix . 'wari_kj_author',
+    'id'   => $prefix . 'wari_kj_accession_no',
     'type' => 'text_small',
 ) );
 
@@ -295,6 +295,14 @@ $wari_kj->add_field( array(
     'desc' => __( 'check this box to display this content only', 'atma' ),
     'id'   => $prefix . 'wari_kj_page_total',
     'type' => 'text_small',
+) );
+
+$wari_kj->add_field( array(
+    'name'    => __( 'Year', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'wari_kj_year',
+    'type'    => 'text_date',
+    'date_format'  => 'Y',
 ) );
 
 $wari_kj->add_field( array(
