@@ -797,13 +797,6 @@ $kamus_es->add_field( array(
 ) );
 
 $kamus_es->add_field( array(
-    'name' => __( 'Root Word', 'atma' ),
-    'desc' => __( '', 'atma' ),
-    'id'   => $prefix . 'kamus_es_root',
-    'type' => 'text',
-) );
-
-$kamus_es->add_field( array(
     'name' => __( 'Author', 'atma' ),
     'desc' => __( '', 'atma' ),
     'id'   => $prefix . 'kamus_es_author',
