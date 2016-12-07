@@ -2,13 +2,13 @@
 /**
  * @package ATMA
  * @subpackage malaycivilization
- * 
+ *
  * @global type $wp_query
  * @param type $template
  * @return type
  */
 function atma_template_include( $template ) {
-  
+
   global $wp_query;
   $plugindir = get_template_directory();
 
@@ -29,7 +29,7 @@ function atma_template_include( $template ) {
   if( $post_type == 'atma_kamus' ) {
     return $plugindir . '/templates/single-atma_kamus.php';
   }
-  
+
   if( $post_type == 'atma_karya' ) {
     return $plugindir . '/templates/single-atma_karya.php';
   }
@@ -37,7 +37,7 @@ function atma_template_include( $template ) {
   if ( is_tax( 'atma_warisan_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_category.php';
   }
-  
+
   if ( is_tax( 'atma_warisan_database' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_database.php';
   }
@@ -45,11 +45,11 @@ function atma_template_include( $template ) {
   if ( is_tax( 'atma_warisan_keyword' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_keyword.php';
   }
-  
+
   if ( is_tax( 'atma_warisan_topic' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_subject.php';
   }
-  
+
   if ( is_tax( 'atma_warisan_topic' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_topic.php';
   }
@@ -57,7 +57,7 @@ function atma_template_include( $template ) {
   if ( is_tax( 'atma_padat_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_padat_category.php';
   }
-  
+
   if ( is_tax( 'atma_padat_keyword' ) ) {
     return $plugindir . '/templates/taxonomy-atma_padat_keyword.php';
   }
@@ -65,16 +65,16 @@ function atma_template_include( $template ) {
   if ( is_tax( 'atma_tpkh_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_tpkh_category.php';
   }
-  
+
   if ( is_tax( 'atma_kamus_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_kamus_category.php';
   }
-  
+
   if ( is_tax( 'atma_karya_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_karya_category.php';
   }
 
-  return $template;   
+  return $template;
 }
 add_filter( 'template_include', 'atma_template_include' );
 
@@ -385,13 +385,117 @@ function atma_custom_post_type() {
     'show_in_admin_bar'     => false,
     'show_in_nav_menus'     => false,
     'can_export'            => true,
-    'has_archive'           => false,   
+    'has_archive'           => false,
     'exclude_from_search'   => false,
     'publicly_queryable'    => true,
     'query_var'             => 'slideshow',
     'capability_type'       => 'page',
   );
   register_post_type( 'atma_slideshow', $args );
+
+  /**
+   * Audio
+   */
+  $labels = array(
+    'name'                  => _x( 'Audios', 'Post Type General Name', 'atma' ),
+    'singular_name'         => _x( 'Audio', 'Post Type Singular Name', 'atma' ),
+    'menu_name'             => __( 'Audio', 'atma' ),
+    'name_admin_bar'        => __( 'Audio', 'atma' ),
+    'archives'              => __( 'Item Archives', 'atma' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'atma' ),
+    'all_items'             => __( 'All Items', 'atma' ),
+    'add_new_item'          => __( 'Add New Item', 'atma' ),
+    'add_new'               => __( 'Add New', 'atma' ),
+    'new_item'              => __( 'New Item', 'atma' ),
+    'edit_item'             => __( 'Edit Item', 'atma' ),
+    'update_item'           => __( 'Update Item', 'atma' ),
+    'view_item'             => __( 'View Item', 'atma' ),
+    'search_items'          => __( 'Search Item', 'atma' ),
+    'not_found'             => __( 'Not found', 'atma' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'atma' ),
+    'featured_image'        => __( 'Featured Image', 'atma' ),
+    'set_featured_image'    => __( 'Set featured image', 'atma' ),
+    'remove_featured_image' => __( 'Remove featured image', 'atma' ),
+    'use_featured_image'    => __( 'Use as featured image', 'atma' ),
+    'insert_into_item'      => __( 'Insert into item', 'atma' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'atma' ),
+    'items_list'            => __( 'Items list', 'atma' ),
+    'items_list_navigation' => __( 'Items list navigation', 'atma' ),
+    'filter_items_list'     => __( 'Filter items list', 'atma' ),
+  );
+  $args = array(
+    'label'                 => __( 'Audio', 'atma' ),
+    'description'           => __( 'Audio collections', 'atma' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'revisions', 'page-attributes', ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    //'menu_position'         => 5,
+    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
+    'show_in_admin_bar'     => false,
+    'show_in_nav_menus'     => false,
+    'can_export'            => true,
+    'has_archive'           => false,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'query_var'             => 'audio',
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'atma_audio', $args );
+
+  /**
+   * Video
+   */
+  $labels = array(
+    'name'                  => _x( 'Videos', 'Post Type General Name', 'atma' ),
+    'singular_name'         => _x( 'Video', 'Post Type Singular Name', 'atma' ),
+    'menu_name'             => __( 'Video', 'atma' ),
+    'name_admin_bar'        => __( 'Video', 'atma' ),
+    'archives'              => __( 'Item Archives', 'atma' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'atma' ),
+    'all_items'             => __( 'All Items', 'atma' ),
+    'add_new_item'          => __( 'Add New Item', 'atma' ),
+    'add_new'               => __( 'Add New', 'atma' ),
+    'new_item'              => __( 'New Item', 'atma' ),
+    'edit_item'             => __( 'Edit Item', 'atma' ),
+    'update_item'           => __( 'Update Item', 'atma' ),
+    'view_item'             => __( 'View Item', 'atma' ),
+    'search_items'          => __( 'Search Item', 'atma' ),
+    'not_found'             => __( 'Not found', 'atma' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'atma' ),
+    'featured_image'        => __( 'Featured Image', 'atma' ),
+    'set_featured_image'    => __( 'Set featured image', 'atma' ),
+    'remove_featured_image' => __( 'Remove featured image', 'atma' ),
+    'use_featured_image'    => __( 'Use as featured image', 'atma' ),
+    'insert_into_item'      => __( 'Insert into item', 'atma' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'atma' ),
+    'items_list'            => __( 'Items list', 'atma' ),
+    'items_list_navigation' => __( 'Items list navigation', 'atma' ),
+    'filter_items_list'     => __( 'Filter items list', 'atma' ),
+  );
+  $args = array(
+    'label'                 => __( 'Video', 'atma' ),
+    'description'           => __( 'Video collections', 'atma' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'revisions', 'page-attributes', ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    //'menu_position'         => 5,
+    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
+    'show_in_admin_bar'     => false,
+    'show_in_nav_menus'     => false,
+    'can_export'            => true,
+    'has_archive'           => false,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'query_var'             => 'video',
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'atma_video', $args );
 }
 add_action( 'init', 'atma_custom_post_type', 0 );
 
@@ -445,7 +549,7 @@ function atma_custom_taxonomy() {
     'rewrite'                    => $rewrite,
   );
   register_taxonomy( 'atma_warisan_category', array( 'atma_warisan' ), $args );
-  
+
   /**
    * @name Database Warisan
    */
@@ -693,7 +797,7 @@ function atma_custom_taxonomy() {
     'rewrite'                    => $rewrite,
   );
   register_taxonomy( 'atma_padat_keyword', array( 'atma_padat' ), $args );
-  
+
   /**
    * @name Tokoh Pemikir & Koleksi Khas
    */
@@ -736,7 +840,7 @@ function atma_custom_taxonomy() {
     'rewrite'                    => $rewrite,
   );
   register_taxonomy( 'atma_tpkh_category', array( 'atma_tpkh' ), $args );
-  
+
   /**
    * @name Kamus
    */
@@ -782,7 +886,7 @@ function atma_custom_taxonomy() {
    * Karya
    */
   $labels = array(
-    'name'                       => _x( 'Categories', 'Taxonomy General Name', 'atma' ),
+    'name'                       => _x( 'Karya Categories', 'Taxonomy General Name', 'atma' ),
     'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
     'menu_name'                  => __( 'Category', 'atma' ),
     'all_items'                  => __( 'All Items', 'atma' ),
@@ -819,6 +923,48 @@ function atma_custom_taxonomy() {
     'rewrite'                    => $rewrite,
   );
   register_taxonomy( 'atma_karya_category', array( 'atma_karya' ), $args );
+
+  /**
+   * Kategori Media
+   */
+  $labels = array(
+    'name'                       => _x( 'Media Categories', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Category', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'kategori-media',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_media_category', array( 'atma_audio', 'atma_video' ), $args );
 }
 add_action( 'init', 'atma_custom_taxonomy', 0 );
 
