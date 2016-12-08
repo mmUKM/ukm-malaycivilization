@@ -2,7 +2,7 @@
 /**
  * @package ATMA
  * @subpackage malaycivilization
- * 
+ *
  * Custom Metabox 2
  * -----------------------------
  * Menambah field/form/metabox pada custom post type
@@ -1033,6 +1033,70 @@ $padat_ba->add_field( array(
 
 /**
  * @package ukm-malaycivilization
+ * @subpackage media
+ */
+$media_audio = new_cmb2_box( array(
+    'id'            => $prefix . 'media_audio',
+    'title'         => __( 'Audio Details', 'atma' ),
+    'object_types'  => array( 'atma_audio', ),
+    'closed'        => false,
+) );
+
+$media_audio->add_field( array(
+    'name'    => __( 'Audio File', 'atma' ),
+    'desc'    => __( 'Enter a soundcloud URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'atma' ),
+    'id'      => $prefix . 'media_audio_file',
+    'type'    => 'oembed',
+) );
+
+$media_audio->add_field( array(
+    'name'    => __( 'Author', 'atma' ),
+    'desc'    => __( '', 'atma' ),
+    'id'      => $prefix . 'media_audio_author',
+    'type'    => 'text',
+) );
+
+$media_audio->add_field( array(
+    'name'    => __( 'Source', 'atma' ),
+    'desc'    => __( '', 'atma' ),
+    'id'      => $prefix . 'media_audio_source',
+    'type'    => 'text',
+) );
+
+/**
+ * @package ukm-malaycivilization
+ * @subpackage media
+ */
+$media_video = new_cmb2_box( array(
+    'id'            => $prefix . 'media_video',
+    'title'         => __( 'Video Details', 'atma' ),
+    'object_types'  => array( 'atma_video', ),
+    'closed'        => false,
+) );
+
+$media_video->add_field( array(
+    'name'    => __( 'Video File', 'atma' ),
+    'desc'    => __( 'Enter a youtube or vimeo URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'atma' ),
+    'id'      => $prefix . 'media_video_file',
+    'type'    => 'oembed',
+) );
+
+$media_video->add_field( array(
+    'name'    => __( 'Author', 'atma' ),
+    'desc'    => __( '', 'atma' ),
+    'id'      => $prefix . 'media_video_author',
+    'type'    => 'text',
+) );
+
+$media_video->add_field( array(
+    'name'    => __( 'Source', 'atma' ),
+    'desc'    => __( '', 'atma' ),
+    'id'      => $prefix . 'media_video_source',
+    'type'    => 'text',
+) );
+
+/**
+ * @package ukm-malaycivilization
  * @subpackage slideshow
  * Frontpage slideshow
  */
@@ -1058,7 +1122,7 @@ $slideshow->add_field( array(
 ) );
 
 }
-  
+
 add_action( 'cmb2_admin_init', 'atma_post_type_metabox' );
 
 /**

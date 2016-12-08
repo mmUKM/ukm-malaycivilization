@@ -37,7 +37,7 @@ module.exports = function(grunt) {
     // grunt-contrib-sass
 
     sass: {
-      dist: { 
+      dist: {
         options: {
           style: 'expanded',
           sourcemap: 'none',
@@ -90,9 +90,9 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     // grunt-cssbeautifier
-    
+
     cssbeautifier : {
       files : ['style.css'],
       options : {
@@ -185,7 +185,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-cssbeautifier');
 
   // execute grunt task
-
+  // 
   grunt.registerTask('default', ['sass', 'uglify', 'usebanner', 'cssbeautifier', 'clean']);
 
 };
