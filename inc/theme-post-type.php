@@ -34,6 +34,14 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/single-atma_karya.php';
   }
 
+  if( $post_type == 'atma_audio' ) {
+    return $plugindir . '/templates/single-atma_audio.php';
+  }
+
+  if( $post_type == 'atma_video' ) {
+    return $plugindir . '/templates/single-atma_video.php';
+  }
+
   if ( is_tax( 'atma_warisan_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_category.php';
   }
@@ -72,6 +80,10 @@ function atma_template_include( $template ) {
 
   if ( is_tax( 'atma_karya_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_karya_category.php';
+  }
+
+  if ( is_tax( 'atma_media_category' ) ) {
+    return $plugindir . '/templates/taxonomy-atma_media_category.php';
   }
 
   return $template;

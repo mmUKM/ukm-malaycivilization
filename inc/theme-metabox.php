@@ -1033,7 +1033,7 @@ $padat_ba->add_field( array(
 
 /**
  * @package ukm-malaycivilization
- * @subpackage media
+ * @subpackage media:audio
  */
 $media_audio = new_cmb2_box( array(
     'id'            => $prefix . 'media_audio',
@@ -1043,10 +1043,10 @@ $media_audio = new_cmb2_box( array(
 ) );
 
 $media_audio->add_field( array(
-    'name'    => __( 'Audio File', 'atma' ),
-    'desc'    => __( 'Enter a soundcloud URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'atma' ),
+    'name'    => __( 'Audio URL', 'atma' ),
+    'desc'    => __( '', 'atma' ),
     'id'      => $prefix . 'media_audio_file',
-    'type'    => 'oembed',
+    'type'    => 'file',
 ) );
 
 $media_audio->add_field( array(
@@ -1065,7 +1065,7 @@ $media_audio->add_field( array(
 
 /**
  * @package ukm-malaycivilization
- * @subpackage media
+ * @subpackage media:video
  */
 $media_video = new_cmb2_box( array(
     'id'            => $prefix . 'media_video',
@@ -1075,10 +1075,10 @@ $media_video = new_cmb2_box( array(
 ) );
 
 $media_video->add_field( array(
-    'name'    => __( 'Video File', 'atma' ),
-    'desc'    => __( 'Enter a youtube or vimeo URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'atma' ),
+    'name'    => __( 'Video URL', 'atma' ),
+    'desc'    => __( '', 'atma' ),
     'id'      => $prefix . 'media_video_file',
-    'type'    => 'oembed',
+    'type'    => 'file',
 ) );
 
 $media_video->add_field( array(

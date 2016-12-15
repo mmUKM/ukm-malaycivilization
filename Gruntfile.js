@@ -185,7 +185,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-cssbeautifier');
 
   // execute grunt task
-  // 
+  
   grunt.registerTask('default', ['sass', 'uglify', 'usebanner', 'cssbeautifier', 'clean']);
 
 };
