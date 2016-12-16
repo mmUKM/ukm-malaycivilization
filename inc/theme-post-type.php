@@ -38,6 +38,10 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/single-atma_audio.php';
   }
 
+  if( $post_type == 'atma_image' ) {
+    return $plugindir . '/templates/single-atma_image.php';
+  }
+
   if( $post_type == 'atma_video' ) {
     return $plugindir . '/templates/single-atma_video.php';
   }
@@ -508,6 +512,58 @@ function atma_custom_post_type() {
     'capability_type'       => 'page',
   );
   register_post_type( 'atma_video', $args );
+
+  /**
+   * Image
+   */
+  $labels = array(
+    'name'                  => _x( 'Images', 'Post Type General Name', 'atma' ),
+    'singular_name'         => _x( 'Image', 'Post Type Singular Name', 'atma' ),
+    'menu_name'             => __( 'Image', 'atma' ),
+    'name_admin_bar'        => __( 'Image', 'atma' ),
+    'archives'              => __( 'Item Archives', 'atma' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'atma' ),
+    'all_items'             => __( 'All Items', 'atma' ),
+    'add_new_item'          => __( 'Add New Item', 'atma' ),
+    'add_new'               => __( 'Add New', 'atma' ),
+    'new_item'              => __( 'New Item', 'atma' ),
+    'edit_item'             => __( 'Edit Item', 'atma' ),
+    'update_item'           => __( 'Update Item', 'atma' ),
+    'view_item'             => __( 'View Item', 'atma' ),
+    'search_items'          => __( 'Search Item', 'atma' ),
+    'not_found'             => __( 'Not found', 'atma' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'atma' ),
+    'featured_image'        => __( 'Featured Image', 'atma' ),
+    'set_featured_image'    => __( 'Set featured image', 'atma' ),
+    'remove_featured_image' => __( 'Remove featured image', 'atma' ),
+    'use_featured_image'    => __( 'Use as featured image', 'atma' ),
+    'insert_into_item'      => __( 'Insert into item', 'atma' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'atma' ),
+    'items_list'            => __( 'Items list', 'atma' ),
+    'items_list_navigation' => __( 'Items list navigation', 'atma' ),
+    'filter_items_list'     => __( 'Filter items list', 'atma' ),
+  );
+  $args = array(
+    'label'                 => __( 'Image', 'atma' ),
+    'description'           => __( 'Image collections', 'atma' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'revisions', 'page-attributes', ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    //'menu_position'         => 5,
+    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
+    'show_in_admin_bar'     => false,
+    'show_in_nav_menus'     => false,
+    'can_export'            => true,
+    'has_archive'           => false,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'query_var'             => 'Image',
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'atma_image', $args );
 }
 add_action( 'init', 'atma_custom_post_type', 0 );
 
@@ -976,7 +1032,7 @@ function atma_custom_taxonomy() {
     'show_tagcloud'              => false,
     'rewrite'                    => $rewrite,
   );
-  register_taxonomy( 'atma_media_category', array( 'atma_audio', 'atma_video' ), $args );
+  register_taxonomy( 'atma_media_category', array( 'atma_audio', 'atma_image', 'atma_video' ), $args );
 }
 add_action( 'init', 'atma_custom_taxonomy', 0 );
 

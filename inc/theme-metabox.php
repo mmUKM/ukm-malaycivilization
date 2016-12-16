@@ -1065,6 +1065,39 @@ $media_audio->add_field( array(
 
 /**
  * @package ukm-malaycivilization
+ * @subpackage media:image
+ */
+$media_image = new_cmb2_box( array(
+    'id'            => $prefix . 'media_image',
+    'title'         => __( 'Image Details', 'atma' ),
+    'object_types'  => array( 'atma_image', ),
+    'closed'        => false,
+) );
+
+$media_image->add_field( array(
+    'name'         => __( 'Images', 'atma' ),
+    'desc'         => __( 'Upload or add multiple images/attachments.', 'atma' ),
+    'id'           => $prefix . 'media_image_gallery',
+    'type'         => 'file_list',
+    'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+) );
+
+$media_image->add_field( array(
+    'name'    => __( 'Author', 'atma' ),
+    'desc'    => __( '', 'atma' ),
+    'id'      => $prefix . 'media_image_author',
+    'type'    => 'text',
+) );
+
+$media_image->add_field( array(
+    'name'    => __( 'Source', 'atma' ),
+    'desc'    => __( '', 'atma' ),
+    'id'      => $prefix . 'media_image_source',
+    'type'    => 'text',
+) );
+
+/**
+ * @package ukm-malaycivilization
  * @subpackage media:video
  */
 $media_video = new_cmb2_box( array(
@@ -1126,15 +1159,16 @@ $slideshow->add_field( array(
 add_action( 'cmb2_admin_init', 'atma_post_type_metabox' );
 
 /**
- * Additional settings for images and photogallery
+ * Additional settings for images and photo gallery
  * Lightbox Gallery
- * tpkh_tokoh_pemikir
+ * Tokoh Pemikir
  */
-function atma_tokoh_gallery( $file_list_meta_key, $img_size = 'medium' ) {
+
+function atma_lightbox_gallery( $file_list_meta_key, $img_size = 'medium' ) {
   $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
   echo '<div>';
   foreach ( (array) $files as $attachment_id => $attachment_url ) {
-    echo '<a class="padding" href="'. wp_get_attachment_url( $attachment_id ) .'" data-uk-lightbox="&#123;group:&#39;group-'. get_the_ID() .'&#39;&#125;" title="'. get_the_title( $attachment_id ) .'">';
+    echo '<a class="atma-lightbox-gallery" href="'. wp_get_attachment_url( $attachment_id ) .'" data-uk-lightbox="&#123;group:&#39;group-'. get_the_ID() .'&#39;&#125;" title="'. get_the_title( $attachment_id ) .'">';
     echo wp_get_attachment_image( $attachment_id, $img_size );
     echo '</a>';
   }

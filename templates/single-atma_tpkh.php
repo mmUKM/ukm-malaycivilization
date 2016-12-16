@@ -36,7 +36,7 @@ get_header(); ?>
           <li><?php echo wpautop( get_post_meta( get_the_ID(), '_atma_tpkh_tokoh_bibliografi', true ) ); ?></li>
           <li><?php echo wpautop( get_post_meta( get_the_ID(), '_atma_tpkh_tokoh_analisis', true ) ); ?></li>
           <li><?php echo wpautop( get_post_meta( get_the_ID(), '_atma_tpkh_tokoh_pemikiran', true ) ); ?></li>
-          <li><?php atma_tokoh_gallery( '_atma_tpkh_tokoh_foto', 'post-thumbnail' ); ?></li>
+          <li><?php atma_lightbox_gallery( '_atma_tpkh_tokoh_foto', 'post-thumbnail' ); ?></li>
         </ul>
       <?php } ?>
       <?php if ( $onKoleksi == on ) { echo wpautop( get_post_meta( get_the_ID(), '_atma_tpkh_koleksi_biografi', true ) ); } ?>
