@@ -83,6 +83,7 @@ function atma_load_configurations() {
   require( get_template_directory() . '/inc/theme-metabox.php' );
   require( get_template_directory() . '/inc/theme-post-type.php' );
   require( get_template_directory() . '/inc/theme-walker-menu.php' );
+  require( get_template_directory() . '/inc/theme-widgets.php' );
 }
 add_action( 'after_setup_theme', 'atma_load_configurations' );
 
