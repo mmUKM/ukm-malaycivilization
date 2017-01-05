@@ -1129,6 +1129,28 @@ $media_video->add_field( array(
 ) );
 
 /**
+ * Resepi
+ * 20170105
+ */
+
+/** (0) Main Contents */
+
+$recipe = new_cmb2_box( array(
+    'id'            => $prefix . 'recipe',
+    'title'         => __( 'Recipe Detials', 'atma' ),
+    'object_types'  => array( 'atma_recipe', ),
+    'closed'        => true,
+) );
+
+$recipe->add_field( array(
+    'name'    => __( 'Content', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'recipe_cara',
+    'type'    => 'wysiwyg',
+    'options' => array( 'textarea_rows' => 7, ),
+) );
+
+/**
  * @package ukm-malaycivilization
  * @subpackage slideshow
  * Frontpage slideshow
