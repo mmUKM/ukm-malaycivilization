@@ -1177,81 +1177,67 @@ $slideshow->add_field( array(
 ) );
 
 /** General Book and Articles */
-$book = new_cmb2_box( array(
+$buku = new_cmb2_box( array(
     'id'            => $prefix . 'book',
     'title'         => __( 'Book and Articles', 'atma' ),
     'object_types'  => array( 'atma_buku', ),
     'closed'        => false,
 ) );
 
-$book->add_field( array(
+$buku->add_field( array(
     'name' => __( 'Thumbnail', 'atma' ),
     'desc' => __( 'Book or Article cover', 'atma' ),
-    'id'   => $prefix . 'book_thumbnail',
+    'id'   => $prefix . 'buku_thumbnail',
     'type' => 'file',
 ) );
 
-$book->add_field( array(
-    'name'    => __( 'Title', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'book_title',
-    'type'    => 'text',
-) );
-
-$book->add_field( array(
+$buku->add_field( array(
     'name'    => __( 'Author', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'book_author',
+    'id'      => $prefix . 'buku_author',
     'type'    => 'text',
 ) );
 
-$book->add_field( array(
-    'name'    => __( 'Database', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'book_database',
-    'type'    => 'text',
-) );
-
-$book->add_field( array(
+$buku->add_field( array(
     'name'    => __( 'Topic', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'book_topic',
+    'id'      => $prefix . 'buku_topic',
     'type'    => 'text',
 ) );
 
-$book->add_field( array(
+$buku->add_field( array(
     'name'    => __( 'Source', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'book_source',
+    'id'      => $prefix . 'buku_source',
     'type'    => 'text',
 ) );
 
-$book->add_field( array(
+$buku->add_field( array(
     'name'    => __( 'Accession No', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'book_accession_no',
+    'id'      => $prefix . 'buku_accession_no',
     'type'    => 'text_small',
 ) );
 
-$book->add_field( array(
+$buku->add_field( array(
     'name'    => __( 'Year', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'book_year',
+    'id'      => $prefix . 'buku_year',
     'type'    => 'text_date',
     'date_format'  => 'Y',
 ) );
 
-$book->add_field( array(
+$buku->add_field( array(
     'name'    => __( 'Page Total', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'book_page_total',
+    'id'      => $prefix . 'buku_page_total',
     'type'    => 'text_small',
 ) );
 
-$book->add_field( array(
+$buku->add_field( array(
     'name' => __( 'File', 'atma' ),
     'desc' => __( 'Upload pdf file', 'atma' ),
-    'id'   => $prefix . 'book_file',
+    'id'   => $prefix . 'buku_file',
     'type' => 'file',
 ) );
 

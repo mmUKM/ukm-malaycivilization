@@ -102,6 +102,10 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/taxonomy-atma_resepi_category.php';
   }
 
+  if ( is_tax( 'atma_buku_category' ) ) {
+    return $plugindir . '/templates/taxonomy-atma_buku_category.php';
+  }
+
   if ( is_tax( 'atma_database' ) ) {
     return $plugindir . '/templates/taxonomy-atma_database.php';
   }
