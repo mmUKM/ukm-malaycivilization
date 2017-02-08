@@ -1139,15 +1139,58 @@ $recipe = new_cmb2_box( array(
     'id'            => $prefix . 'recipe',
     'title'         => __( 'Recipe Detials', 'atma' ),
     'object_types'  => array( 'atma_recipe', ),
-    'closed'        => true,
+    'closed'        => false,
 ) );
 
 $recipe->add_field( array(
-    'name'    => __( 'Content', 'atma' ),
+    'name'    => __( 'Thumbnail', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'recipe_thumbnail',
+    'type'    => 'file',
+) );
+
+$recipe->add_field( array(
+    'name'    => __( 'Author', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'recipe_author',
+    'type'    => 'text',
+) );
+
+$recipe->add_field( array(
+    'name'    => __( 'Source', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'recipe_source',
+    'type'    => 'text',
+) );
+
+$recipe->add_field( array(
+    'name'    => __( 'Type of cuisine', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'recipe_cuisine',
+    'type'    => 'text',
+) );
+
+$recipe->add_field( array(
+    'name'    => __( 'Material', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'recipe_bahan',
+    'type'    => 'wysiwyg',
+    'options' => array( 'textarea_rows' => 7, ),
+) );
+
+$recipe->add_field( array(
+    'name'    => __( 'Instruction', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'recipe_cara',
     'type'    => 'wysiwyg',
     'options' => array( 'textarea_rows' => 7, ),
+) );
+
+$recipe->add_field( array(
+    'name'    => __( 'Accession No.', 'atma' ),
+    'desc'    => __( 'field description (optional)', 'atma' ),
+    'id'      => $prefix . 'recipe_accession_no',
+    'type'    => 'text',
 ) );
 
 /**
