@@ -46,8 +46,8 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/single-atma_video.php';
   }
 
-  if( $post_type == 'atma_resepi' ) {
-    return $plugindir . '/templates/single-atma_resepi.php';
+  if( $post_type == 'atma_recipe' ) {
+    return $plugindir . '/templates/single-atma_recipe.php';
   }
 
   if( $post_type == 'atma_buku' ) {
@@ -98,8 +98,8 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/taxonomy-atma_media_category.php';
   }
 
-  if ( is_tax( 'atma_resepi_category' ) ) {
-    return $plugindir . '/templates/taxonomy-atma_resepi_category.php';
+  if ( is_tax( 'atma_recipe_category' ) ) {
+    return $plugindir . '/templates/taxonomy-atma_recipe_category.php';
   }
 
   if ( is_tax( 'atma_buku_category' ) ) {
