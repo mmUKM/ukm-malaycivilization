@@ -14,10 +14,12 @@ get_header(); ?>
     </div>
     <div class="lg-9 padding-left">
     <?php
+      $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
       $query = new WP_Query( array(
         'post_type'           => 'atma_padat',
         'atma_padat_category' => get_query_var( 'atma_padat_category' ),
-        'posts_per_page'      => -1,
+        'posts_per_page'      => 50,
+        'paged'               => $paged,
         'order'               => 'ASC'
       ));
     ?>
@@ -31,6 +33,19 @@ get_header(); ?>
 
       <?php endif; ?>
     </ul>
+      <div class="uk-clearfix padding">
+        <?php
+        global $wp_query;
+
+        $big = 999999999; // need an unlikely integer
+        echo paginate_links( array(
+            'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+            'format'  => '?paged=%#%',
+            'current' => max( 1, get_query_var('paged') ),
+            'total'   => $wp_query->max_num_pages,
+        ) );
+        ?>
+      </div>
     </div>
   </article>
 </div>
