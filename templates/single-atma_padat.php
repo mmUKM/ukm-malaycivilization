@@ -14,19 +14,6 @@ get_header(); ?>
     </div>
     <div class="lg-9 padding-left">
     <?php while( have_posts() ) : the_post(); ?>
-
-    <?php
-      $padatmainon  = get_post_meta( get_the_ID(), '_atma_padat_main_on', true );
-      $padatbaon    = get_post_meta( get_the_ID(), '_atma_padat_ba_on', true );
-    ?>
-
-    <?php if ( $padatmainon == on ) { ?>
-    <div id="padat-main-content">
-      <?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_padat_main_content', true ) ); ?>
-    </div>
-    <?php } ?>
-
-    <?php if ( $padatbaon == on ) { ?>
     <div id="padat-ba-content">
       <img src="<?php echo get_post_meta( get_the_ID(), '_atma_padat_ba_thumbnail', true ); ?>" width="200" alt="">
       <table class="data-content">
@@ -76,7 +63,6 @@ get_header(); ?>
         </tr>
       </table>
     </div>
-    <?php } ?>
     <?php endwhile; ?>
     </div>
   </article>

@@ -922,42 +922,12 @@ $kamus_nm->add_field( array(
  * PADAT
  * Pangkalan Data ATMA
  */
-/** (0) Main contents */
-$padat_main = new_cmb2_box( array(
-    'id'            => $prefix . 'padat_main',
-    'title'         => __( 'Main Content', 'atma' ),
-    'object_types'  => array( 'atma_padat', ),
-    'closed'        => true,
-) );
-
-$padat_main->add_field( array(
-    'name' => __( 'Display this content', 'atma' ),
-    'desc' => __( 'check this box to display this content only', 'atma' ),
-    'id'   => $prefix . 'padat_main_on',
-    'type' => 'checkbox',
-) );
-
-$padat_main->add_field( array(
-    'name'    => __( 'Content', 'atma' ),
-    'desc'    => __( 'field description (optional)', 'atma' ),
-    'id'      => $prefix . 'padat_main_content',
-    'type'    => 'wysiwyg',
-    'options' => array( 'textarea_rows' => 7, ),
-) );
-
 /** (1) Book and Articles */
 $padat_ba = new_cmb2_box( array(
     'id'            => $prefix . 'padat_ba',
     'title'         => __( 'Book and Articles', 'atma' ),
     'object_types'  => array( 'atma_padat', ),
     'closed'        => true,
-) );
-
-$padat_ba->add_field( array(
-    'name' => __( 'Display this content', 'atma' ),
-    'desc' => __( 'check this box to display this content only', 'atma' ),
-    'id'   => $prefix . 'padat_ba_on',
-    'type' => 'checkbox',
 ) );
 
 $padat_ba->add_field( array(
@@ -1171,7 +1141,7 @@ $recipe->add_field( array(
 ) );
 
 $recipe->add_field( array(
-    'name'    => __( 'Material', 'atma' ),
+    'name'    => __( 'Ingredients', 'atma' ),
     'desc'    => __( 'field description (optional)', 'atma' ),
     'id'      => $prefix . 'recipe_bahan',
     'type'    => 'wysiwyg',
