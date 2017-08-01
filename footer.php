@@ -17,7 +17,13 @@
   ?>
 </nav>
 <div class="wrapper copyright">
-  <p><?php _e( 'Copyright', 'mcv' ); ?>&nbsp;&copy;&nbsp;<?php echo date( 'Y' ); ?>&nbsp;<?php echo bloginfo( 'name' ); ?>
+  <p><?php _e( 'Copyright', 'mcv' ); ?>&nbsp;&copy;&nbsp;<?php echo date( 'Y' ); ?>&nbsp;<?php echo bloginfo( 'name' ); ?></p>
+  <p>
+    <!-- BEGIN: Powered by Supercounters.com -->
+    <center><script type="text/javascript" src="//widget.supercounters.com/ssl/texthit.js"></script><script type="text/javascript">var sc_texthit_var = sc_texthit_var || [];sc_text_hit(1428470,"Visits","#39b1cc");</script><br><noscript><a href="http://www.supercounters.com">free Hit Counter</a></noscript>
+    </center>
+    <!-- END: Powered by Supercounters.com -->
+  </p>
 </div>
 </footer>
 <?php wp_footer(); ?>
