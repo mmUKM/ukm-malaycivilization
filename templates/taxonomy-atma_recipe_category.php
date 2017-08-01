@@ -15,7 +15,7 @@ get_header(); ?>
     <div class="lg-9 padding-left">
     <?php
       $query = new WP_Query( array(
-        'post_type'             => 'atma_recepi',
+        'post_type'             => 'atma_recipe',
         'atma_recipe_category'  => get_query_var( 'atma_recipe_category' ),
         'posts_per_page'        => -1,
         'order'                 => 'ASC'
