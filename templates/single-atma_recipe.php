@@ -50,7 +50,7 @@ get_header(); ?>
           <td><?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_recipe_bahan', true ) ); ?></td>
         </tr>
         <tr>
-          <td><strong>Instruction</strong></td>
+          <td><strong>Instructiongit status</strong></td>
           <td><?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_recipe_cara', true ) ); ?></td>
         </tr>
       </table>
