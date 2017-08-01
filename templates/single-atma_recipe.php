@@ -19,7 +19,7 @@ get_header(); ?>
       <table class="data-content">
         <tr>
           <td><strong>Title</strong></td>
-          <td><?php echo get_post_meta( get_the_ID(), '_atma_recipe_title', true ); ?></td>
+          <td><?php the_title(); ?></td>
         </tr>
         <tr>
           <td><strong>Author</strong></td>
@@ -34,12 +34,24 @@ get_header(); ?>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_recipe_source', true ); ?></td>
         </tr>
         <tr>
+          <td><strong>Type of cuisine</strong></td>
+          <td><?php echo get_post_meta( get_the_ID(), '_atma_recipe_cuisine', true ); ?></td>
+        </tr>
+        <tr>
           <td><strong>Accession No</strong></td>
           <td><?php echo get_post_meta( get_the_ID(), '_atma_recipe_accession_no', true ); ?></td>
         </tr>
         <tr>
           <td><strong>Category</strong></td>
           <td><?php echo get_the_term_list( $post->ID, 'atma_recipe_category', '', '<br>', '' ); ?></td>
+        </tr>
+        <tr>
+          <td><strong>Ingredients</strong></td>
+          <td><?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_recipe_bahan', true ) ); ?></td>
+        </tr>
+        <tr>
+          <td><strong>Ingredients</strong></td>
+          <td><?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_recipe_cara', true ) ); ?></td>
         </tr>
       </table>
     </div>
