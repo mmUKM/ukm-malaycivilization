@@ -22,6 +22,10 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/single-atma_pantun.php';
   }
   
+  if( $post_type == 'atma_peribahasa' ) {
+    return $plugindir . '/templates/single-atma_peribahasa.php';
+  }
+  
   if( $post_type == 'atma_padat' ) {
     return $plugindir . '/templates/single-atma_padat.php';
   }

@@ -319,8 +319,8 @@ $wari_kj->add_field( array(
 $wari_pbh = new_cmb2_box( array(
     'id'            => $prefix . 'wari_pbh',
     'title'         => __( 'Peribahasa', 'atma' ),
-    'object_types'  => array( 'atma_warisan', ),
-    'closed'        => true,
+    'object_types'  => array( 'atma_peribahasa', ),
+    'closed'        => false,
 ) );
 
 $wari_pbh->add_field( array(
