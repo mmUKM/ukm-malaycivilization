@@ -18,6 +18,10 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/single-atma_warisan.php';
   }
 
+  if( $post_type == 'atma_pantun' ) {
+    return $plugindir . '/templates/single-atma_pantun.php';
+  }
+  
   if( $post_type == 'atma_padat' ) {
     return $plugindir . '/templates/single-atma_padat.php';
   }
@@ -54,6 +58,10 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/single-atma_buku.php';
   }
 
+  if ( is_tax( 'atma_pantun_category' ) ) {
+    return $plugindir . '/templates/taxonomy-atma_pantun_category.php';
+  } 
+  
   if ( is_tax( 'atma_warisan_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_category.php';
   }
@@ -125,6 +133,56 @@ function atma_custom_post_type() {
    * - Karya
    * - Slideshow
    */
+  
+  $labels = array(
+    'name'                  => _x( 'Pantun', 'Post Type General Name', 'atma' ),
+    'singular_name'         => _x( 'Pantun', 'Post Type Singular Name', 'atma' ),
+    'menu_name'             => __( 'Pantun', 'atma' ),
+    'name_admin_bar'        => __( 'Pantun', 'atma' ),
+    'archives'              => __( 'Item Archives', 'atma' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'atma' ),
+    'all_items'             => __( 'All Items', 'atma' ),
+    'add_new_item'          => __( 'Add New Item', 'atma' ),
+    'add_new'               => __( 'Add New', 'atma' ),
+    'new_item'              => __( 'New Item', 'atma' ),
+    'edit_item'             => __( 'Edit Item', 'atma' ),
+    'update_item'           => __( 'Update Item', 'atma' ),
+    'view_item'             => __( 'View Item', 'atma' ),
+    'search_items'          => __( 'Search Item', 'atma' ),
+    'not_found'             => __( 'Not found', 'atma' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'atma' ),
+    'featured_image'        => __( 'Featured Image', 'atma' ),
+    'set_featured_image'    => __( 'Set featured image', 'atma' ),
+    'remove_featured_image' => __( 'Remove featured image', 'atma' ),
+    'use_featured_image'    => __( 'Use as featured image', 'atma' ),
+    'insert_into_item'      => __( 'Insert into item', 'atma' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'atma' ),
+    'items_list'            => __( 'Items list', 'atma' ),
+    'items_list_navigation' => __( 'Items list navigation', 'atma' ),
+    'filter_items_list'     => __( 'Filter items list', 'atma' ),
+  );
+  $args = array(
+    'label'                 => __( 'Pantun', 'atma' ),
+    'description'           => __( 'Collections of Pantun', 'atma' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'revisions', 'page-attributes', ),
+    'taxonomies'            => array( 'atma_pantun_category' ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    //'menu_position'         => 5,
+    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
+    'show_in_admin_bar'     => false,
+    'show_in_nav_menus'     => false,
+    'can_export'            => true,
+    'has_archive'           => 'arkib-pantun',
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'query_var'             => 'Pantun',
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'atma_pantun', $args );
 
   $labels = array(
     'name'                  => _x( 'Warisan', 'Post Type General Name', 'atma' ),
@@ -738,6 +796,47 @@ function atma_custom_taxonomy() {
     'rewrite'                    => $rewrite,
   );
   register_taxonomy( 'atma_database', array( 'atma_recipe', 'atma_buku' ), $args );
+  /**
+   * @name Kategori Pantun
+   */
+  $labels = array(
+    'name'                       => _x( 'Pantun Categories', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Category', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'category-pantun',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_pantun_category', array( 'atma_pantun' ), $args );
   /**
    * @name Kategori Warisan
    */

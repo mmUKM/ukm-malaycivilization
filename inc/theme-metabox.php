@@ -373,8 +373,8 @@ $wari_pbh->add_field( array(
 $wari_sp = new_cmb2_box( array(
     'id'            => $prefix . 'wari_sp',
     'title'         => __( 'Sejuta Pantun', 'atma' ),
-    'object_types'  => array( 'atma_warisan', ),
-    'closed'        => true,
+    'object_types'  => array( 'atma_pantun', ),
+    'closed'        => false,
 ) );
 
 $wari_sp->add_field( array(
