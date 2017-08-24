@@ -62,10 +62,6 @@ function atma_template_include( $template ) {
     return $plugindir . '/templates/single-atma_buku.php';
   }
 
-  if ( is_tax( 'atma_pantun_category' ) ) {
-    return $plugindir . '/templates/taxonomy-atma_pantun_category.php';
-  } 
-  
   if ( is_tax( 'atma_warisan_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_warisan_category.php';
   }
@@ -170,7 +166,7 @@ function atma_custom_post_type() {
     'description'           => __( 'Collections of Pantun', 'atma' ),
     'labels'                => $labels,
     'supports'              => array( 'title', 'revisions', 'page-attributes', ),
-    'taxonomies'            => array( 'atma_pantun_category' ),
+    'taxonomies'            => array( 'atma_warisan_category', 'atma_warisan_database', 'atma_warisan_keywords', 'atma_warisan_subject','atma_warisan_topic' ),
     'hierarchical'          => true,
     'public'                => true,
     'show_ui'               => true,
@@ -188,6 +184,56 @@ function atma_custom_post_type() {
   );
   register_post_type( 'atma_pantun', $args );
 
+  $labels = array(
+    'name'                  => _x( 'Peribahasa', 'Post Type General Name', 'atma' ),
+    'singular_name'         => _x( 'Peribahasa', 'Post Type Singular Name', 'atma' ),
+    'menu_name'             => __( 'Peribahasa', 'atma' ),
+    'name_admin_bar'        => __( 'peribahasa', 'atma' ),
+    'archives'              => __( 'Item Archives', 'atma' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'atma' ),
+    'all_items'             => __( 'All Items', 'atma' ),
+    'add_new_item'          => __( 'Add New Item', 'atma' ),
+    'add_new'               => __( 'Add New', 'atma' ),
+    'new_item'              => __( 'New Item', 'atma' ),
+    'edit_item'             => __( 'Edit Item', 'atma' ),
+    'update_item'           => __( 'Update Item', 'atma' ),
+    'view_item'             => __( 'View Item', 'atma' ),
+    'search_items'          => __( 'Search Item', 'atma' ),
+    'not_found'             => __( 'Not found', 'atma' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'atma' ),
+    'featured_image'        => __( 'Featured Image', 'atma' ),
+    'set_featured_image'    => __( 'Set featured image', 'atma' ),
+    'remove_featured_image' => __( 'Remove featured image', 'atma' ),
+    'use_featured_image'    => __( 'Use as featured image', 'atma' ),
+    'insert_into_item'      => __( 'Insert into item', 'atma' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'atma' ),
+    'items_list'            => __( 'Items list', 'atma' ),
+    'items_list_navigation' => __( 'Items list navigation', 'atma' ),
+    'filter_items_list'     => __( 'Filter items list', 'atma' ),
+  );
+  $args = array(
+    'label'                 => __( 'Peribahasa', 'atma' ),
+    'description'           => __( 'Collections of peribahasa', 'atma' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'revisions', 'page-attributes', ),
+    'taxonomies'            => array( 'atma_warisan_category', 'atma_warisan_database', 'atma_warisan_keywords', 'atma_warisan_subject','atma_warisan_topic' ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    //'menu_position'         => 5,
+    'menu_icon'             => get_template_directory_uri() . '/img/database.svg',
+    'show_in_admin_bar'     => false,
+    'show_in_nav_menus'     => false,
+    'can_export'            => true,
+    'has_archive'           => 'arkib-peribahasa',
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'query_var'             => 'peribahasa',
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'atma_peribahasa', $args );
+  
   $labels = array(
     'name'                  => _x( 'Warisan', 'Post Type General Name', 'atma' ),
     'singular_name'         => _x( 'Warisan', 'Post Type Singular Name', 'atma' ),
@@ -801,47 +847,6 @@ function atma_custom_taxonomy() {
   );
   register_taxonomy( 'atma_database', array( 'atma_recipe', 'atma_buku' ), $args );
   /**
-   * @name Kategori Pantun
-   */
-  $labels = array(
-    'name'                       => _x( 'Pantun Categories', 'Taxonomy General Name', 'atma' ),
-    'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'atma' ),
-    'menu_name'                  => __( 'Category', 'atma' ),
-    'all_items'                  => __( 'All Items', 'atma' ),
-    'parent_item'                => __( 'Parent Item', 'atma' ),
-    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
-    'new_item_name'              => __( 'New Item Name', 'atma' ),
-    'add_new_item'               => __( 'Add New Item', 'atma' ),
-    'edit_item'                  => __( 'Edit Item', 'atma' ),
-    'update_item'                => __( 'Update Item', 'atma' ),
-    'view_item'                  => __( 'View Item', 'atma' ),
-    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
-    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
-    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
-    'popular_items'              => __( 'Popular Items', 'atma' ),
-    'search_items'               => __( 'Search Items', 'atma' ),
-    'not_found'                  => __( 'Not Found', 'atma' ),
-    'no_terms'                   => __( 'No items', 'atma' ),
-    'items_list'                 => __( 'Items list', 'atma' ),
-    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
-  );
-  $rewrite = array(
-    'slug'                       => 'category-pantun',
-    'with_front'                 => true,
-    'hierarchical'               => false,
-  );
-  $args = array(
-    'labels'                     => $labels,
-    'hierarchical'               => true,
-    'public'                     => true,
-    'show_ui'                    => true,
-    'show_admin_column'          => true,
-    'show_in_nav_menus'          => true,
-    'show_tagcloud'              => false,
-    'rewrite'                    => $rewrite,
-  );
-  register_taxonomy( 'atma_pantun_category', array( 'atma_pantun' ), $args );
-  /**
    * @name Kategori Warisan
    */
   $labels = array(
@@ -881,7 +886,7 @@ function atma_custom_taxonomy() {
     'show_tagcloud'              => false,
     'rewrite'                    => $rewrite,
   );
-  register_taxonomy( 'atma_warisan_category', array( 'atma_warisan' ), $args );
+  register_taxonomy( 'atma_warisan_category', array( 'atma_warisan', 'atma_pantun', 'atma_peribahasa' ), $args );
 
   /**
    * @name Database Warisan
@@ -923,7 +928,7 @@ function atma_custom_taxonomy() {
     'show_tagcloud'              => false,
     'rewrite'                    => $rewrite,
   );
-  register_taxonomy( 'atma_warisan_database', array( 'atma_warisan' ), $args );
+  register_taxonomy( 'atma_warisan_database', array( 'atma_warisan', 'atma_pantun', 'atma_peribahasa' ), $args );
 
   /**
    * @name Keyword Warisan
@@ -965,7 +970,7 @@ function atma_custom_taxonomy() {
     'show_tagcloud'              => false,
     'rewrite'                    => $rewrite,
   );
-  register_taxonomy( 'atma_warisan_keyword', array( 'atma_warisan' ), $args );
+  register_taxonomy( 'atma_warisan_keyword', array( 'atma_warisan', 'atma_pantun', 'atma_peribahasa' ), $args );
     /**
    * @name Subject Warisan
    */
@@ -1006,7 +1011,7 @@ function atma_custom_taxonomy() {
     'show_tagcloud'              => false,
     'rewrite'                    => $rewrite,
   );
-  register_taxonomy( 'atma_warisan_subject', array( 'atma_warisan' ), $args );
+  register_taxonomy( 'atma_warisan_subject', array( 'atma_warisan', 'atma_pantun', 'atma_peribahasa' ), $args );
   /**
    * @name Topic Warisan
    */
@@ -1047,7 +1052,7 @@ function atma_custom_taxonomy() {
     'show_tagcloud'              => false,
     'rewrite'                    => $rewrite,
   );
-  register_taxonomy( 'atma_warisan_topic', array( 'atma_warisan' ), $args );
+  register_taxonomy( 'atma_warisan_topic', array( 'atma_warisan', 'atma_pantun', 'atma_peribahasa' ), $args );
   /**
    * @name PADAT
    */
