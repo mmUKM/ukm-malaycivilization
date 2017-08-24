@@ -9,10 +9,10 @@ get_header(); ?>
 <div class="uk-clearfix wrapper">
   <article class="padding col">
     <h1><?php single_cat_title(); ?></h1>
-    <div class="lg-3">
+<!--    <div class="lg-3">
       <?php get_template_part( 'templates/nav', 'database' ); ?>
-    </div>
-    <div class="lg-9 padding-left">
+    </div>-->
+    <div class="lg-12 padding-left">
     <?php
       $query = new WP_Query( array(
         'post_type'           => 'atma_padat',

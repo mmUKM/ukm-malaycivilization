@@ -31,7 +31,7 @@
     </nav>
     <div class="uk-clearfix wrapper">
       <a href="<?php bloginfo( 'url' ); ?>">
-        <img src="<?php echo get_template_directory_uri() . __( '/img/logo-mcv-en.svg', 'mcv' ); ?>" data-uk-svg>
+        <img src="<?php echo get_template_directory_uri() . __( '/img/logo-mcv-en.svg', 'mcv' ); ?>" width="600" height="100" data-uk-svg>
       </a>
     </div>
   </header>
