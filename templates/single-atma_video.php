@@ -8,10 +8,10 @@
 <div class="uk-clearfix wrapper">
 <?php get_template_part( 'content', 'before' ); ?>
   <article class="padding col">
-    <div class="lg-3">
+<!--    <div class="lg-3">
       <?php get_template_part( 'templates/nav', 'database' ); ?>
-    </div>
-    <div class="lg-9 padding-left">
+    </div>-->
+    <div class="lg-12 padding-left">
       <?php while ( have_posts() ) : the_post(); ?>
       <video controls>
         <source src="<?php echo get_post_meta( get_the_ID(), '_atma_media_video_file', true ); ?>" type="video/mp4">
