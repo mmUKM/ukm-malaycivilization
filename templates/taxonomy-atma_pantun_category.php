@@ -24,7 +24,7 @@ get_header(); ?>
     <ul class="data-content-list">
     <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
       <li class="col">
-        <div class="lg-10"><?php the_title( '<h3>', '</h3>' ); ?></div>
+        <div class="lg-10"><?php echo wpautop ( get_post_meta( get_the_ID(), '_atma_wari_sp_text', true ) ); ?></div>
         <div class="lg-2"><a class="data-content-detail-link" href="<?php echo get_permalink(); ?>"><?php _e( 'Detail', 'atma' ); ?></a></div>
       </li>
       <?php endwhile;else: ?>
