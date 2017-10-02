@@ -16,7 +16,7 @@ get_header(); ?>
     <?php
       $query = new WP_Query( array(
         'post_type'             => 'atma_pantun',
-        'atma_pantun_category' => get_query_var( 'atma_pantun_category' ),
+        'atma_pantun_category'  => get_query_var( 'atma_pantun_category' ),
         'posts_per_page'        => -1,
         'order'                 => 'ASC'
       ));

@@ -89,6 +89,10 @@ function atma_template_include( $template ) {
   if ( is_tax( 'atma_padat_keyword' ) ) {
     return $plugindir . '/templates/taxonomy-atma_padat_keyword.php';
   }
+  
+  if ( is_tax( 'atma_pantun_category' ) ) {
+    return $plugindir . '/templates/taxonomy-atma_pantun_category.php';
+  }
 
   if ( is_tax( 'atma_tpkh_category' ) ) {
     return $plugindir . '/templates/taxonomy-atma_tpkh_category.php';
@@ -846,6 +850,48 @@ function atma_custom_taxonomy() {
     'rewrite'                    => $rewrite,
   );
   register_taxonomy( 'atma_database', array( 'atma_recipe', 'atma_buku' ), $args );
+  /**
+   * @name Kategori Pantun
+   */
+  $labels = array(
+    'name'                       => _x( 'Pantun Categories', 'Taxonomy General Name', 'atma' ),
+    'singular_name'              => _x( 'Pantun Category', 'Taxonomy Singular Name', 'atma' ),
+    'menu_name'                  => __( 'Pantun Category', 'atma' ),
+    'all_items'                  => __( 'All Items', 'atma' ),
+    'parent_item'                => __( 'Parent Item', 'atma' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'atma' ),
+    'new_item_name'              => __( 'New Item Name', 'atma' ),
+    'add_new_item'               => __( 'Add New Item', 'atma' ),
+    'edit_item'                  => __( 'Edit Item', 'atma' ),
+    'update_item'                => __( 'Update Item', 'atma' ),
+    'view_item'                  => __( 'View Item', 'atma' ),
+    'separate_items_with_commas' => __( 'Separate items with commas', 'atma' ),
+    'add_or_remove_items'        => __( 'Add or remove items', 'atma' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'atma' ),
+    'popular_items'              => __( 'Popular Items', 'atma' ),
+    'search_items'               => __( 'Search Items', 'atma' ),
+    'not_found'                  => __( 'Not Found', 'atma' ),
+    'no_terms'                   => __( 'No items', 'atma' ),
+    'items_list'                 => __( 'Items list', 'atma' ),
+    'items_list_navigation'      => __( 'Items list navigation', 'atma' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'category-pantun',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'atma_pantun_category', 'atma_pantun', $args );
+  
   /**
    * @name Kategori Warisan
    */
